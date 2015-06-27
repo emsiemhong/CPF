@@ -1,0 +1,4 @@
+services:
+#    ngs_user.example:
+#        class: NGS\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

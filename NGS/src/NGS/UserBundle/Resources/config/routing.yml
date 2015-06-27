@@ -1,0 +1,3 @@
+ngs_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: NGSUserBundle:Default:index }
