@@ -3,6 +3,10 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
 
+sonata_admin:
+    security:
+        handler: sonata.admin.security.handler.role
+
 sonata_block:
     default_contexts: [cms]
     blocks:
