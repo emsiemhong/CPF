@@ -1,3 +1,7 @@
+ngs_content:
+    resource: "@NGSContentBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ngs_user:
     resource: "@NGSUserBundle/Resources/config/routing.yml"
     prefix:   /
