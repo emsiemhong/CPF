@@ -3,14 +3,10 @@
 namespace NGS\ContentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-/**
- * Article
- *
- * @ORM\Table()
- * @ORM\Entity
- */
-class Article
+abstract class Article
 {
     /**
      * @var integer
@@ -36,9 +32,12 @@ class Article
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="picture", type="string", length=255)
+     * @ORM\Column(nullable=true)
+     */
+    public $picturePath;
+
+    /**
+     * @Assert\Image(maxSize="2Mi")
      */
     private $picture;
 
@@ -100,12 +99,35 @@ class Article
     }
 
     /**
+     * Set picturePath
+     *
+     * @param string $picturePath
+     * @return EventPageExContentBlock
+     */
+    public function setPicturePath($picturePath)
+    {
+        $this->picturePath = $picturePath;
+
+        return $this;
+    }
+
+    /**
+     * Get picturePath
+     *
+     * @return string
+     */
+    public function getPicturePath()
+    {
+        return $this->picturePath;
+    }
+
+    /**
      * Set picture
      *
-     * @param string $picture
-     * @return Article
+     * @param UploadedFile $picture
+     * @return EventPageExContentBlock
      */
-    public function setPicture($picture)
+    public function setPicture(UploadedFile $picture)
     {
         $this->picture = $picture;
 
@@ -115,10 +137,66 @@ class Article
     /**
      * Get picture
      *
-     * @return string
+     * @return UploadedFile
      */
     public function getPicture()
     {
         return $this->picture;
+    }
+
+    /**
+    * Uploads the picture referenced by the picture property
+    * Sets the picture path property and resets the picture property
+    */
+    public function uploadPicture()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->picture) {
+            return;
+        }
+
+        $path = rand(1, 99999).'.'.$this->picture->getClientOriginalName();
+
+        $this->picture->move(
+            $this->getUploadRootDir(),
+            $path)
+        ;
+
+        $this->picturePath = $path;
+
+        // clean up the file property as you won't need it anymore
+        $this->picture = null;
+    }
+
+    /**
+    * Gets the absolute directory path to the picture
+    * @return string path to picture
+    **/
+    public function getAbsolutePath()
+    {
+        return null === $this->picturePath
+            ? null
+            : $this->getUploadRootDir().'/'.$this->picturePath;
+    }
+
+    /**
+    * Gets the relative web path to the picture
+    * @return string path to picture
+    **/
+    public function getWebPath()
+    {
+        return null === $this->picturePath
+            ? null
+            : $this->getUploadDir().'/'.$this->picturePath;
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/documents';
     }
 }

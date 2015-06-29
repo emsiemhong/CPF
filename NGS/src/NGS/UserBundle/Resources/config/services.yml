@@ -2,3 +2,11 @@ services:
 #    ngs_user.example:
 #        class: NGS\UserBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+    ngs_user.admin.user:
+        class: NGS\UserBundle\Admin\UserAdmin
+        arguments: [~, NGS\UserBundle\Entity\User, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: User}
+
+        calls:
+            - [ setTranslationDomain, [NGSUserBundle]]
