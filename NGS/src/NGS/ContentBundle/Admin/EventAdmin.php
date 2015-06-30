@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class AboutAdmin extends Admin
+class EventAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -19,6 +19,7 @@ class AboutAdmin extends Admin
             ->add('id')
             ->add('title')
             ->add('description')
+            ->add('date')
             ->add('picturePath', null, array('label' => 'Picture'))
         ;
     }
@@ -32,8 +33,9 @@ class AboutAdmin extends Admin
             ->add('id')
             ->add('title')
             ->add('description')
-            ->add('picturePath')
+            // ->add('picturePath')
             ->add('postedBy')
+            ->add('date')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -50,10 +52,10 @@ class AboutAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         // get the current Image instance
-        $about = $this->getSubject();
+        $event = $this->getSubject();
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false, 'data_class' => null);
-        if ($about && ($webPath = $about->getWebPath())) {
+        if ($event && ($webPath = $event->getWebPath())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -65,7 +67,8 @@ class AboutAdmin extends Admin
 
         $formMapper
             ->add('title')
-            ->add('description', 'textarea', array('required' => false))
+            ->add('description')
+            ->add('date')
             ->add('picture', 'file', $fileFieldOptions)
         ;
     }
@@ -79,12 +82,13 @@ class AboutAdmin extends Admin
             ->add('id')
             ->add('title')
             ->add('description')
+            ->add('date')
             ->add('picturePath', null, array('label' => 'Picture'))
             ->add('postedBy')
         ;
     }
 
-    public function prePersist($about)
+    public function prePersist($event)
     {
         $user = $this
             ->getConfigurationPool()
@@ -93,12 +97,12 @@ class AboutAdmin extends Admin
             ->getToken()
             ->getUser()
         ;
-        $about->setPostedBy($user);
+        $event->setPostedBy($user);
 
-        $about->preUpload();
+        $event->preUpload();
     }
 
-    public function preUpdate($about)
+    public function preUpdate($event)
     {
         $user = $this
             ->getConfigurationPool()
@@ -107,18 +111,18 @@ class AboutAdmin extends Admin
             ->getToken()
             ->getUser()
         ;
-        $about->setPostedBy($user);
+        $event->setPostedBy($user);
 
-        $about->preUpload();
+        $event->preUpload();
     }
 
-    public function postPersist($about)
+    public function postPersist($event)
     {
-        $about->upload();
+        $event->upload();
     }
 
-    public function postUpdate($about)
+    public function postUpdate($event)
     {
-        $about->upload();
+        $event->upload();
     }
 }

@@ -6,15 +6,15 @@ use NGS\ContentBundle\Entity\Article;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Announcement
+ * Event 
  *
- * @ORM\Table(name="announcement")
+ * @ORM\Table(name="event")
  * @ORM\Entity
  */
-class Announcement extends Article
+class Event extends Article
 {
     /**
-     * @ORM\Column(name="date", type="date", nullable=false)
+     * @ORM\Column(name="date", type="date")
      */
     private $date;
 

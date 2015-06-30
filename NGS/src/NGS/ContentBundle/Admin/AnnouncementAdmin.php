@@ -19,6 +19,7 @@ class AnnouncementAdmin extends Admin
             ->add('id')
             ->add('title')
             ->add('description')
+            ->add('date')
             ->add('picturePath', null, array('label' => 'Picture'))
         ;
     }
@@ -34,6 +35,7 @@ class AnnouncementAdmin extends Admin
             ->add('description')
             ->add('picturePath')
             ->add('postedBy')
+            ->add('date')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -66,6 +68,7 @@ class AnnouncementAdmin extends Admin
         $formMapper
             ->add('title')
             ->add('description')
+            ->add('date')
             ->add('picture', 'file', $fileFieldOptions)
         ;
     }
@@ -79,6 +82,7 @@ class AnnouncementAdmin extends Admin
             ->add('id')
             ->add('title')
             ->add('description')
+            ->add('date')
             ->add('picturePath', null, array('label' => 'Picture'))
             ->add('postedBy')
         ;

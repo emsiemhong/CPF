@@ -6,6 +6,8 @@ use NGS\ContentBundle\Entity\Article;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Mission
+ *
  * @ORM\Table(name="mission")
  * @ORM\Entity
  */

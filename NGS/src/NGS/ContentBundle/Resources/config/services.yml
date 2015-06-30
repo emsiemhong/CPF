@@ -29,3 +29,21 @@ services:
         arguments: [~, NGS\ContentBundle\Entity\Announcement, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Announcement}
+
+    ngs_content.admin.event:
+        class: NGS\ContentBundle\Admin\EventAdmin
+        arguments: [~, NGS\ContentBundle\Entity\Event, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Event}
+
+    ngs_content.admin.contact_book_section:
+        class: NGS\ContentBundle\Admin\ContactBookSectionAdmin
+        arguments: [~, NGS\ContentBundle\Entity\ContactBookSection, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: ContactBookSection}
+
+    ngs_content.admin.contact_book:
+        class: NGS\ContentBundle\Admin\ContactBookAdmin
+        arguments: [~, NGS\ContentBundle\Entity\ContactBook, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: ContactBook}
