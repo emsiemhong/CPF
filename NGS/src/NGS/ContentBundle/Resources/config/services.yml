@@ -5,3 +5,21 @@ services:
         arguments: [~, NGS\ContentBundle\Entity\About, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: About}
+
+    ngs_content.admin.home:
+        class: NGS\ContentBundle\Admin\HomeAdmin
+        arguments: [~, NGS\ContentBundle\Entity\Home, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Home}
+
+    ngs_content.admin.service:
+        class: NGS\ContentBundle\Admin\ServiceAdmin
+        arguments: [~, NGS\ContentBundle\Entity\Service, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Service}
+
+    ngs_content.admin.mission:
+        class: NGS\ContentBundle\Admin\MissionAdmin
+        arguments: [~, NGS\ContentBundle\Entity\Mission, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Mission}
