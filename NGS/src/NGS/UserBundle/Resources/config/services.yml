@@ -8,5 +8,5 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: User}
 
-        calls:
-            - [ setTranslationDomain, [NGSUserBundle]]
+        # calls:
+            # - [ setTranslationDomain, [NGSUserBundle]]
