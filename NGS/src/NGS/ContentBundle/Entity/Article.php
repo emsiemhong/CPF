@@ -5,7 +5,11 @@ namespace NGS\ContentBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use NGS\UserBundle\Entity\User;
 
+/*
+ * @ORM\HasLifecycleCallbacks
+ */
 abstract class Article
 {
     /**
@@ -15,21 +19,29 @@ abstract class Article
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
      */
-    private $title;
+    protected $title;
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
      */
-    private $description;
+    protected $description;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NGS\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="posted_by", referencedColumnName="id")
+     */
+    protected $postedBy;
+
+    protected $temp;
 
     /**
      * @ORM\Column(nullable=true)
@@ -41,6 +53,28 @@ abstract class Article
      */
     private $picture;
 
+    /**
+     * Set PostedBy
+     *
+     * @param User $user
+     * @return Article
+     */
+    public function setPostedBy(User $user)
+    {
+        $this->postedBy = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get PostedBy
+     *
+     * @return User
+     */
+    public function getPostedBy()
+    {
+        return $this->postedBy;
+    }
 
     /**
      * Get id
@@ -125,11 +159,17 @@ abstract class Article
      * Set picture
      *
      * @param UploadedFile $picture
-     * @return EventPageExContentBlock
+     * @return Article
      */
-    public function setPicture(UploadedFile $picture)
+    public function setPicture(UploadedFile $picture = null)
     {
         $this->picture = $picture;
+        if (isset($this->picturePath)) {
+            $this->temp = $this->picturePath;
+            $this->picturePath = null;
+        } else {
+            $this->picturePath = 'initial';
+        }
 
         return $this;
     }
@@ -145,27 +185,56 @@ abstract class Article
     }
 
     /**
-    * Uploads the picture referenced by the picture property
-    * Sets the picture path property and resets the picture property
-    */
-    public function uploadPicture()
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        // echo 'Hello preUpload';
+        // dump($this->picture);
+        if (null !== $this->picture) {
+            $path = rand(1, 99999).'.'.$this->picture->getClientOriginalName();
+            // dump($path);die;
+            $this->picturePath = $path;
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
     {
         // the file property can be empty if the field is not required
         if (null === $this->picture) {
             return;
         }
 
-        $path = rand(1, 99999).'.'.$this->picture->getClientOriginalName();
-
         $this->picture->move(
             $this->getUploadRootDir(),
-            $path)
+            $this->picturePath)
         ;
 
-        $this->picturePath = $path;
-
+        // check if have an old image
+        if (isset($this->temp)) {
+            //delete the old image
+            unlink($this->getUploadDir() . '/' . $this->temp);
+            // clear the temp image path
+            $this->temp = null;
+        }
         // clean up the file property as you won't need it anymore
         $this->picture = null;
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        $picture = $this->getAbsolutePath();
+        if ($picture) {
+            unlink($picture);
+        }
     }
 
     /**

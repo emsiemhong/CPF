@@ -1,4 +1,7 @@
 services:
-#    ngs_content.example:
-#        class: NGS\ContentBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+
+    ngs_content.admin.about:
+        class: NGS\ContentBundle\Admin\AboutAdmin
+        arguments: [~, NGS\ContentBundle\Entity\About, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: About}
