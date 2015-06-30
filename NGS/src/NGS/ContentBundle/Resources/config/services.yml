@@ -23,3 +23,9 @@ services:
         arguments: [~, NGS\ContentBundle\Entity\Mission, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Mission}
+
+    ngs_content.admin.announcement:
+        class: NGS\ContentBundle\Admin\AnnouncementAdmin
+        arguments: [~, NGS\ContentBundle\Entity\Announcement, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Announcement}
