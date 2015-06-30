@@ -31,7 +31,7 @@ abstract class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     protected $description;
 
@@ -40,6 +40,11 @@ abstract class Article
      * @ORM\JoinColumn(name="posted_by", referencedColumnName="id")
      */
     protected $postedBy;
+
+    /**
+     * @ORM\Column(name="created", type="datetime", nullable=true)
+     */
+    protected $created;
 
     protected $temp;
 
@@ -52,6 +57,21 @@ abstract class Article
      * @Assert\Image(maxSize="2Mi")
      */
     private $picture;
+
+    public function __construct()
+    {
+        $this->created = new \DateTime('NOW');
+    }
+
+    /**
+     * Get created
+     *
+     * @return datetime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
 
     /**
      * Set PostedBy
