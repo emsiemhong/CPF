@@ -39,4 +39,9 @@ class Announcement extends Article
     {
         return $this->date;
     }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/announcements';
+    }
 }

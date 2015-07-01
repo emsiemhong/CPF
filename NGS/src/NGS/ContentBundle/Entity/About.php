@@ -13,4 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class About extends Article
 {
+    protected function getUploadDir()
+    {
+        return 'uploads/abouts';
+    }
 }

@@ -39,4 +39,9 @@ class Event extends Article
     {
         return $this->date;
     }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/events';
+    }
 }

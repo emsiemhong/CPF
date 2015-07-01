@@ -135,7 +135,7 @@ class ContactBook extends Article
     /**
      * Get companyName
      *
-     * @return string 
+     * @return string
      */
     public function getCompanyName()
     {
@@ -158,7 +158,7 @@ class ContactBook extends Article
     /**
      * Get phone
      *
-     * @return string 
+     * @return string
      */
     public function getPhone()
     {
@@ -181,7 +181,7 @@ class ContactBook extends Article
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -204,7 +204,7 @@ class ContactBook extends Article
     /**
      * Get address
      *
-     * @return string 
+     * @return string
      */
     public function getAddress()
     {
@@ -227,7 +227,7 @@ class ContactBook extends Article
     /**
      * Get fax
      *
-     * @return string 
+     * @return string
      */
     public function getFax()
     {
@@ -250,7 +250,7 @@ class ContactBook extends Article
     /**
      * Get website
      *
-     * @return string 
+     * @return string
      */
     public function getWebsite()
     {
@@ -273,7 +273,7 @@ class ContactBook extends Article
     /**
      * Get facebook
      *
-     * @return string 
+     * @return string
      */
     public function getFacebook()
     {
@@ -296,7 +296,7 @@ class ContactBook extends Article
     /**
      * Get google
      *
-     * @return string 
+     * @return string
      */
     public function getGoogle()
     {
@@ -319,7 +319,7 @@ class ContactBook extends Article
     /**
      * Get twitter
      *
-     * @return string 
+     * @return string
      */
     public function getTwitter()
     {
@@ -342,7 +342,7 @@ class ContactBook extends Article
     /**
      * Get linkedin
      *
-     * @return string 
+     * @return string
      */
     public function getLinkedin()
     {
@@ -365,10 +365,15 @@ class ContactBook extends Article
     /**
      * Get instagram
      *
-     * @return string 
+     * @return string
      */
     public function getInstagram()
     {
         return $this->instagram;
+    }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/contact_books';
     }
 }
