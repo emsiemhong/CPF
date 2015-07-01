@@ -1,0 +1,44 @@
+.login-msg-box {
+    margin: auto;
+    height: 30px;
+    text-align: center;
+}
+
+#wrap-login {
+    color: #666;
+    width: 20%;
+    margin: auto;
+    margin-top: 5%;
+    border: 1px solid #333;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: white;
+    padding: 1%;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.f-control {
+    width: 90%;
+    height: 30px;
+    margin: 5px 0;
+    padding: 0 10px;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.wrap-btn {
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #2A6AFF;
+    color: white;
+    border: medium none;
+    cursor: pointer;
+}
