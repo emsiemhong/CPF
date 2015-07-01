@@ -47,3 +47,9 @@ services:
         arguments: [~, NGS\ContentBundle\Entity\ContactBook, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: ContactBook}
+
+    ngs_content.admin.library:
+        class: NGS\ContentBundle\Admin\LibraryAdmin
+        arguments: [~, NGS\ContentBundle\Entity\Library, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Library}

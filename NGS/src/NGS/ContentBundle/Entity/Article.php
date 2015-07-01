@@ -54,7 +54,10 @@ abstract class Article
     public $picturePath;
 
     /**
-     * @Assert\Image(maxSize="2Mi")
+     * @Assert\Image(
+     *      maxSize="2Mi",
+     *      mimeTypesMessage = " This file is not a valid image."
+     * )
      */
     private $picture;
 
@@ -156,7 +159,7 @@ abstract class Article
      * Set picturePath
      *
      * @param string $picturePath
-     * @return EventPageExContentBlock
+     * @return Article
      */
     public function setPicturePath($picturePath)
     {
@@ -210,11 +213,8 @@ abstract class Article
      */
     public function preUpload()
     {
-        // echo 'Hello preUpload';
-        // dump($this->picture);
         if (null !== $this->picture) {
             $path = rand(1, 99999).'.'.$this->picture->getClientOriginalName();
-            // dump($path);die;
             $this->picturePath = $path;
         }
     }
