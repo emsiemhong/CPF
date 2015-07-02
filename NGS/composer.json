@@ -8,6 +8,19 @@
             "SymfonyStandard\\": "app/SymfonyStandard/"
         }
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "jquery/jquery",
+                "version": "1.11.1",
+                "dist": {
+                    "url": "http://code.jquery.com/jquery-1.11.1.js",
+                    "type": "file"
+                }
+            }
+        }
+    ],
     "require": {
         "php": ">=5.3.9",
         "symfony/symfony": "2.7.*",
@@ -22,7 +35,11 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "sonata-project/admin-bundle": "^2.3",
-        "sonata-project/doctrine-orm-admin-bundle": "^2.3"
+        "sonata-project/doctrine-orm-admin-bundle": "^2.3",
+        "braincrafted/bootstrap-bundle": "~2.0",
+        "twitter/bootstrap": "2.3.*",
+        "twbs/bootstrap": "3.0.*",
+        "jquery/jquery":  "1.11.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
