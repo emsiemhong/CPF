@@ -6,6 +6,10 @@ ngs_user:
     resource: "@NGSUserBundle/Resources/config/routing.yml"
     prefix:   /
 
+ngs_home:
+    resource: "@NGSHomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
