@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             // Then add SonataAdminBundle
             new Sonata\AdminBundle\SonataAdminBundle(),
             new NGS\ContentBundle\NGSContentBundle(),
+            new NGS\HomeBundle\NGSHomeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

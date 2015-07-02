@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    {% stylesheets
+        '@common_css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+
+    {% endstylesheets %}
+
+    {# {% block layout_stylesheets %}{% endblock %}
+    {% block login_stylesheets %}{% endblock %} #}
+
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts
+        '@jquery_js'
+        '@bootstrap_js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block body %}
+    <header>
+        hello header
+    </header>
+    <nav>
+        hello navigation
+    </nav>
+    <div id="wrap-content">
+        <div id="left-sidebar">
+            <div class="event-nav">
+            </div>
+            <div class="announcement-nav">
+            </div>
+            <div class="contact-book-nav">
+            </div>
+        </div>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <div id="bottom-block">
+    </div>
+    <div id="footer"></div>
+{% endblock %}
