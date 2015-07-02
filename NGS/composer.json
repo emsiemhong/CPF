@@ -23,8 +23,10 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "sonata-project/admin-bundle": "^2.3",
         "sonata-project/doctrine-orm-admin-bundle": "^2.3",
+
         "twitter/bootstrap": "3.*",
-        "components/jquery": "1.11.1"
+        "components/jquery": "1.11.1",
+        "eternicode/bootstrap-datepicker": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
