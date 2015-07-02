@@ -5,6 +5,7 @@
     {% stylesheets
         '@common_css'
         '@NGSHomeBundle/Resources/public/css/home.css'
+        filter='cssrewrite'
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
 
@@ -19,6 +20,7 @@
     {% javascripts
         '@jquery_js'
         '@bootstrap_js'
+        '@NGSHomeBundle/Resources/public/js/common.js'
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
@@ -29,6 +31,10 @@
         <header id="header" role="banner">
             <div id="logo">
                 <a title="Home" href="#">
+                    {# <img logo.png"> #}
+                    {% image '@NGSHomeBundle/Resources/public/images/logo.png' %}
+                        <img src="{{ asset_url }}" alt="Example" />
+                    {% endimage %}
                 </a>
             </div>
         </header>
@@ -57,12 +63,11 @@
         </nav>
     </div>
     <div id="container">
-        <div id="sidebar-left">
-            .....
-        </div>
+        {# <div id="sidebar-left">
+        </div> #}
         <div id="content">
             {% block content %}
-                <div class="region region-slideshow">
+                {# <div class="region region-slideshow">
                     <div id="block-nivo-slider-nivo-slider" class="block block-nivo-slider">
                         <div class="content">
                             <div class="slider-wrapper theme-default">
@@ -76,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> #}
                 <div id="top-area" class="clearfix">
                     <div class="column">
                         <div class="region region-top-second">

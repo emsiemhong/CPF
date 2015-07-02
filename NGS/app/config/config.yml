@@ -56,10 +56,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:
-        - NGSHomeBundle
-        - FOSUserBundle
-        - NGSContentBundle
+    bundles: [NGSHomeBundle, FOSUserBundle, NGSContentBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
