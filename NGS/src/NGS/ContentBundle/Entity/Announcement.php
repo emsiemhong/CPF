@@ -2,7 +2,7 @@
 
 namespace NGS\ContentBundle\Entity;
 
-use NGS\ContentBundle\Entity\Article;
+use NGS\ContentBundle\Entity\BaseArticle;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="announcement")
  * @ORM\Entity
  */
-class Announcement extends Article
+class Announcement extends BaseArticle
 {
     /**
      * @ORM\Column(name="date", type="date", nullable=false)

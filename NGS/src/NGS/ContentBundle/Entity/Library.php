@@ -2,7 +2,7 @@
 
 namespace NGS\ContentBundle\Entity;
 
-use NGS\ContentBundle\Entity\Article;
+use NGS\ContentBundle\Entity\BaseArticle;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="labrary")
  * @ORM\Entity
  */
-class Library extends Article
+class Library extends BaseArticle
 {
     /**
      * @var string

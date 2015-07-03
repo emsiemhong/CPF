@@ -5,12 +5,12 @@ namespace NGS\ContentBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ContactBookSection
+ * ArticleType
  *
- * @ORM\Table(name="contact_book_section")
+ * @ORM\Table(name="article_type")
  * @ORM\Entity
  */
-class ContactBookSection
+class ArticleType
 {
     /**
      * @var integer
@@ -30,12 +30,12 @@ class ContactBookSection
 
     /**
      * @ORM\ManyToOne(
-     *      targetEntity="NGS\ContentBundle\Entity\ContactBook",
-     *      inversedBy="section",
+     *      targetEntity="NGS\ContentBundle\Entity\Article",
+     *      inversedBy="type",
      *      cascade={"persist", "remove"}
      * )
      */
-    private $contactBook;
+    private $article;
 
     /**
      * Get id
@@ -51,7 +51,7 @@ class ContactBookSection
      * Set name
      *
      * @param string $name
-     * @return ContactBookSection
+     * @return ArticleType
      */
     public function setName($name)
     {

@@ -2,7 +2,8 @@
 
 namespace NGS\ContentBundle\Entity;
 
-use NGS\ContentBundle\Entity\Article;
+use NGS\ContentBundle\Entity\BaseArticle;
+use NGS\ContentBundle\Entity\ContactBookSection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,10 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="contact_book")
  * @ORM\Entity
  */
-class ContactBook extends Article
+class ContactBook extends BaseArticle
 {
     /**
-     * @ORM\ManyToOne(targetEntity="\NGS\ContentBundle\Entity\ContactBookSection")
+     * @ORM\OneToMany(
+     *      targetEntity="NGS\ContentBundle\Entity\ContactBookSection",
+     *      mappedBy="contactBook",
+     *      cascade={"persist", "remove"}
+     * )
      * @ORM\JoinColumn(name="section_id", referencedColumnName="id")
      */
     private $section;
