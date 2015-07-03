@@ -2,16 +2,16 @@
 
 namespace NGS\ContentBundle\Entity;
 
-use NGS\ContentBundle\Entity\Article;
+use NGS\ContentBundle\Entity\BaseArticle;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Event 
+ * Event
  *
  * @ORM\Table(name="event")
  * @ORM\Entity
  */
-class Event extends Article
+class Event extends BaseArticle
 {
     /**
      * @ORM\Column(name="date", type="date")

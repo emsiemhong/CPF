@@ -1,28 +1,10 @@
 services:
 
-    ngs_content.admin.about:
-        class: NGS\ContentBundle\Admin\AboutAdmin
-        arguments: [~, NGS\ContentBundle\Entity\About, SonataAdminBundle:CRUD]
+    ngs_content.admin.article:
+        class: NGS\ContentBundle\Admin\ArticleAdmin
+        arguments: [~, NGS\ContentBundle\Entity\Article, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: About}
-
-    ngs_content.admin.home:
-        class: NGS\ContentBundle\Admin\HomeAdmin
-        arguments: [~, NGS\ContentBundle\Entity\Home, SonataAdminBundle:CRUD]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Home}
-
-    ngs_content.admin.service:
-        class: NGS\ContentBundle\Admin\ServiceAdmin
-        arguments: [~, NGS\ContentBundle\Entity\Service, SonataAdminBundle:CRUD]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Service}
-
-    ngs_content.admin.mission:
-        class: NGS\ContentBundle\Admin\MissionAdmin
-        arguments: [~, NGS\ContentBundle\Entity\Mission, SonataAdminBundle:CRUD]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Mission}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Article}
 
     ngs_content.admin.announcement:
         class: NGS\ContentBundle\Admin\AnnouncementAdmin
@@ -53,3 +35,9 @@ services:
         arguments: [~, NGS\ContentBundle\Entity\Library, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Library}
+
+    ngs_content.admin.article_type:
+        class: NGS\ContentBundle\Admin\ArticleTypeAdmin
+        arguments: [~, NGS\ContentBundle\Entity\ArticleType, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: ArticleType}
