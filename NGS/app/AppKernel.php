@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new NGS\UserBundle\NGSUserBundle(),
+            new NGS\HomeBundle\NGSHomeBundle(),
 
             // Add your dependencies
             new Sonata\CoreBundle\SonataCoreBundle(),
@@ -34,7 +35,6 @@ class AppKernel extends Kernel
             // Then add SonataAdminBundle
             new Sonata\AdminBundle\SonataAdminBundle(),
             new NGS\ContentBundle\NGSContentBundle(),
-            new NGS\HomeBundle\NGSHomeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

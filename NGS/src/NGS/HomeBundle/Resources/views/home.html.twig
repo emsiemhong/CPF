@@ -27,7 +27,7 @@
 {% endblock %}
 
 {% block body %}
-    <div id="header-wrapper">
+    <div id="header_wrapper">
         <header id="header" role="banner">
             <div id="logo">
                 <a title="Home" href="#">
@@ -37,29 +37,58 @@
                     {% endimage %}
                 </a>
             </div>
+            <h1 id="site-title">
+                <a title="Home" href="index.html"></a>
+                <div id="site-description"></div>
+            </h1>
+            <div class="row top-right">
+                <div class="col-sm-4 language-swicher"><a href="">English</a> | <a href="">Khmer</a></div>
+                <div class="col-sm-4 social-media">
+                    <img src="../../images/twitter.png" alt="twitter" title="twitter" />
+                    <img src="../../images/facebook.png" alt="facebook" title="facebook" />
+                </div>
+                <div class="col-sm-4 login-logout"><a href="/login">Login</a></div>
+            </div>
+            <div class="clear"></div>
         </header>
     </div>
-    <div id="menu-wrapper">
+    <div class="menu_wrapper">
         <nav id="main-menu" role="navigation">
+            <a class="nav-toggle" href="#">Navigation</a>
             <div class="menu-navigation-container">
                 <ul class="menu">
-                    <li class="">
+                    <li class="first leaf">
                         <a href="" class="active">Home</a>
                     </li>
-                    <li class="">
-                        <a href="" class="">About</a>
+                    <li class="leaf">
+                        <a href="">About</a>
                     </li>
-                    <li class="">
-                        <a href="" class="">Service</a>
+                    <li class="expanded">
+                        <a href="">Service</a>
+                        <ul class="menu" style="display: none;">
+                            <li class="first leaf">
+                                <a href="node/3.html">Left side bar</a>
+                            </li>
+                            <li class="leaf">
+                                <a href="right-side-bar.html">Right side bar</a>
+                            </li>
+                            <li class="leaf">
+                                <a href="left-and-right.html">Left and right sidebar</a>
+                            </li>
+                            <li class="last leaf">
+                                <a href="full-width.html">Full width</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="">
-                        <a href="" class="">E-Library</a>
+                    <li class="leaf">
+                        <a href="" class="expanded">E-Library</a>
                     </li>
-                    <li class="">
-                        <a href="" class="">Contact</a>
+                    <li class="last leaf">
+                        <a href="">Contact</a>
                     </li>
                 </ul>
             </div>
+            <div class="clear"></div>
         </nav>
     </div>
     <div id="container">
@@ -67,62 +96,59 @@
         </div> #}
         <div id="content">
             {% block content %}
-                {# <div class="region region-slideshow">
-                    <div id="block-nivo-slider-nivo-slider" class="block block-nivo-slider">
-                        <div class="content">
-                            <div class="slider-wrapper theme-default">
-                                <div class="ribbon"></div>
-                                <div id="slider" class="nivoSlider"></div>
-                                <div class="nivo-controlNav">
-                                    <a class="nivo-control" rel="0">1</a>
-                                    <a class="nivo-control" rel="1">2</a>
-                                    <a class="nivo-control active" rel="2">3</a>
-                                </div>
+                <div class="region region-slideshow">
+                    <div id="myCarousel" class="carousel slide slider-wrapper" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                          <li data-target="#myCarousel" data-slide-to="1"></li>
+                          <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" id="slider" role="listbox">
+
+                          <div class="item active">
+                            <img src="../../images/a.png" alt="Chania" style="width: 100%" height="345">
+                            <div class="carousel-caption">
+                              <h3>Chania</h3>
+                              <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
                             </div>
+                          </div>
+
+                          <div class="item">
+                            <img src="../../images/b.png" alt="Chania" style="width: 100%" height="345">
+                            <div class="carousel-caption">
+                              <h3>Chania</h3>
+                              <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                            </div>
+                          </div>
+                          <div class="item">
+                            <img src="../../images/c.png" alt="Flower" style="width: 100%" height="345">
+                            <div class="carousel-caption">
+                              <h3>Flowers</h3>
+                              <p>Beatiful flowers in Kolymbari, Crete.</p>
+                            </div>
+                          </div>
                         </div>
                     </div>
-                </div> #}
+                </div>
                 <div id="top-area" class="clearfix">
-                    <div class="column">
-                        <div class="region region-top-second">
-                            <div id="block-block-3" class="block block-block">
-                                <h2>Mobile</h2>
-                                <div class="content">
-                                    <p>
-                                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                        <br>
-                                        The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
-                                    </p>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h3>Column 1</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
                         </div>
-                    </div>
-                    <div class="column">
-                        <div class="region region-top-second">
-                            <div id="block-block-3" class="block block-block">
-                                <h2>Mobile</h2>
-                                <div class="content">
-                                    <p>
-                                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                        <br>
-                                        The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
-                                    </p>
-                                </div>
-                            </div>
+                        <div class="col-sm-4">
+                            <h3>Column 2</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
                         </div>
-                    </div>
-                    <div class="column">
-                        <div class="region region-top-second">
-                            <div id="block-block-3" class="block block-block">
-                                <h2>Mobile</h2>
-                                <div class="content">
-                                    <p>
-                                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                        <br>
-                                        The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
-                                    </p>
-                                </div>
-                            </div>
+                        <div class="col-sm-4">
+                            <h3>Column 3</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
                         </div>
                     </div>
                 </div>
@@ -133,81 +159,71 @@
     <div id="footer">
         <div id="footer_wrapper">
             <div id="footer-area" class="clearfix">
-                <div class="column">
-                    <div class="region region-footer-first">
-                        <div id="block-block-6" class="block block-block">
-                            <h2>Quick links</h2>
-                            <div class="content">
-                                <ul>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/">Zymphonies home page</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/services">Zymphonies Service</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/drupal-theme">Zymphonies Premium Theme</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/free-themes">Zymphonies Free Theme</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/request-estimate">Request An Estimate</a>
-                                    </li>
-                                </ul>
-                            </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h2>Quick links</h2>
+                        <div class="content">
+                            <ul>
+                                <li>
+                                    <a href="http://www.zymphonies.com/">Zymphonies home page</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.zymphonies.com/services">Zymphonies Service</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.zymphonies.com/drupal-theme">Zymphonies Premium Theme</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.zymphonies.com/free-themes">Zymphonies Free Theme</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.zymphonies.com/request-estimate">Request An Estimate</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-                <div class="column">
-                    <div class="region region-footer-second">
-                        <div id="block-block-6" class="block block-block">
-                            <h2>Quick links</h2>
-                            <div class="content">
-                                <ul>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/">Zymphonies home page</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/services">Zymphonies Service</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/drupal-theme">Zymphonies Premium Theme</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/free-themes">Zymphonies Free Theme</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/request-estimate">Request An Estimate</a>
-                                    </li>
-                                </ul>
-                            </div>
+                    <div class="col-sm-4">
+                        <h2>Quick links</h2>
+                        <div class="content">
+                            <ul>
+                                <li>
+                                    <a href="http://www.zymphonies.com/">Zymphonies home page</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.zymphonies.com/services">Zymphonies Service</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.zymphonies.com/drupal-theme">Zymphonies Premium Theme</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.zymphonies.com/free-themes">Zymphonies Free Theme</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.zymphonies.com/request-estimate">Request An Estimate</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-                <div class="column">
-                    <div class="region region-footer-third">
-                        <div id="block-block-6" class="block block-block">
-                            <h2>Quick links</h2>
-                            <div class="content">
-                                <ul>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/">Zymphonies home page</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/services">Zymphonies Service</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/drupal-theme">Zymphonies Premium Theme</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/free-themes">Zymphonies Free Theme</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://www.zymphonies.com/request-estimate">Request An Estimate</a>
-                                    </li>
-                                </ul>
-                            </div>
+                    <div class="col-sm-4">
+                        <h2>Quick links</h2>
+                        <div class="content">
+                            <ul>
+                                <li>
+                                    <a href="http://www.zymphonies.com/">Zymphonies home page</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.zymphonies.com/services">Zymphonies Service</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.zymphonies.com/drupal-theme">Zymphonies Premium Theme</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.zymphonies.com/free-themes">Zymphonies Free Theme</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.zymphonies.com/request-estimate">Request An Estimate</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -216,18 +232,16 @@
         <div class="footer_credit">
             <div class="footer_inner_credit">
                 <div id="foot">
-                    <div id="foot">
-                        <div class="region region-footer">
-                            <div id="block-system-powered-by" class="block block-system">
-                                <div class="content">
-                                    <span>
-                                        Powered by
-                                        <a href="http://drupal.org/">Me</a>
-                                    </span>
-                                </div>
+                    <div class="region region-footer">
+                        <div id="block-system-powered-by" class="block block-system">
+                            <div class="content">
+                                <span>
+                                    Powered by
+                                    <a href="http://drupal.org/">Me</a>
+                                </span>
                             </div>
                         </div>
-                    </div
+                    </div>
                 </div>
                 <div id="copyright">
                     <p class="copyright">Copyright © 2015-2016. </p>
