@@ -24,11 +24,11 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: ContactBookSection}
 
-    ngs_content.admin.contact_book:
-        class: NGS\ContentBundle\Admin\ContactBookAdmin
-        arguments: [~, NGS\ContentBundle\Entity\ContactBook, SonataAdminBundle:CRUD]
+    ngs_content.admin.contact_books:
+        class: NGS\ContentBundle\Admin\ContactBooksAdmin
+        arguments: [~, NGS\ContentBundle\Entity\ContactBooks, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: ContactBook}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: ContactBooks}
 
     ngs_content.admin.library:
         class: NGS\ContentBundle\Admin\LibraryAdmin
