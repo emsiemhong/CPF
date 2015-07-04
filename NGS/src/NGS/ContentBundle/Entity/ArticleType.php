@@ -3,6 +3,9 @@
 namespace NGS\ContentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use NGS\ContentBundle\Entity\Articles;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * ArticleType
@@ -29,13 +32,21 @@ class ArticleType
     private $name;
 
     /**
-     * @ORM\ManyToOne(
-     *      targetEntity="NGS\ContentBundle\Entity\Article",
-     *      inversedBy="type",
+     * @var ArrayCollection
+     *
+     * @Assert\Valid()
+     * @ORM\OneToMany(
+     *      targetEntity="NGS\ContentBundle\Entity\Articles",
+     *      mappedBy="type",
      *      cascade={"persist", "remove"}
      * )
      */
-    private $article;
+    private $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -45,6 +56,44 @@ class ArticleType
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get articles
+     *
+     * @return Collection
+     */
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+    /**
+     * Add article
+     *
+     * @param Article $article
+     * @return ArticleType
+     */
+     public function addArticle(Articles $article)
+     {
+        $article->setType($this);
+        $this->articles->add($article);
+
+        return $this;
+     }
+
+    /**
+     * Remove article
+     *
+     * @param Article $article
+     * @return ArticleType
+     */
+    public function removeArticle(Articles $article)
+    {
+        $article->unsetType();
+        $this->articles->removeElement($article);
+
+        return $this;
     }
 
     /**

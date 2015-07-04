@@ -7,18 +7,19 @@ use NGS\ContentBundle\Entity\ArticleType;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Article
+ * Articles
  *
- * @ORM\Table(name="article")
+ * @ORM\Table(name="articles")
  * @ORM\Entity
  */
-class Article extends BaseArticle
+class Articles extends BaseArticle
 {
     /**
-     * @ORM\OneToMany(
+     * @var integer
+     *
+     * @ORM\ManyToOne(
      *      targetEntity="NGS\ContentBundle\Entity\ArticleType",
-     *      mappedBy="article",
-     *      cascade={"persist", "remove"}
+     *      inversedBy="articles",
      * )
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
@@ -30,12 +31,12 @@ class Article extends BaseArticle
     }
 
     /**
-     * Set type
+     * Set Type
      *
      * @param ArticleType $type
-     * @return Article
+     * @return Articles
      */
-    public function setType(ArticleType $type)
+    public function setType(ArticleType $type = null)
     {
         $this->type = $type;
 
@@ -43,9 +44,21 @@ class Article extends BaseArticle
     }
 
     /**
+     * Unset Type
+     *
+     * @return Articles
+     */
+    public function unsetType()
+    {
+        unset($this->type);
+
+        return $this;
+    }
+
+    /**
      * Get type
      *
-     * @return integer
+     * @return ArticleType
      */
     public function getType()
     {

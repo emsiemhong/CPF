@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class ArticleAdmin extends Admin
+class ArticlesAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -52,10 +52,10 @@ class ArticleAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         // get the current Image instance
-        $article = $this->getSubject();
+        $articles = $this->getSubject();
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false, 'data_class' => null);
-        if ($article && ($webPath = $article->getWebPath())) {
+        if ($articles && ($webPath = $articles->getWebPath())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -88,7 +88,7 @@ class ArticleAdmin extends Admin
         ;
     }
 
-    public function prePersist($article)
+    public function prePersist($articles)
     {
         $user = $this
             ->getConfigurationPool()
@@ -97,12 +97,12 @@ class ArticleAdmin extends Admin
             ->getToken()
             ->getUser()
         ;
-        $article->setPostedBy($user);
+        $articles->setPostedBy($user);
 
-        $article->preUpload();
+        $articles->preUpload();
     }
 
-    public function preUpdate($article)
+    public function preUpdate($articles)
     {
         $user = $this
             ->getConfigurationPool()
@@ -111,18 +111,18 @@ class ArticleAdmin extends Admin
             ->getToken()
             ->getUser()
         ;
-        $article->setPostedBy($user);
+        $articles->setPostedBy($user);
 
-        $article->preUpload();
+        $articles->preUpload();
     }
 
-    public function postPersist($article)
+    public function postPersist($articles)
     {
-        $article->upload();
+        $articles->upload();
     }
 
-    public function postUpdate($article)
+    public function postUpdate($articles)
     {
-        $article->upload();
+        $articles->upload();
     }
 }
