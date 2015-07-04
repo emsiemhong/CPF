@@ -67,7 +67,7 @@ class AnnouncementAdmin extends Admin
 
         $formMapper
             ->add('title')
-            ->add('description')
+            ->add('description', 'ckeditor')
             ->add('date')
             ->add('picture', 'file', $fileFieldOptions)
         ;

@@ -77,7 +77,7 @@ class LibraryAdmin extends Admin
 
         $formMapper
             ->add('title')
-            ->add('description', 'textarea', array('required' => false))
+            ->add('description', 'ckeditor', array('required' => false))
             ->add('picture', 'file', $fileFieldOptions)
             ->add('file', 'file', array(
                 'required' => false,
