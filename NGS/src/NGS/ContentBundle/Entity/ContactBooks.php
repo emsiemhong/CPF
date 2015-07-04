@@ -7,18 +7,19 @@ use NGS\ContentBundle\Entity\ContactBookSection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ContactBook
+ * ContactBooks
  *
  * @ORM\Table(name="contact_book")
  * @ORM\Entity
  */
-class ContactBook extends BaseArticle
+class ContactBooks extends BaseArticle
 {
     /**
-     * @ORM\OneToMany(
+     * @var integer
+     *
+     * @ORM\ManyToOne(
      *      targetEntity="NGS\ContentBundle\Entity\ContactBookSection",
-     *      mappedBy="contactBook",
-     *      cascade={"persist", "remove"}
+     *      inversedBy="contactBooks",
      * )
      * @ORM\JoinColumn(name="section_id", referencedColumnName="id")
      */
@@ -104,12 +105,24 @@ class ContactBook extends BaseArticle
     /**
      * Set section
      *
-     * @param ContactBookSection $contactBookSection
-     * @return ContactBook
+     * @param ContactBookSection $section
+     * @return ContactBooks
      */
-    public function setSection(ContactBookSection $contactBookSection)
+    public function setSection(ContactBookSection $section = null)
     {
-        $this->section = $contactBookSection;
+        $this->section = $section;
+
+        return $this;
+    }
+
+    /**
+     * Unset section
+     *
+     * @return ContactBooks
+     */
+    public function unsetSection()
+    {
+        unset($this->section);
 
         return $this;
     }
@@ -128,7 +141,7 @@ class ContactBook extends BaseArticle
      * Set companyName
      *
      * @param string $companyName
-     * @return ContactBook
+     * @return ContactBooks
      */
     public function setCompanyName($companyName)
     {
@@ -151,7 +164,7 @@ class ContactBook extends BaseArticle
      * Set phone
      *
      * @param string $phone
-     * @return ContactBook
+     * @return ContactBooks
      */
     public function setPhone($phone)
     {
@@ -174,7 +187,7 @@ class ContactBook extends BaseArticle
      * Set email
      *
      * @param string $email
-     * @return ContactBook
+     * @return ContactBooks
      */
     public function setEmail($email)
     {
@@ -197,7 +210,7 @@ class ContactBook extends BaseArticle
      * Set address
      *
      * @param string $address
-     * @return ContactBook
+     * @return ContactBooks
      */
     public function setAddress($address)
     {
@@ -220,7 +233,7 @@ class ContactBook extends BaseArticle
      * Set fax
      *
      * @param string $fax
-     * @return ContactBook
+     * @return ContactBooks
      */
     public function setFax($fax)
     {
@@ -243,7 +256,7 @@ class ContactBook extends BaseArticle
      * Set website
      *
      * @param string $website
-     * @return ContactBook
+     * @return ContactBooks
      */
     public function setWebsite($website)
     {
@@ -266,7 +279,7 @@ class ContactBook extends BaseArticle
      * Set facebook
      *
      * @param string $facebook
-     * @return ContactBook
+     * @return ContactBooks
      */
     public function setFacebook($facebook)
     {
@@ -289,7 +302,7 @@ class ContactBook extends BaseArticle
      * Set google
      *
      * @param string $google
-     * @return ContactBook
+     * @return ContactBooks
      */
     public function setGoogle($google)
     {
@@ -312,7 +325,7 @@ class ContactBook extends BaseArticle
      * Set twitter
      *
      * @param string $twitter
-     * @return ContactBook
+     * @return ContactBooks
      */
     public function setTwitter($twitter)
     {
@@ -335,7 +348,7 @@ class ContactBook extends BaseArticle
      * Set linkedin
      *
      * @param string $linkedin
-     * @return ContactBook
+     * @return ContactBooks
      */
     public function setLinkedin($linkedin)
     {
@@ -358,7 +371,7 @@ class ContactBook extends BaseArticle
      * Set instagram
      *
      * @param string $instagram
-     * @return ContactBook
+     * @return ContactBooks
      */
     public function setInstagram($instagram)
     {

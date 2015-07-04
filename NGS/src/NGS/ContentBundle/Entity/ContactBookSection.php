@@ -3,6 +3,9 @@
 namespace NGS\ContentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use NGS\ContentBundle\Entity\ContactBooks;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * ContactBookSection
@@ -29,13 +32,59 @@ class ContactBookSection
     private $name;
 
     /**
-     * @ORM\ManyToOne(
-     *      targetEntity="NGS\ContentBundle\Entity\ContactBook",
-     *      inversedBy="section",
+     * @var ArrayCollection
+     *
+     * @Assert\Valid()
+     * @ORM\OneToMany(
+     *      targetEntity="NGS\ContentBundle\Entity\ContactBooks",
+     *      mappedBy="section",
      *      cascade={"persist", "remove"}
      * )
      */
-    private $contactBook;
+    private $contactBooks;
+
+    public function __construct()
+    {
+        $this->contactBooks = new ArrayCollection();
+    }
+
+    /**
+     * Get contactBooks
+     *
+     * @return Collection
+     */
+    public function getContactBooks()
+    {
+        return $this->contactBooks;
+    }
+
+    /**
+     * Add contactBooks
+     *
+     * @param ContactBooks $contactBooks
+     * @return ContactBookSection
+     */
+     public function addContactBooks(ContactBooks $contactBook)
+     {
+        $contactBook->setSection($this);
+        $this->contactBooks->add($contactBook);
+
+        return $this;
+     }
+
+    /**
+     * Remove contactBooks
+     *
+     * @param ContactBooks $contactBooks
+     * @return ContactBookSection
+     */
+    public function removeContactBooks(ContactBooks $contactBook)
+    {
+        $contactBook->unsetSection();
+        $this->contactBooks->removeElement($contactBook);
+
+        return $this;
+    }
 
     /**
      * Get id

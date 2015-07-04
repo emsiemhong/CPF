@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class ContactBookAdmin extends Admin
+class ContactBooksAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -75,7 +75,7 @@ class ContactBookAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         // get the current Image instance
-        $contactBook = $this->getSubject();
+        $contactBooks = $this->getSubject();
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array(
             'required' => false,
@@ -83,7 +83,7 @@ class ContactBookAdmin extends Admin
             'label' => 'Company Logo'
         );
 
-        if ($contactBook && ($webPath = $contactBook->getWebPath())) {
+        if ($contactBooks && ($webPath = $contactBooks->getWebPath())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -138,7 +138,7 @@ class ContactBookAdmin extends Admin
         ;
     }
 
-    public function prePersist($contactBook)
+    public function prePersist($contactBooks)
     {
         $user = $this
             ->getConfigurationPool()
@@ -147,12 +147,12 @@ class ContactBookAdmin extends Admin
             ->getToken()
             ->getUser()
         ;
-        $contactBook->setPostedBy($user);
+        $contactBooks->setPostedBy($user);
 
-        $contactBook->preUpload();
+        $contactBooks->preUpload();
     }
 
-    public function preUpdate($contactBook)
+    public function preUpdate($contactBooks)
     {
         $user = $this
             ->getConfigurationPool()
@@ -161,18 +161,18 @@ class ContactBookAdmin extends Admin
             ->getToken()
             ->getUser()
         ;
-        $contactBook->setPostedBy($user);
+        $contactBooks->setPostedBy($user);
 
-        $contactBook->preUpload();
+        $contactBooks->preUpload();
     }
 
-    public function postPersist($contactBook)
+    public function postPersist($contactBooks)
     {
-        $contactBook->upload();
+        $contactBooks->upload();
     }
 
-    public function postUpdate($contactBook)
+    public function postUpdate($contactBooks)
     {
-        $contactBook->upload();
+        $contactBooks->upload();
     }
 }
