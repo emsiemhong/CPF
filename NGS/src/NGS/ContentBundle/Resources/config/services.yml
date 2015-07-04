@@ -1,10 +1,10 @@
 services:
 
-    ngs_content.admin.article:
-        class: NGS\ContentBundle\Admin\ArticleAdmin
-        arguments: [~, NGS\ContentBundle\Entity\Article, SonataAdminBundle:CRUD]
+    ngs_content.admin.articles:
+        class: NGS\ContentBundle\Admin\ArticlesAdmin
+        arguments: [~, NGS\ContentBundle\Entity\Articles, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Article}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Articles}
 
     ngs_content.admin.announcement:
         class: NGS\ContentBundle\Admin\AnnouncementAdmin

@@ -26,7 +26,8 @@
 
         "twitter/bootstrap": "3.*",
         "components/jquery": "1.11.1",
-        "eternicode/bootstrap-datepicker": "dev-master"
+        "eternicode/bootstrap-datepicker": "dev-master",
+        "sonata-project/formatter-bundle": "^2.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
