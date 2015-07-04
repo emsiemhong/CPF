@@ -67,7 +67,7 @@ class EventAdmin extends Admin
 
         $formMapper
             ->add('title')
-            ->add('description')
+            ->add('description', 'ckeditor', array('required' => false))
             ->add('date')
             ->add('picture', 'file', $fileFieldOptions)
         ;

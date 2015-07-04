@@ -34,7 +34,7 @@ class ArticlesAdmin extends Admin
             ->add('title')
             ->add('description')
             ->add('type')
-            ->add('picturePath')
+            // ->add('picturePath')
             ->add('postedBy')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -67,7 +67,7 @@ class ArticlesAdmin extends Admin
 
         $formMapper
             ->add('title')
-            ->add('description', 'textarea', array('required' => false))
+            ->add('description', 'ckeditor', array('required' => false))
             ->add('type', 'sonata_type_model')
             ->add('picture', 'file', $fileFieldOptions)
         ;

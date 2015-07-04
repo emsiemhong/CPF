@@ -95,7 +95,7 @@ class ContactBooksAdmin extends Admin
 
         $formMapper
             ->add('title', 'text', array('label' => 'Name'))
-            ->add('description', 'textarea', array('required' => false))
+            ->add('description', 'ckeditor', array('required' => false))
             ->add('picture', 'file', $fileFieldOptions)
             ->add('companyName', 'text', array('required' => false))
             ->add('section', 'sonata_type_model', array())
