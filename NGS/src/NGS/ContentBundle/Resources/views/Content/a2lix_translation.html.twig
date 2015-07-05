@@ -1,0 +1,17 @@
+{% block a2lix_translations_widget %}
+    {{ form_errors(form) }}
+    <div class="a2lix_translations tabbable">
+        <div class="a2lix_translationsFields tab-content">
+        {% for translationsFields in form %}
+            {% set locale = translationsFields.vars.name %}
+            <div class="a2lix_translationsFields-{{ locale }} tab-pane {% if app.request.locale == locale %}active{% endif %}">
+                {{ form_widget(translationsFields) }}
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block a2lix_translationsForms_widget %}
+    {{ block('a2lix_translations_widget') }}
+{% endblock %}

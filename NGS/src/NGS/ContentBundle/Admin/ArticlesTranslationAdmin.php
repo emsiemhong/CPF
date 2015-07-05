@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class ArticleTypeAdmin extends Admin
+class ArticlesTranslationAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -16,8 +16,10 @@ class ArticleTypeAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('title')
+            ->add('description')
+            ->add('locale')
             ->add('id')
-            // ->add('name')
         ;
     }
 
@@ -27,8 +29,10 @@ class ArticleTypeAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('title')
+            ->add('description')
+            ->add('locale')
             ->add('id')
-            // ->add('name')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -45,7 +49,11 @@ class ArticleTypeAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name')
+            ->add('translations', 'a2lix_translations')
+            ->add('title')
+            ->add('description')
+            ->add('locale')
+            ->add('id')
         ;
     }
 
@@ -55,8 +63,10 @@ class ArticleTypeAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
+            ->add('title')
+            ->add('description')
+            ->add('locale')
             ->add('id')
-            ->add('name')
         ;
     }
 }
