@@ -4,6 +4,7 @@ namespace NGS\ContentBundle\Entity;
 
 use NGS\ContentBundle\Entity\BaseArticle;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * Event
@@ -13,6 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Event extends BaseArticle
 {
+    use ORMBehaviors\Translatable\Translatable;
+
     /**
      * @ORM\Column(name="date", type="date")
      */
@@ -43,5 +46,10 @@ class Event extends BaseArticle
     protected function getUploadDir()
     {
         return 'uploads/events';
+    }
+
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }

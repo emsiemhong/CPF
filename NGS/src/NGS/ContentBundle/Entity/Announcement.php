@@ -4,6 +4,7 @@ namespace NGS\ContentBundle\Entity;
 
 use NGS\ContentBundle\Entity\BaseArticle;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * Announcement
@@ -13,6 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Announcement extends BaseArticle
 {
+    use ORMBehaviors\Translatable\Translatable;
+
     /**
      * @ORM\Column(name="date", type="date", nullable=false)
      */
@@ -43,5 +46,10 @@ class Announcement extends BaseArticle
     protected function getUploadDir()
     {
         return 'uploads/announcements';
+    }
+
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }

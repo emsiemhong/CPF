@@ -6,6 +6,7 @@ use NGS\ContentBundle\Entity\BaseArticle;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * Library
@@ -15,12 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Library extends BaseArticle
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="author", type="string", length=255)
-     */
-    private $author;
+    use ORMBehaviors\Translatable\Translatable;
 
     /**
      * @var boolean
@@ -175,29 +171,6 @@ class Library extends BaseArticle
     }
 
     /**
-     * Set author
-     *
-     * @param string $author
-     * @return Library
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return string
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    /**
      * Set downloadable
      *
      * @param boolean $downloadable
@@ -218,5 +191,10 @@ class Library extends BaseArticle
     public function isDownloadable()
     {
         return $this->downloadable;
+    }
+
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }

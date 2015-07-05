@@ -22,26 +22,6 @@ abstract class BaseArticle
     protected $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255)
-     */
-    protected $title;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text", nullable=true)
-     */
-    protected $description;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="NGS\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="posted_by", referencedColumnName="id")
-     */
-    protected $postedBy;
-
-    /**
      * @ORM\Column(name="created", type="datetime", nullable=true)
      */
     protected $created;
@@ -77,29 +57,6 @@ abstract class BaseArticle
     }
 
     /**
-     * Set PostedBy
-     *
-     * @param User $user
-     * @return BaseArticle
-     */
-    public function setPostedBy(User $user)
-    {
-        $this->postedBy = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get PostedBy
-     *
-     * @return User
-     */
-    public function getPostedBy()
-    {
-        return $this->postedBy;
-    }
-
-    /**
      * Get id
      *
      * @return integer
@@ -107,52 +64,6 @@ abstract class BaseArticle
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return BaseArticle
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return BaseArticle
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
     /**

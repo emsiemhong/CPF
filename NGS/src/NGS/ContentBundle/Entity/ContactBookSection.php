@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use NGS\ContentBundle\Entity\ContactBooks;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * ContactBookSection
@@ -15,6 +16,8 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class ContactBookSection
 {
+    use ORMBehaviors\Translatable\Translatable;
+
     /**
      * @var integer
      *
@@ -23,13 +26,6 @@ class ContactBookSection
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
 
     /**
      * @var ArrayCollection
@@ -96,31 +92,8 @@ class ContactBookSection
         return $this->id;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return ContactBookSection
-     */
-    public function setName($name)
+    public function __call($method, $arguments)
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function __toString()
-    {
-        return (string) $this->getName();
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }
