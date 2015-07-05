@@ -17,8 +17,8 @@ class ArticlesAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('title')
-            ->add('description')
+            // ->add('title')
+            // ->add('description')
             ->add('type')
             ->add('picturePath', null, array('label' => 'Picture'))
         ;
@@ -31,11 +31,11 @@ class ArticlesAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('title')
-            ->add('description')
+            // ->add('title')
+            // ->add('description')
             ->add('type')
             // ->add('picturePath')
-            ->add('postedBy')
+            // ->add('postedBy')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -66,8 +66,8 @@ class ArticlesAdmin extends Admin
         }
 
         $formMapper
-            ->add('title')
-            ->add('description', 'ckeditor', array('required' => false))
+            // ->add('title')
+            // ->add('description', 'ckeditor', array('required' => false))
             ->add('type', 'sonata_type_model')
             ->add('picture', 'file', $fileFieldOptions)
         ;
@@ -80,8 +80,8 @@ class ArticlesAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('title')
-            ->add('description')
+            // ->add('title')
+            // ->add('description')
             ->add('type')
             ->add('picturePath', null, array('label' => 'Picture'))
             ->add('postedBy')

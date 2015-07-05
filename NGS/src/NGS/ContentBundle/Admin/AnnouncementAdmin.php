@@ -17,8 +17,8 @@ class AnnouncementAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('title')
-            ->add('description')
+            // ->add('title')
+            // ->add('description')
             ->add('date')
             ->add('picturePath', null, array('label' => 'Picture'))
         ;
@@ -31,10 +31,10 @@ class AnnouncementAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('title')
-            ->add('description')
+            // ->add('title')
+            // ->add('description')
             ->add('picturePath')
-            ->add('postedBy')
+            // ->add('postedBy')
             ->add('date')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -66,8 +66,8 @@ class AnnouncementAdmin extends Admin
         }
 
         $formMapper
-            ->add('title')
-            ->add('description', 'ckeditor')
+            // ->add('title')
+            // ->add('description', 'ckeditor')
             ->add('date')
             ->add('picture', 'file', $fileFieldOptions)
         ;
@@ -80,11 +80,11 @@ class AnnouncementAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('title')
-            ->add('description')
+            // ->add('title')
+            // ->add('description')
             ->add('date')
             ->add('picturePath', null, array('label' => 'Picture'))
-            ->add('postedBy')
+            // ->add('postedBy')
         ;
     }
 

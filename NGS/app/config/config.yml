@@ -4,6 +4,14 @@ imports:
     - { resource: services.yml }
     # - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
 
+a2lix_translation_form:
+    locale_provider: default
+    locales: [en_US, km_KH]
+    default_locale: en_US
+    required_locales: []
+    manager_registry: doctrine
+    # templating: "NGSContentBundle:Content:a2lix_translation.html.twig"
+
 sonata_formatter:
     formatters:
 

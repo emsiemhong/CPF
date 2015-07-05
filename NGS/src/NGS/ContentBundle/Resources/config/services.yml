@@ -41,3 +41,9 @@ services:
         arguments: [~, NGS\ContentBundle\Entity\ArticleType, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: ArticleType}
+
+    ngs_content.admin.articles_translation:
+        class: NGS\ContentBundle\Admin\ArticlesTranslationAdmin
+        arguments: [~, NGS\ContentBundle\Entity\ArticlesTranslation, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: ArticlesTranslation}

@@ -28,7 +28,8 @@
         "components/jquery": "1.11.1",
         "eternicode/bootstrap-datepicker": "dev-master",
         "sonata-project/formatter-bundle": "^2.3",
-        "knplabs/doctrine-behaviors": "1.1.*@dev"
+        "knplabs/doctrine-behaviors": "1.1.*@dev",
+        "a2lix/translation-form-bundle": "^2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
