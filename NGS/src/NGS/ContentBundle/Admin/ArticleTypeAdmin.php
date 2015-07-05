@@ -45,7 +45,17 @@ class ArticleTypeAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name')
+            // ->add('name')
+            ->add('translations', 'a2lix_translations', array(
+                'by_reference' => false,
+                'locales' => array('English', 'Khmer'),
+                'fields' => array(
+                    'name' => array(
+                        'label' => 'Title',
+                        'field_type' => 'text'
+                    )
+                )
+            ))
         ;
     }
 

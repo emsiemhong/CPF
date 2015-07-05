@@ -68,6 +68,20 @@ class ArticlesAdmin extends Admin
         $formMapper
             // ->add('title')
             // ->add('description', 'ckeditor', array('required' => false))
+            ->add('translations', 'a2lix_translations', array(
+                'by_reference' => false,
+                'locales' => array('English', 'Khmer'),
+                'fields' => array(
+                    'title' => array(
+                        'label' => 'Title',
+                        'field_type' => 'text'
+                    ),
+                    'description' => array(
+                        'label' => 'Description',
+                        'field_type' => 'ckeditor'
+                    )
+                )
+            ))
             ->add('type', 'sonata_type_model')
             ->add('picture', 'file', $fileFieldOptions)
         ;

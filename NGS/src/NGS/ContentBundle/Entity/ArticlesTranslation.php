@@ -4,6 +4,7 @@ namespace NGS\ContentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+use NGS\UserBundle\Entity\User;
 
 /**
  * @ORM\Table(name = "articles_translation")

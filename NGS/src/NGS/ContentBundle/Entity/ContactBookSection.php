@@ -96,4 +96,9 @@ class ContactBookSection
     {
         return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
+
+    public function __toString()
+    {
+        return (string) $this->getName();
+    }
 }

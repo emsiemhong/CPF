@@ -97,16 +97,6 @@ class ArticleType
         return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
     public function __toString()
     {
         return (string) $this->getName();
