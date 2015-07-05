@@ -5,6 +5,7 @@ namespace NGS\ContentBundle\Entity;
 use NGS\ContentBundle\Entity\BaseArticle;
 use NGS\ContentBundle\Entity\ArticleType;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * Articles
@@ -14,6 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Articles extends BaseArticle
 {
+    use ORMBehaviors\Translatable\Translatable;
+
     /**
      * @var integer
      *
@@ -63,5 +66,10 @@ class Articles extends BaseArticle
     public function getType()
     {
         return $this->type;
+    }
+
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }
