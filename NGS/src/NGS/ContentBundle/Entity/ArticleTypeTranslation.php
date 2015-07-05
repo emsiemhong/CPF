@@ -33,4 +33,13 @@ class ArticleTypeTranslation
         return $this->translatable;
     }
 
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 }
