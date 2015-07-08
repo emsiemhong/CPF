@@ -26,6 +26,8 @@ class ArticlesType extends AbstractType
         $builder
             ->add('translations', 'a2lix_translations', array (
                 'locales' => array('en_US', 'km_KH'),
+                'required_locales' => array('en_US'),
+                'label' => false,
                 'fields' => array(
                     'title' => array (
                         'field_type' => 'text',

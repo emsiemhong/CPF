@@ -1,7 +1,5 @@
-ngs:
-    content:
-        articles:
-            new: New
-            list: List
-            edit: Edit
-            delete: Delete
+new: New
+list: List
+edit: Edit
+delete: Delete
+new.message.success: Article create successfully.

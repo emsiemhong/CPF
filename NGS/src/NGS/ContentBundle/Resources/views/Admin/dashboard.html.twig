@@ -1,6 +1,6 @@
 {% extends 'NGSHomeBundle::home.html.twig' %}
 
-{% block admin_stylesheets %}
+{% block stylesheets %}
 
     {% stylesheets
         '@NGSContentBundle/Resources/public/css/dashboard.css'
@@ -43,10 +43,10 @@
                 {{ 'Articles' }}
             </div>
             <div class="col-md-1">
-                <a href="{{ path('admin_articles_new') }}">{{ 'ngs.content.articles.new|trans' }}</a>
+                <a href="{{ path('admin_article_new') }}">{{ 'new'|trans }}</a>
             </div>
             <div class="col-md-1">
-                <a href="{{ path('admin_articles') }}">{{ 'ngs.content.articles.list|trans' }}</a>
+                <a href="{{ path('admin_articles') }}">{{ 'list'|trans }}</a>
             </div>
         </div>
         {% endblock %}

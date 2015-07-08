@@ -6,9 +6,10 @@
     </div>
     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
-    {{ form_widget(form.title) }}
+    {{ form_widget(form) }}
     {# {{ form_widget(form.description) }} #}
     {# {{ form_widget(form.type) }} #}
+    <button type="submit" class="btn btn-primary">Submit</button>
     {{ form_end(form) }}
 
 {% endblock %}
