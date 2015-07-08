@@ -1,9 +1,17 @@
 {% extends 'base.html.twig' %}
 
+{% block common_stylesheets %}
+    {% stylesheets
+        '@common_css'
+        filter='cssrewrite'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+
+    {% endstylesheets %}
+{% endblock %}
 {% block stylesheets %}
 
     {% stylesheets
-        '@common_css'
         '@NGSHomeBundle/Resources/public/css/home.css'
         filter='cssrewrite'
     %}
@@ -11,7 +19,7 @@
 
     {% endstylesheets %}
 
-    {% block admin_stylesheets %}{% endblock %}
+    {# {% block admin_stylesheets %}{% endblock %} #}
     {# {% block login_stylesheets %}{% endblock %} #}
 
 {% endblock %}

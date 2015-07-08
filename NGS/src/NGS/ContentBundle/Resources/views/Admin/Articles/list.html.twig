@@ -1,0 +1,30 @@
+{% extends "NGSContentBundle:Admin:dashboard.html.twig" %}
+
+{% block admin_content %}
+    <table class="table">
+  		<tr>
+  			<th>{{ 'id'|trans }}</th>
+  			<th>{{ 'type'|trans }}</th>
+  			<th>{{ 'title'|trans }}</th>
+  			<th>{{ 'description'|trans }}</th>
+  			<th>{{ 'picturepath'|trans }}</th>
+  			<th>{{ 'created'|trans }}</th>
+  			<th>{{ 'edit'|trans }}</th>
+  			<th>{{ 'delete'|trans }}</th>
+  		</tr>
+  		{% if articles %}
+			{% for article in articles %}
+  				<tr>
+					<td>{{ article.id }}</td>	
+					<td>{{ article.type }}</td>	
+					<td>{{ article.getTitle }}</td>	
+					<td>{{ article.getDescription }}</td>	
+					<td>{{ article.getPicturePath }}</td>	
+					<td>{{ article.created }}</td>
+					<td><a href="{{ path('admin_article_edit', {id: article.id}) }}">{{ 'edit'|trans }}</a></td>
+					<td><a href="{{ path('admin_article_delete', {id: article.id}) }}">{{ 'delete'|trans }}</a></td>
+				</tr>
+			{% endfor %}
+		{% endif %}
+	</table>
+{% endblock %}

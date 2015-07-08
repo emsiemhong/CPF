@@ -10,6 +10,26 @@ use NGS\ContentBundle\Entity\Articles;
 
 class ArticlesController extends Controller
 {
+    public function indexAction()
+    {
+        $articles = $this->getDoctrine()
+            ->getRepository('NGSContentBundle:Articles')
+            ->findAll();
+
+        return $this->render('NGSContentBundle::Admin/Articles/list.html.twig', array(
+            'articles' => $articles
+        ));
+    }
+
+    public function deleteAction(Articles $article)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($article);
+        $em->flush();
+        
+        return $this->redirectToRoute('admin_dashboard');
+    }
+
     public function newAction(Request $request)
     {
         $article = new Articles();
@@ -47,5 +67,11 @@ class ArticlesController extends Controller
         );
 
         return $form;
+    }
+
+    private function uploadPicture(Articles $article)
+    {
+        $article->preUpload();
+        $article->upload();
     }
 }
