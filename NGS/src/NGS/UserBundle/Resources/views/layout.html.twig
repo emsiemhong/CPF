@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}" />
     </head>
     <body>
-        <div>
+        {# <div>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                 <a href="{{ path('fos_user_security_logout') }}">
@@ -24,7 +24,7 @@
                     </div>
                 {% endfor %}
             {% endfor %}
-        {% endif %}
+        {% endif %} #}
 
         <div id="wrap-login">
             {% block fos_user_content %}

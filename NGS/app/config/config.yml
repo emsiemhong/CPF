@@ -2,36 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    # - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
-
-a2lix_translation_form:
-    locale_provider: default
-    locales: [en_US, km_KH]
-    default_locale: en_US
-    required_locales: []
-    manager_registry: doctrine
-    # templating: "NGSContentBundle:Content:a2lix_translation.html.twig"
-
-sonata_formatter:
-    formatters:
-
-        richhtml:
-            service: sonata.formatter.text.raw
-            extensions:
-                - sonata.formatter.twig.control_flow
-                - sonata.formatter.twig.gist
-        #        - sonata.media.formatter.twig
-
-sonata_admin:
-    security:
-        handler: sonata.admin.security.handler.role
-
-sonata_block:
-    default_contexts: [cms]
-    blocks:
-        # Enable the SonataAdminBundle block
-        sonata.admin.block.admin_list:
-            contexts:   [admin]
+    - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
@@ -129,3 +100,22 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+a2lix_translation_form:
+    locale_provider: default
+    locales: [en_US, km_KH]
+    default_locale: en_US
+    required_locales: []
+    manager_registry: doctrine
+    templating: "NGSContentBundle:Content:a2lix_translation.html.twig"
+
+ivory_ck_editor:
+    js_path: "/bundles/ivoryckeditor/ckeditor.js"
+    default_config: default
+    configs:
+        default:
+            toolbar:
+                    - {name: 'styles', items: ['Styles', 'Font', 'FontSize'] }
+                    - {name: 'basicstyles', items: ['Bold', 'Italic', 'Underline']}
+                    - {name: 'colors', items: ['TextColor']}
+                    - {name: 'paragraph', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight','NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-']}

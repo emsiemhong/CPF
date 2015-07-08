@@ -17,16 +17,21 @@ class Articles extends BaseArticle
 {
     use ORMBehaviors\Translatable\Translatable;
 
+    const ABOUT_TYPE = 1;
+    const SERVICE_TYPE = 2;
+    const HOME_TYPE = 3;
+
     /**
      * @var integer
      *
-     * @ORM\ManyToOne(
-     *      targetEntity="NGS\ContentBundle\Entity\ArticleType",
-     *      inversedBy="articles",
-     * )
-     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
+     * @ORM\Column(name="type_id")
      */
     private $type;
+
+    public function __construct()
+    {
+        $this->type = self::ABOUT_TYPE;
+    }
 
     protected function getUploadDir()
     {
@@ -36,10 +41,10 @@ class Articles extends BaseArticle
     /**
      * Set Type
      *
-     * @param ArticleType $type
+     * @param integer $type
      * @return Articles
      */
-    public function setType(ArticleType $type = null)
+    public function setType($type)
     {
         $this->type = $type;
 
@@ -47,21 +52,9 @@ class Articles extends BaseArticle
     }
 
     /**
-     * Unset Type
-     *
-     * @return Articles
-     */
-    public function unsetType()
-    {
-        unset($this->type);
-
-        return $this;
-    }
-
-    /**
      * Get type
      *
-     * @return ArticleType
+     * @return integer
      */
     public function getType()
     {

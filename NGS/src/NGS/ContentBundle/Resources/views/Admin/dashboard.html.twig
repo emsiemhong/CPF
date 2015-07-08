@@ -1,0 +1,55 @@
+{% extends 'NGSHomeBundle::home.html.twig' %}
+
+{% block admin_stylesheets %}
+
+    {% stylesheets
+        '@NGSContentBundle/Resources/public/css/dashboard.css'
+        filter='cssrewrite'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="admin-header">
+        <header>
+            <div class="admin-logging">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
+            </div>
+
+            {% if app.request.hasPreviousSession %}
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="flash-{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+        </header>
+    </div>
+    <div class="admin-content">
+        {% block admin_content %}
+        <div class="row">
+            <div class="col-md-2">
+                {{ 'Articles' }}
+            </div>
+            <div class="col-md-1">
+                <a href="{{ path('admin_articles_new') }}">{{ 'ngs.content.articles.new|trans' }}</a>
+            </div>
+            <div class="col-md-1">
+                <a href="{{ path('admin_articles') }}">{{ 'ngs.content.articles.list|trans' }}</a>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+
+{% endblock %}

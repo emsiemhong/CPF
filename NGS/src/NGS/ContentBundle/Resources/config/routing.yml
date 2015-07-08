@@ -1,3 +1,23 @@
 ngs_content_about:
     path:     /about
     defaults: { _controller: NGSContentBundle:About:index }
+
+admin_dashboard:
+    path:     /dashboard
+    defaults: { _controller: NGSContentBundle:Admin/Dashboard:index }
+
+admin_articles:
+    path:     /articles
+    defaults: { _controller: NGSContentBundle:Admin/Articles:index }
+
+admin_articles_new:
+    path:     /articles/new
+    defaults: { _controller: NGSContentBundle:Admin/Articles:new }
+
+admin_articles_edit:
+    path:     /articles/edit/{id}
+    defaults: { _controller: NGSContentBundle:Admin/Articles/edit }
+
+admin_articles_delete:
+    path:     /articles/delete/{id}
+    defaults: { _controller: NGSContentBundle:Admin/Articles/delete }

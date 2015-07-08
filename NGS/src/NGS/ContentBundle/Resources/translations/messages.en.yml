@@ -1,0 +1,7 @@
+ngs:
+    content:
+        articles:
+            new: New
+            list: List
+            edit: Edit
+            delete: Delete

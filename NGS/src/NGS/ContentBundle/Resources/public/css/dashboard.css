@@ -1,0 +1,18 @@
+.admin-logging {
+    float: right;
+    margin-right: 150px;
+}
+
+.admin-header {
+    height: 40px;
+}
+
+.admin-content {
+    width: 70%;
+    margin: auto;
+    border: 1px solid;
+}
+
+body {
+    border: 1px solid red;
+}
