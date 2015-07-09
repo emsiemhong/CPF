@@ -12,99 +12,61 @@
 {% endblock %}
 
 {% block body %}
-    <div class="admin-header">
-        <header>
-            <div class="admin-logging">
-                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                    <a href="{{ path('fos_user_security_logout') }}">
-                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                    </a>
-                {% else %}
-                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                {% endif %}
-            </div>
-
-            {% if app.request.hasPreviousSession %}
-                {% for type, messages in app.session.flashbag.all() %}
-                    {% for message in messages %}
-                        <div class="flash-{{ type }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endfor %}
+    <header id="admin-header">
+        <div class="admin-logo"><a href="#">E-Construction</a></div>
+        <div class="admin-logging">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
             {% endif %}
-        </header>
-    </div>
-    <div id="admin-container">
-        <div class="admin-content">
+        </div>
+
+        {% if app.request.hasPreviousSession %}
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+    </header>
+    <div id="admin-container row">
+        <aside class="main-sidebar col-lg-3">
+            <ul id="nav">
+                <li class=""><a href="#">Dashboard</a></li>
+                <li class="row">
+                    <a class="col-sm-9 selected" href="{{ path('admin_article_new') }}">{{ 'article'|trans }}</a>
+                    <a class="col-sm-3" href="{{ path('admin_articles') }}">{{ 'list'|trans }}</a>
+                </li>
+                <li class="row">
+                    <a class="col-sm-9" href="{{ path('admin_announcement_new') }}">{{ 'announcement'|trans }}</a>
+                    <a class="col-sm-3" href="{{ path('admin_announcement') }}">{{ 'list'|trans }}</a>
+                </li>
+                <li class="row">
+                    <a class="col-sm-9" href="{{ path('admin_event_new') }}">{{ 'event'|trans }}</a>
+                    <a class="col-sm-3" href="{{ path('admin_event') }}">{{ 'list'|trans }}</a>
+                </li>
+                <li class="row">
+                    <a class="col-sm-9" href="{{ path('admin_library_new') }}">{{ 'Library'|trans }}</a>
+                    <a class="col-sm-3" href="{{ path('admin_library') }}">{{ 'list'|trans }}</a>
+                </li>
+                <li class="row">
+                    <a class="col-sm-9" href="{{ path('admin_contactbook_new') }}">{{ 'contactbook'|trans }}</a>
+                    <a class="col-sm-3" href="{{ path('admin_contactbook') }}">{{ 'list'|trans }}</a>
+                </li>
+                <li class="row">
+                    <a class="col-sm-9" href="{{ path('admin_contactbook_section_new') }}">{{ 'contactbook_section'|trans }}</a>
+                    <a class="col-sm-3" href="{{ path('admin_contactbook_section') }}">{{ 'list'|trans }}</a>
+                </li>
+            </ul>
+        </aside>
+        <div class="admin-content col-lg-9">
             {% block admin_content %}
-            <div class="row dashboard-row">
-                <div class="col-md-2">
-                    {{ 'article'|trans }}
-                </div>
-                <div class="col-md-1">
-                    <a href="{{ path('admin_article_new') }}">{{ 'new'|trans }}</a>
-                </div>
-                <div class="col-md-1">
-                    <a href="{{ path('admin_articles') }}">{{ 'list'|trans }}</a>
-                </div>
-            </div>
-            <div class="row dashboard-list">
-                <div class="col-md-2">
-                    {{ 'announcement'|trans }}
-                </div>
-                <div class="col-md-1">
-                    <a href="{{ path('admin_announcement_new') }}">{{ 'new'|trans }}</a>
-                </div>
-                <div class="col-md-1">
-                    <a href="{{ path('admin_announcement') }}">{{ 'list'|trans }}</a>
-                </div>
-            </div>
-            <div class="row dashboard-list">
-                <div class="col-md-2">
-                    {{ 'event'|trans }}
-                </div>
-                <div class="col-md-1">
-                    <a href="{{ path('admin_event_new') }}">{{ 'new'|trans }}</a>
-                </div>
-                <div class="col-md-1">
-                    <a href="{{ path('admin_event') }}">{{ 'list'|trans }}</a>
-                </div>
-            </div>
-            <div class="row dashboard-list">
-                <div class="col-md-2">
-                    {{ 'library'|trans }}
-                </div>
-                <div class="col-md-1">
-                    <a href="{{ path('admin_library_new') }}">{{ 'new'|trans }}</a>
-                </div>
-                <div class="col-md-1">
-                    <a href="{{ path('admin_library') }}">{{ 'list'|trans }}</a>
-                </div>
-            </div>
-            <div class="row dashboard-list">
-                <div class="col-md-2">
-                    {{ 'contactbook'|trans }}
-                </div>
-                <div class="col-md-1">
-                    <a href="{{ path('admin_contactbook_new') }}">{{ 'new'|trans }}</a>
-                </div>
-                <div class="col-md-1">
-                    <a href="{{ path('admin_contactbook') }}">{{ 'list'|trans }}</a>
-                </div>
-            </div>
-            <div class="row dashboard-list">
-                <div class="col-md-2">
-                    {{ 'contactbook_section'|trans }}
-                </div>
-                <div class="col-md-1">
-                    <a href="{{ path('admin_contactbook_section_new') }}">{{ 'new'|trans }}</a>
-                </div>
-                <div class="col-md-1">
-                    <a href="{{ path('admin_contactbook_section') }}">{{ 'list'|trans }}</a>
-                </div>
-            </div>
             {% endblock %}
         </div>
     </div>
