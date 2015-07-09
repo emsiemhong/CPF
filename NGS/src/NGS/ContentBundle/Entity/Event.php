@@ -24,7 +24,7 @@ class Event extends BaseArticle
     /**
      * Set date
      * @param DateTime $date
-     * @return Announcement
+     * @return Event
      */
     public function setDate(\DateTime $date)
     {

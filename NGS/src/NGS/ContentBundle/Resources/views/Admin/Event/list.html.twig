@@ -1,0 +1,41 @@
+{% extends "NGSContentBundle:Admin:dashboard.html.twig" %}
+
+{% block admin_content %}
+    <table class="table">
+        <tr>
+            <th>{{ 'title'|trans }}</th>
+            <th>{{ 'description'|trans }}</th>
+            <th>{{ 'picturepath'|trans }}</th>
+            <th>{{ 'date'|trans }}</th>
+            <th>{{ 'created'|trans }}</th>
+            <th>{{ 'postedby'|trans }}</th>
+            <th>{{ 'action'|trans }}</th>
+        </tr>
+        {% if events %}
+            {% for event in events %}
+                <tr>
+                    <td>{{ event.getTitle }}</td>
+                    <td>{{ event.getDescription|striptags }}</td>
+                    <td>{{ event.getPicturePath }}</td>
+                    <td>{{ event.getDate.format('d/m/Y') }}</td>
+                    <td>{{ event.getCreated.format('d/m/Y') }}</td>
+                    <td>{{ event.getPostedBy }}</td>
+                    <td>
+                        <a
+                            href="{{ path('admin_event_edit', {id: event.id}) }}"
+                        >
+                            {{ 'edit'|trans }}
+                        </a> |
+                        {% set confirmMessage = 'confirm.delete.message'|trans %}
+                        <a
+                            href="{{ path('admin_event_delete', {id: event.id}) }}"
+                            onClick="return confirm('{{ confirmMessage }}')"
+                        >
+                            {{ 'delete'|trans }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+{% endblock %}
