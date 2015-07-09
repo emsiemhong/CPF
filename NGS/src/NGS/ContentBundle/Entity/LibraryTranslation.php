@@ -28,40 +28,11 @@ class LibraryTranslation
     protected $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="NGS\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="posted_by", referencedColumnName="id")
-     */
-    protected $postedBy;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=255)
      */
     private $author;
-
-    /**
-     * Set PostedBy
-     *
-     * @param User $user
-     * @return Library
-     */
-    public function setPostedBy(User $user)
-    {
-        $this->postedBy = $user;
-
-        return $this->translatable;
-    }
-
-    /**
-     * Get PostedBy
-     *
-     * @return User
-     */
-    public function getPostedBy()
-    {
-        return $this->postedBy;
-    }
 
     /**
      * Set title

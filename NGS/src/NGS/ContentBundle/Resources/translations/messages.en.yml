@@ -1,5 +1,15 @@
-new: New
-list: List
-edit: Edit
-delete: Delete
+new:        New
+list:       List
+edit:       Edit
+delete:     Delete
 new.message.success: Article create successfully.
+about:      About
+service:    Service
+home:       Home
+type:       Type
+title:      Title
+description:    Description
+picturepath: Picture Path
+created: Created
+postedby: Posted By
+action: Action

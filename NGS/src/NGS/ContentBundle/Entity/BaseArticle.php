@@ -26,6 +26,12 @@ abstract class BaseArticle
      */
     protected $created;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="NGS\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="posted_by", referencedColumnName="id")
+     */
+    protected $postedBy;
+
     protected $temp;
 
     /**
@@ -43,7 +49,41 @@ abstract class BaseArticle
 
     public function __construct()
     {
-        $this->created = new \DateTime('NOW');
+        $this->created = new \DateTime();
+    }
+
+        /**
+     * Set PostedBy
+     *
+     * @param User $user
+     * @return Articles
+     */
+    public function setPostedBy(User $user)
+    {
+        $this->postedBy = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get PostedBy
+     *
+     * @return User
+     */
+    public function getPostedBy()
+    {
+        return $this->postedBy;
+    }
+
+    /**
+     * Set created
+     *
+     * @param datetime
+     * @return BaseArticle
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
     }
 
     /**

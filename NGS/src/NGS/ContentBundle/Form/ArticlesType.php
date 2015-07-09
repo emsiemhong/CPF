@@ -46,7 +46,9 @@ class ArticlesType extends AbstractType
                     Articles::HOME_TYPE => $this->translator->trans('home')
                 )
             ))
-            ->add('picture', 'file')
+            ->add('picture', 'file', array(
+                'required' => false
+            ))
         ;
     }
 

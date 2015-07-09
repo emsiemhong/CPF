@@ -29,35 +29,6 @@ class ArticlesTranslation
     protected $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="NGS\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="posted_by", referencedColumnName="id")
-     */
-    protected $postedBy;
-
-    /**
-     * Set PostedBy
-     *
-     * @param User $user
-     * @return Articles
-     */
-    public function setPostedBy(User $user)
-    {
-        $this->postedBy = $user;
-
-        return $this->translatable;
-    }
-
-    /**
-     * Get PostedBy
-     *
-     * @return User
-     */
-    public function getPostedBy()
-    {
-        return $this->postedBy;
-    }
-
-    /**
      * Set title
      *
      * @param string $title
