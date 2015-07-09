@@ -39,15 +39,70 @@
     <div id="admin-container">
         <div class="admin-content">
             {% block admin_content %}
-            <div class="row">
+            <div class="row dashboard-row">
                 <div class="col-md-2">
-                    {{ 'Articles' }}
+                    {{ 'article'|trans }}
                 </div>
                 <div class="col-md-1">
                     <a href="{{ path('admin_article_new') }}">{{ 'new'|trans }}</a>
                 </div>
                 <div class="col-md-1">
                     <a href="{{ path('admin_articles') }}">{{ 'list'|trans }}</a>
+                </div>
+            </div>
+            <div class="row dashboard-list">
+                <div class="col-md-2">
+                    {{ 'announcement'|trans }}
+                </div>
+                <div class="col-md-1">
+                    <a href="{{ path('admin_announcement_new') }}">{{ 'new'|trans }}</a>
+                </div>
+                <div class="col-md-1">
+                    <a href="{{ path('admin_announcement') }}">{{ 'list'|trans }}</a>
+                </div>
+            </div>
+            <div class="row dashboard-list">
+                <div class="col-md-2">
+                    {{ 'event'|trans }}
+                </div>
+                <div class="col-md-1">
+                    <a href="{{ path('admin_event_new') }}">{{ 'new'|trans }}</a>
+                </div>
+                <div class="col-md-1">
+                    <a href="{{ path('admin_event') }}">{{ 'list'|trans }}</a>
+                </div>
+            </div>
+            <div class="row dashboard-list">
+                <div class="col-md-2">
+                    {{ 'library'|trans }}
+                </div>
+                <div class="col-md-1">
+                    <a href="{{ path('admin_library_new') }}">{{ 'new'|trans }}</a>
+                </div>
+                <div class="col-md-1">
+                    <a href="{{ path('admin_library') }}">{{ 'list'|trans }}</a>
+                </div>
+            </div>
+            <div class="row dashboard-list">
+                <div class="col-md-2">
+                    {{ 'contactbook'|trans }}
+                </div>
+                <div class="col-md-1">
+                    <a href="{{ path('admin_contactbook_new') }}">{{ 'new'|trans }}</a>
+                </div>
+                <div class="col-md-1">
+                    <a href="{{ path('admin_contactbook') }}">{{ 'list'|trans }}</a>
+                </div>
+            </div>
+            <div class="row dashboard-list">
+                <div class="col-md-2">
+                    {{ 'contactbook_section'|trans }}
+                </div>
+                <div class="col-md-1">
+                    <a href="{{ path('admin_contactbook_section_new') }}">{{ 'new'|trans }}</a>
+                </div>
+                <div class="col-md-1">
+                    <a href="{{ path('admin_contactbook_section') }}">{{ 'list'|trans }}</a>
                 </div>
             </div>
             {% endblock %}
