@@ -36,20 +36,22 @@
             {% endif %}
         </header>
     </div>
-    <div class="admin-content">
-        {% block admin_content %}
-        <div class="row">
-            <div class="col-md-2">
-                {{ 'Articles' }}
+    <div id="admin-container">
+        <div class="admin-content">
+            {% block admin_content %}
+            <div class="row">
+                <div class="col-md-2">
+                    {{ 'Articles' }}
+                </div>
+                <div class="col-md-1">
+                    <a href="{{ path('admin_article_new') }}">{{ 'new'|trans }}</a>
+                </div>
+                <div class="col-md-1">
+                    <a href="{{ path('admin_articles') }}">{{ 'list'|trans }}</a>
+                </div>
             </div>
-            <div class="col-md-1">
-                <a href="{{ path('admin_article_new') }}">{{ 'new'|trans }}</a>
-            </div>
-            <div class="col-md-1">
-                <a href="{{ path('admin_articles') }}">{{ 'list'|trans }}</a>
-            </div>
+            {% endblock %}
         </div>
-        {% endblock %}
     </div>
 
 {% endblock %}

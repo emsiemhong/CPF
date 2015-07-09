@@ -9,7 +9,19 @@
     {{ form_widget(form) }}
     {# {{ form_widget(form.description) }} #}
     {# {{ form_widget(form.type) }} #}
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="buttons">
+
+        {% block save_button %}
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                {{ 'submit'|trans }}
+            </button>
+          </div>
+
+        {% endblock %}
+    </div>
     {{ form_end(form) }}
 
 {% endblock %}

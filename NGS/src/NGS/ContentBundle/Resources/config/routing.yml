@@ -11,13 +11,13 @@ admin_articles:
     defaults: { _controller: NGSContentBundle:Admin/Articles:index }
 
 admin_article_new:
-    path:     /articles/new
+    path:     /article/new
     defaults: { _controller: NGSContentBundle:Admin/Articles:new }
 
 admin_article_edit:
-    path:     /articles/edit/{id}
-    defaults: { _controller: NGSContentBundle:Admin/Articles/edit }
+    path:     /article/{id}/edit/
+    defaults: { _controller: NGSContentBundle:Admin/Articles:edit }
 
 admin_article_delete:
-    path:     /articles/delete/{id}
-    defaults: { _controller: NGSContentBundle:Admin/Articles/delete }
+    path:     /article/{id}/delete
+    defaults: { _controller: NGSContentBundle:Admin/Articles:delete }
