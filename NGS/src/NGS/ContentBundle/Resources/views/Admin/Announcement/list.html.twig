@@ -1,0 +1,41 @@
+{% extends "NGSContentBundle:Admin:dashboard.html.twig" %}
+
+{% block admin_content %}
+    <table class="table">
+        <tr>
+            <th>{{ 'title'|trans }}</th>
+            <th>{{ 'description'|trans }}</th>
+            <th>{{ 'picturepath'|trans }}</th>
+            <th>{{ 'date'|trans }}</th>
+            <th>{{ 'created'|trans }}</th>
+            <th>{{ 'postedby'|trans }}</th>
+            <th>{{ 'action'|trans }}</th>
+        </tr>
+        {% if announcements %}
+            {% for announcement in announcements %}
+                <tr>
+                    <td>{{ announcement.getTitle }}</td>
+                    <td>{{ announcement.getDescription|striptags }}</td>
+                    <td>{{ announcement.getPicturePath }}</td>
+                    <td>{{ announcement.getDate.format('d/m/Y') }}</td>
+                    <td>{{ announcement.getCreated.format('d/m/Y') }}</td>
+                    <td>{{ announcement.getPostedBy }}</td>
+                    <td>
+                        <a
+                            href="{{ path('admin_announcement_edit', {id: announcement.id}) }}"
+                        >
+                            {{ 'edit'|trans }}
+                        </a> |
+                        {% set confirmMessage = 'confirm.delete.message'|trans %}
+                        <a
+                            href="{{ path('admin_announcement_delete', {id: announcement.id}) }}"
+                            onClick="return confirm('{{ confirmMessage }}')"
+                        >
+                            {{ 'delete'|trans }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "NGSContentBundle:Admin:dashboard.html.twig" %}
+
+{% block admin_content %}
+    <div class="form-error error">
+    {{ form_errors(form) }}
+    </div>
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    {{ form_widget(form) }}
+    <div class="buttons">
+
+        {% block save_button %}
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                {{ 'submit'|trans }}
+            </button>
+          </div>
+
+        {% endblock %}
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}
