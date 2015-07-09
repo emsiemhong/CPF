@@ -37,14 +37,14 @@ class AnnouncementController extends Controller
 
     public function newAction(Request $request)
     {
-        $annoucement = new Announcement();
-        $form = $this->createCreateForm($annoucement);
+        $announcement = new Announcement();
+        $form = $this->createCreateForm($announcement);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $this->beforePersist($annoucement);
-            $em->persist($annoucement);
+            $this->beforePersist($announcement);
+            $em->persist($announcement);
             $em->flush();
             $this->addFlash(
                 'success',
@@ -55,16 +55,16 @@ class AnnouncementController extends Controller
         }
 
         return $this->render('NGSContentBundle::Admin/Announcement/new.html.twig', array(
-            'annoucement' => $annoucement,
+            'announcement' => $announcement,
             'form' => $form->createView()
         ));
     }
 
-    private function createCreateForm(Announcement $annoucement)
+    private function createCreateForm(Announcement $announcement)
     {
         $form = $this->createForm(
             new AnnouncementType($this->get('translator')),
-            $annoucement,
+            $announcement,
             array(
                 'action' => $this->generateUrl('admin_announcement_new'),
                 'method' => 'POST'
@@ -128,12 +128,12 @@ class AnnouncementController extends Controller
         return $form;
     }
 
-    private function beforePersist($annoucement)
+    private function beforePersist($announcement)
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
-        $annoucement->setPostedBy($user);
-        $annoucement->setCreated(new \DateTime());
-        $annoucement->preUpload();
-        $annoucement->upload();
+        $announcement->setPostedBy($user);
+        $announcement->setCreated(new \DateTime());
+        $announcement->preUpload();
+        $announcement->upload();
     }
 }

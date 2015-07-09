@@ -41,6 +41,11 @@ class Library extends BaseArticle
      */
     private $file;
 
+    public function __construct()
+    {
+        $this->downloadable = false;
+    }
+
     /**
      * Set filePath
      *
