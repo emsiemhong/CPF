@@ -7,8 +7,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EventType extends AbstractType
+class ContactBookSectionType extends AbstractType
 {
+
     private $translator;
 
     public function __construct(TranslatorInterface $translator) {
@@ -27,20 +28,12 @@ class EventType extends AbstractType
                 'required_locales' => array('en_US'),
                 'label' => false,
                 'fields' => array(
-                    'title' => array (
+                    'name' => array (
                         'field_type' => 'text',
-                        'label' => $this->translator->trans('title')
-                    ),
-                    'description' => array (
-                        'field_type' => 'ckeditor',
-                        'label' => $this->translator->trans('description')
+                        'label' => $this->translator->trans('name')
                     )
                 ),
             ))
-            ->add('date', 'date', array(
-                'days' => range(1, 31)
-            ))
-            ->add('picture')
         ;
     }
 
@@ -50,7 +43,7 @@ class EventType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'NGS\ContentBundle\Entity\Event'
+            'data_class' => 'NGS\ContentBundle\Entity\ContactBookSection'
         ));
     }
 
@@ -59,6 +52,6 @@ class EventType extends AbstractType
      */
     public function getName()
     {
-        return 'ngs_contentbundle_event';
+        return 'ngs_contentbundle_contactbooksection';
     }
 }

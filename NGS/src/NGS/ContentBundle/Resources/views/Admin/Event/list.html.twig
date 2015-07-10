@@ -1,6 +1,21 @@
 {% extends "NGSContentBundle:Admin:dashboard.html.twig" %}
 
 {% block admin_content %}
+    <div class="flash-message">
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% elseif app.session.flashBag.has('error') %}
+        <div class="alert alert-error">
+            {% for msg in app.session.flashBag.get('error') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    </div>
     <table class="table">
         <tr>
             <th>{{ 'title'|trans }}</th>

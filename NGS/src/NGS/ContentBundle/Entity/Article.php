@@ -8,12 +8,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
- * Articles
+ * Article
  *
- * @ORM\Table(name="articles")
+ * @ORM\Table(name="article")
  * @ORM\Entity
  */
-class Articles extends BaseArticle
+class Article extends BaseArticle
 {
     use ORMBehaviors\Translatable\Translatable;
 
@@ -42,7 +42,7 @@ class Articles extends BaseArticle
      * Set Type
      *
      * @param integer $type
-     * @return Articles
+     * @return Article
      */
     public function setType($type)
     {

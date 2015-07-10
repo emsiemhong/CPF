@@ -6,9 +6,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use NGS\ContentBundle\Entity\Articles;
+use NGS\ContentBundle\Entity\Article;
 
-class ArticlesType extends AbstractType
+class ArticleType extends AbstractType
 {
     private $translator;
 
@@ -41,9 +41,9 @@ class ArticlesType extends AbstractType
             ))
             ->add('type', 'choice', array(
                 'choices' => array(
-                    Articles::ABOUT_TYPE => $this->translator->trans('about'),
-                    Articles::SERVICE_TYPE => $this->translator->trans('service'),
-                    Articles::HOME_TYPE => $this->translator->trans('home')
+                    Article::ABOUT_TYPE => $this->translator->trans('about'),
+                    Article::SERVICE_TYPE => $this->translator->trans('service'),
+                    Article::HOME_TYPE => $this->translator->trans('home')
                 )
             ))
             ->add('picture', 'file', array(
@@ -58,7 +58,7 @@ class ArticlesType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'NGS\ContentBundle\Entity\Articles'
+            'data_class' => 'NGS\ContentBundle\Entity\Article'
         ));
     }
 
