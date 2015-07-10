@@ -10,9 +10,9 @@ ngs_home:
     resource: "@NGSHomeBundle/Resources/config/routing.yml"
     prefix:   /
 
-ngs_admin:
-    resource: "@NGSContentBundle/Resources/config/routing.yml"
-    prefix:   /admin
+# ngs_admin:
+#     resource: "@NGSContentBundle/Resources/config/routing.yml"
+#     prefix:   /admin
 
 app:
     resource: "@AppBundle/Controller/"

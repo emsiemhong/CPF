@@ -1,102 +1,106 @@
 ngs_event:
-    path:     /event/{id}
+    path:     event/{id}
     defaults: { _controller: NGSContentBundle:Event:show }
 
+ngs_about:
+    path:     about/{id}
+    defaults: { _controller: NGSContentBundle:About:show }
+
 ngs_service:
-    path:     /service/{id}
+    path:     service/{id}
     defaults: { _controller: NGSContentBundle:Service:show }
 
 admin_dashboard:
-    path:     /dashboard
+    path:     admin/dashboard
     defaults: { _controller: NGSContentBundle:Admin/Dashboard:index }
 
 admin_article:
-    path:     /article
+    path:     admin/article
     defaults: { _controller: NGSContentBundle:Admin/Article:index }
 
 admin_article_new:
-    path:     /article/new
+    path:     admin/article/new
     defaults: { _controller: NGSContentBundle:Admin/Article:new }
 
 admin_article_edit:
-    path:     /article/{id}/edit
+    path:     admin/article/{id}/edit
     defaults: { _controller: NGSContentBundle:Admin/Article:edit }
 
 admin_article_delete:
-    path:     /article/{id}/delete
+    path:     admin/article/{id}/delete
     defaults: { _controller: NGSContentBundle:Admin/Article:delete }
 
 admin_announcement:
-    path:     /announcement
+    path:     admin/announcement
     defaults: { _controller: NGSContentBundle:Admin/Announcement:index }
 admin_announcement_new:
-    path:     /announcement/new
+    path:     admin/announcement/new
     defaults: { _controller: NGSContentBundle:Admin/Announcement:new }
 
 admin_announcement_edit:
-    path:     /announcement/{id}/edit
+    path:     admin/announcement/{id}/edit
     defaults: { _controller: NGSContentBundle:Admin/Announcement:edit }
 
 admin_announcement_delete:
-    path:     /announcement/{id}/delete
+    path:     admin/announcement/{id}/delete
     defaults: { _controller: NGSContentBundle:Admin/Announcement:delete }
 
 admin_event:
-    path:     /event
+    path:     admin/event
     defaults: { _controller: NGSContentBundle:Admin/Event:index }
 admin_event_new:
-    path:     /event/new
+    path:     admin/event/new
     defaults: { _controller: NGSContentBundle:Admin/Event:new }
 
 admin_event_edit:
-    path:     /event/{id}/edit
+    path:     admin/event/{id}/edit
     defaults: { _controller: NGSContentBundle:Admin/Event:edit }
 
 admin_event_delete:
-    path:     /event/{id}/delete
+    path:     admin/event/{id}/delete
     defaults: { _controller: NGSContentBundle:Admin/Event:delete }
 
 admin_library:
-    path:     /library
+    path:     admin/library
     defaults: { _controller: NGSContentBundle:Admin/Library:index }
 admin_library_new:
-    path:     /library/new
+    path:     admin/library/new
     defaults: { _controller: NGSContentBundle:Admin/Library:new }
 
 admin_library_edit:
-    path:     /library/{id}/edit
+    path:     admin/library/{id}/edit
     defaults: { _controller: NGSContentBundle:Admin/Library:edit }
 
 admin_library_delete:
-    path:     /library/{id}/delete
+    path:     admin/library/{id}/delete
     defaults: { _controller: NGSContentBundle:Admin/Library:delete }
 
 admin_contactbook:
-    path:     /contactbook
+    path:     admin/contactbook
     defaults: { _controller: NGSContentBundle:Admin/ContactBook:index }
 admin_contactbook_new:
-    path:     /contactbook/new
+    path:     admin/contactbook/new
     defaults: { _controller: NGSContentBundle:Admin/ContactBook:new }
 
 admin_contactbook_edit:
-    path:     /contactbook/{id}/edit
+    path:     admin/contactbook/{id}/edit
     defaults: { _controller: NGSContentBundle:Admin/ContactBook:edit }
 
 admin_contactbook_delete:
-    path:     /contactbook/{id}/delete
+    path:     admin/contactbook/{id}/delete
     defaults: { _controller: NGSContentBundle:Admin/ContactBook:delete }
 
 admin_contactbook_section:
-    path:     /contactbook-section
+    path:     admin/contactbook-section
     defaults: { _controller: NGSContentBundle:Admin/ContactBookSection:index }
 admin_contactbook_section_new:
-    path:     /contactbook-section/new
+    path:     admin/contactbook-section/new
     defaults: { _controller: NGSContentBundle:Admin/ContactBookSection:new }
 
 admin_contactbook_section_edit:
-    path:     /contactbook-section/{id}/edit
+    path:     admin/contactbook-section/{id}/edit
     defaults: { _controller: NGSContentBundle:Admin/ContactBookSection:edit }
 
 admin_contactbook_section_delete:
-    path:     /contactbook-section/{id}/delete
+    path:     admin/contactbook-section/{id}/delete
     defaults: { _controller: NGSContentBundle:Admin/ContactBookSection:delete }
