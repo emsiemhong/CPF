@@ -9,17 +9,23 @@ class HomeController extends Controller
 {
     public function indexAction()
     {
+        $abouts = $this->getDoctrine()
+            ->getRepository('NGSContentBundle:Article')
+            ->findAllAboutType();
+
         $services = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Article')
             ->findAllServiceType();
 
         $events = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Event')
-            ->findAll();
+            ->findAllAvailable();
 
         return $this->render('NGSHomeBundle::home.html.twig', array(
             'services' => $services,
-            'events' => $events
+            'events' => $events,
+            'abouts' => $abouts,
+            'page' => 'home'
         ));
     }
 }

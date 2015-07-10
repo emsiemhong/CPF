@@ -1,9 +1,8 @@
-ngs:
-    home:
-        home: Home
-        about: About
-        service: Service
-        library: E-Library
-        contact: Contact
+home: Home
+about: About
+service: Service
+library: Library
+contact: Contact
 events: Events
 services: Services
+our_services: Our Services

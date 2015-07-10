@@ -38,21 +38,28 @@
     <div id="header_wrapper">
         <header id="header" role="banner">
             <div id="logo">
-                <a title="Home" href="#">
-                    {# <img logo.png"> #}
+                <a title="Home" href="{{ path('ngs_home_homepage') }}">
                     {% image '@NGSHomeBundle/Resources/public/images/logo.png' %}
                         <img src="{{ asset_url }}" alt="Example" />
                     {% endimage %}
                 </a>
             </div>
-            <h1 id="site-title">
-                <a title="Home" href="index.html"></a>
-                <div id="site-description"></div>
-            </h1>
             <div class="row top-right">
                 <div class="col-sm-3 social-media">
-                    <img src="../../bundles/ngshome/images/twitter.png" alt="twitter" title="twitter" />
-                    <img src="../../bundles/ngshome/images/facebook.png" alt="facebook" title="facebook" />
+                    <a href="www.twitter.com/kimly">
+                        <img
+                            src="../../bundles/ngshome/images/twitter.png"
+                            alt="twitter"
+                            title="twitter"
+                        />
+                    </a>
+                    <a href="www.facebook.com/kimly">
+                        <img
+                            src="../../bundles/ngshome/images/facebook.png"
+                            alt="facebook"
+                            title="facebook"
+                        />
+                    </a>
                 </div>
                 <div class="col-sm-3 language-switcher"><a href="">English</a> | <a href="">ខ្មែរ</a></div>
                 <div class="col-sm-6 logging">
@@ -87,33 +94,80 @@
             <div class="menu-navigation-container">
                 <ul class="menu">
                     <li class="first leaf">
-                        <a href="" class="active">Home</a>
+                        <a
+                            href="{{ path('ngs_home_homepage') }}"
+                            {% if page is defined and page == 'home' %}
+                            class="active"
+                            {% endif %}
+                        >
+                            {{ 'home'|trans }}
+                        </a>
                     </li>
                     <li class="leaf">
-                        <a href="">About</a>
-                    </li>
-                    <li class="expanded">
-                        <a href="">Service</a>
+                        <a
+                            href="{{ path('ngs_home_homepage') }}"
+                            {% if page is defined and page == 'about' %}
+                            class="active"
+                            {% endif %}
+                        >
+                            {{ 'about'|trans }}
+                        </a>
                         <ul class="menu" style="display: none;">
-                            <li class="first leaf">
-                                <a href="node/3.html">Left side bar</a>
-                            </li>
-                            <li class="leaf">
-                                <a href="right-side-bar.html">Right side bar</a>
-                            </li>
-                            <li class="leaf">
-                                <a href="left-and-right.html">Left and right sidebar</a>
-                            </li>
-                            <li class="last leaf">
-                                <a href="full-width.html">Full width</a>
-                            </li>
+                            {% if abouts is defined %}
+                                {% for about in abouts %}
+                                    <li class="leaf">
+                                        <a
+                                            href="{{ path('ngs_about', {id: about.id}) }}"
+                                        >
+                                            {{ about.getTitle }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
                         </ul>
                     </li>
                     <li class="leaf">
-                        <a href="" class="expanded">E-Library</a>
+                        <a
+                            href="{{ path('ngs_home_homepage') }}"
+                            {% if page is defined and page == 'service' %}
+                            class="active"
+                            {% endif %}
+                        >
+                            {{ 'service'|trans }}
+                        </a>
+                        <ul class="menu" style="display: none;">
+                            {% if services is defined %}
+                                {% for service in services %}
+                                    <li class="leaf">
+                                        <a
+                                            href="{{ path('ngs_service', {id: service.id}) }}"
+                                        >
+                                            {{ service.getTitle }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </li>
+                    <li class="leaf">
+                        <a
+                            href="{{ path('ngs_home_homepage') }}"
+                            {% if page is defined and page == 'library' %}
+                            class="active"
+                            {% endif %}
+                        >
+                            {{ 'library'|trans }}
+                        </a>
                     </li>
                     <li class="last leaf">
-                        <a href="">Contact</a>
+                        <a
+                            href="{{ path('ngs_home_homepage') }}"
+                            {% if page is defined and page == 'contact' %}
+                            class="active"
+                            {% endif %}
+                        >
+                            {{ 'contact'|trans }}
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -165,14 +219,15 @@
                 <div id="top-area" class="clearfix">
                     <div class="row">
                         <div class="col-sm-8">
-                            <h3>{{ 'events'|trans }}</h3>
                             <ul>
-                                {% if events %}
+                                <li class="row title">{{ 'events'|trans }}</li>
+                                {% if events is defined %}
                                     {% for event in events %}
-                                        <li>
-                                            <span>{{ event.getDate.format('d/M/Y') }}</span>
+                                        <li class="row">
+                                            <span class="col-sm-2">{{ event.getDate.format('d/M/Y') }}</span>
                                             <a
                                                 href="{{ path('ngs_event', {id: event.id}) }}"
+                                                class="col-sm-10"
                                             >
                                                 {{ event.getTitle }}
                                             </a>
@@ -182,9 +237,9 @@
                             </ul>
                         </div>
                         <div class="col-sm-4">
-                            <h3>{{ 'services'|trans }}</h3>
                             <ul>
-                                {% if services %}
+                                <li class="title">{{ 'our_services'|trans }}</li>
+                                {% if services is defined %}
                                     {% for service in services %}
                                         <li>
                                             <a
@@ -208,68 +263,50 @@
             <div id="footer-area" class="clearfix">
                 <div class="row">
                     <div class="col-sm-4">
-                        <h2>Quick links</h2>
+                        <h2>Contact Info</h2>
                         <div class="content">
                             <ul>
-                                <li>
-                                    <a href="http://www.zymphonies.com/">Zymphonies home page</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zymphonies.com/services">Zymphonies Service</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zymphonies.com/drupal-theme">Zymphonies Premium Theme</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zymphonies.com/free-themes">Zymphonies Free Theme</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zymphonies.com/request-estimate">Request An Estimate</a>
-                                </li>
+                                <li>Addrees: #38, St 350, Toul Kork, Phnom Penh</li>
+                                <li>Phone: 023 4454 4444</li>
+                                <li>Email: admin@gmail.com</li>
+                                <li>Fax: 3535353</li>
+                                <li>Website: www.facebook.com/kimly</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <h2>Quick links</h2>
+                        <h2>About</h2>
                         <div class="content">
                             <ul>
-                                <li>
-                                    <a href="http://www.zymphonies.com/">Zymphonies home page</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zymphonies.com/services">Zymphonies Service</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zymphonies.com/drupal-theme">Zymphonies Premium Theme</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zymphonies.com/free-themes">Zymphonies Free Theme</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zymphonies.com/request-estimate">Request An Estimate</a>
-                                </li>
+                                {% if abouts is defined %}
+                                {% for about in abouts %}
+                                    <li class="leaf">
+                                        <a
+                                            href="{{ path('ngs_about', {id: about.id}) }}"
+                                        >
+                                            {{ about.getTitle }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <h2>Quick links</h2>
+                        <h2>{{ 'our_services'|trans }}</h2>
                         <div class="content">
                             <ul>
-                                <li>
-                                    <a href="http://www.zymphonies.com/">Zymphonies home page</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zymphonies.com/services">Zymphonies Service</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zymphonies.com/drupal-theme">Zymphonies Premium Theme</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zymphonies.com/free-themes">Zymphonies Free Theme</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zymphonies.com/request-estimate">Request An Estimate</a>
-                                </li>
+                                {% if services is defined %}
+                                    {% for service in services %}
+                                        <li>
+                                            <a
+                                                href="{{ path('ngs_service', {id: service.id}) }}"
+                                            >
+                                                {{ service.getTitle }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
@@ -278,24 +315,8 @@
         </div>
         <div class="footer_credit">
             <div class="footer_inner_credit">
-                <div id="foot">
-                    <div class="region region-footer">
-                        <div id="block-system-powered-by" class="block block-system">
-                            <div class="content">
-                                <span>
-                                    Powered by
-                                    <a href="http://drupal.org/">Me</a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div id="copyright">
                     <p class="copyright">Copyright © 2015-2016. </p>
-                    <p class="credits">
-                        Theme by
-                        <a href="http://www.zymphonies.com/">Em Siemhong</a>
-                    </p>
                     <div class="clear"></div>
                 </div>
             </div>

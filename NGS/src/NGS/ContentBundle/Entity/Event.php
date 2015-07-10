@@ -10,7 +10,7 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  * Event
  *
  * @ORM\Table(name="event")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="NGS\ContentBundle\Repository\EventRepository")
  */
 class Event extends BaseArticle
 {
