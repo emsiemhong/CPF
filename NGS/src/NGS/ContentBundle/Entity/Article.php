@@ -11,7 +11,7 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  * Article
  *
  * @ORM\Table(name="article")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="NGS\ContentBundle\Repository\ArticleRepository")
  */
 class Article extends BaseArticle
 {

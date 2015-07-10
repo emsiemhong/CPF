@@ -50,12 +50,12 @@
                 <div id="site-description"></div>
             </h1>
             <div class="row top-right">
-                <div class="col-sm-4 social-media">
-                    <img src="../../images/twitter.png" alt="twitter" title="twitter" />
-                    <img src="../../images/facebook.png" alt="facebook" title="facebook" />
+                <div class="col-sm-3 social-media">
+                    <img src="../../bundles/ngshome/images/twitter.png" alt="twitter" title="twitter" />
+                    <img src="../../bundles/ngshome/images/facebook.png" alt="facebook" title="facebook" />
                 </div>
-                <div class="col-sm-4 language-swicher"><a href="">English</a> | <a href="">Khmer</a></div>
-                <div class="col-sm-4 logging">
+                <div class="col-sm-3 language-switcher"><a href="">English</a> | <a href="">ខ្មែរ</a></div>
+                <div class="col-sm-6 logging">
                     <div>
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                             {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -138,7 +138,7 @@
                         <div class="carousel-inner" id="slider" role="listbox">
 
                           <div class="item active">
-                            <img src="../../images/a.png" alt="Chania" style="width: 100%" height="345">
+                            <img src="../../bundles/ngshome/images/slide1.png" alt="Chania" style="width: 100%" height="345">
                             <div class="carousel-caption">
                               <h3>Chania</h3>
                               <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
@@ -146,14 +146,14 @@
                           </div>
 
                           <div class="item">
-                            <img src="../../images/b.png" alt="Chania" style="width: 100%" height="345">
+                            <img src="../../bundles/ngshome/images/slide2.png" alt="Chania" style="width: 100%" height="345">
                             <div class="carousel-caption">
                               <h3>Chania</h3>
                               <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
                             </div>
                           </div>
                           <div class="item">
-                            <img src="../../images/c.png" alt="Flower" style="width: 100%" height="345">
+                            <img src="../../bundles/ngshome/images/slide3.png" alt="Flower" style="width: 100%" height="345">
                             <div class="carousel-caption">
                               <h3>Flowers</h3>
                               <p>Beatiful flowers in Kolymbari, Crete.</p>
@@ -164,20 +164,38 @@
                 </div>
                 <div id="top-area" class="clearfix">
                     <div class="row">
-                        <div class="col-sm-4">
-                            <h3>Column 1</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                        <div class="col-sm-8">
+                            <h3>{{ 'events'|trans }}</h3>
+                            <ul>
+                                {% if events %}
+                                    {% for event in events %}
+                                        <li>
+                                            <span>{{ event.getDate.format('d/M/Y') }}</span>
+                                            <a
+                                                href="{{ path('ngs_event', {id: event.id}) }}"
+                                            >
+                                                {{ event.getTitle }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                            </ul>
                         </div>
                         <div class="col-sm-4">
-                            <h3>Column 2</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                        </div>
-                        <div class="col-sm-4">
-                            <h3>Column 3</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                            <h3>{{ 'services'|trans }}</h3>
+                            <ul>
+                                {% if services %}
+                                    {% for service in services %}
+                                        <li>
+                                            <a
+                                                href="{{ path('ngs_service', {id: service.id}) }}"
+                                            >
+                                                {{ service.getTitle }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                            </ul>
                         </div>
                     </div>
                 </div>

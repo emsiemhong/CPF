@@ -98,7 +98,7 @@ class EventController extends Controller
             return $this->redirectToRoute('admin_event');
         }
 
-        return $this->render('NGSContentBundle::Admin/event/edit.html.twig', array(
+        return $this->render('NGSContentBundle::Admin/Event/edit.html.twig', array(
             'event' => $event,
             'form'   => $form->createView(),
         ));

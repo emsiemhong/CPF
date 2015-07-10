@@ -9,6 +9,7 @@ class DashboardController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('NGSContentBundle::Admin/dashboard.html.twig');
+        return $this->redirectToRoute('admin_article');
+        // return $this->render('NGSContentBundle::Admin/dashboard.html.twig');
     }
 }
