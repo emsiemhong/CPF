@@ -37,7 +37,7 @@ abstract class BaseArticle
     /**
      * @ORM\Column(nullable=true)
      */
-    public $picturePath;
+    protected $picturePath;
 
     /**
      * @Assert\Image(
@@ -45,7 +45,7 @@ abstract class BaseArticle
      *      mimeTypesMessage = " This file is not a valid image."
      * )
      */
-    private $picture;
+    protected $picture;
 
     public function __construct()
     {
