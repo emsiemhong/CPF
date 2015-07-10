@@ -5,3 +5,5 @@ ngs:
         service: Service
         library: E-Library
         contact: Contact
+events: Events
+services: Services

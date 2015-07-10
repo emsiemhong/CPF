@@ -2,7 +2,6 @@ new:        New
 list:       List
 edit:       Edit
 delete:     Delete
-new.message.success: Article create successfully.
 about:      About
 service:    Service
 home:       Home
@@ -21,3 +20,17 @@ library: Library
 event: Event
 submit: Submit
 date : Date
+pdf_file: PDF File
+cover: Cover
+downloadable: Downloadable
+name: Name
+logo: Logo
+company_name: Company Name
+phone: Phone
+email: Email
+address: Address
+website: Website
+section: Section
+new.message.success: Created successfully.
+edit.message.success: Updated successfully.
+delete.message.success: Deleted successfully.
