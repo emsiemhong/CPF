@@ -13,7 +13,7 @@
 
 {% block body %}
     <header id="admin-header">
-        <div class="admin-logo"><a href="#">E-Construction</a></div>
+        <div class="admin-logo"><a href="{{ path('ngs_home_homepage') }}">E-Construction</a></div>
         <div class="admin-logging">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -38,30 +38,30 @@
     <div id="admin-container row">
         <aside class="main-sidebar col-lg-3">
             <ul id="nav">
-                <li class=""><a href="#">Dashboard</a></li>
+                <li class=""><a href="{{ path('admin_dashboard') }}">Dashboard</a></li>
                 <li class="row">
-                    <a class="col-sm-9 selected" href="{{ path('admin_article_new') }}">{{ 'article'|trans }}</a>
-                    <a class="col-sm-3" href="{{ path('admin_articles') }}">{{ 'list'|trans }}</a>
+                    <a class="col-sm-9 selected" href="{{ path('admin_articles') }}">{{ 'article'|trans }}</a>
+                    <a class="col-sm-3" href="{{ path('admin_article_new') }}">{{ 'new'|trans }}</a>
                 </li>
                 <li class="row">
-                    <a class="col-sm-9" href="{{ path('admin_announcement_new') }}">{{ 'announcement'|trans }}</a>
-                    <a class="col-sm-3" href="{{ path('admin_announcement') }}">{{ 'list'|trans }}</a>
+                    <a class="col-sm-9" href="{{ path('admin_announcement') }}">{{ 'announcement'|trans }}</a>
+                    <a class="col-sm-3" href="{{ path('admin_announcement_new') }}">{{ 'new'|trans }}</a>
                 </li>
                 <li class="row">
-                    <a class="col-sm-9" href="{{ path('admin_event_new') }}">{{ 'event'|trans }}</a>
-                    <a class="col-sm-3" href="{{ path('admin_event') }}">{{ 'list'|trans }}</a>
+                    <a class="col-sm-9" href="{{ path('admin_event') }}">{{ 'event'|trans }}</a>
+                    <a class="col-sm-3" href="{{ path('admin_event_new') }}">{{ 'new'|trans }}</a>
                 </li>
                 <li class="row">
-                    <a class="col-sm-9" href="{{ path('admin_library_new') }}">{{ 'Library'|trans }}</a>
-                    <a class="col-sm-3" href="{{ path('admin_library') }}">{{ 'list'|trans }}</a>
+                    <a class="col-sm-9" href="{{ path('admin_library') }}">{{ 'Library'|trans }}</a>
+                    <a class="col-sm-3" href="{{ path('admin_library_new') }}">{{ 'new'|trans }}</a>
                 </li>
                 <li class="row">
-                    <a class="col-sm-9" href="{{ path('admin_contactbook_new') }}">{{ 'contactbook'|trans }}</a>
-                    <a class="col-sm-3" href="{{ path('admin_contactbook') }}">{{ 'list'|trans }}</a>
+                    <a class="col-sm-9" href="{{ path('admin_contactbook') }}">{{ 'contactbook'|trans }}</a>
+                    <a class="col-sm-3" href="{{ path('admin_contactbook_new') }}">{{ 'new'|trans }}</a>
                 </li>
                 <li class="row">
-                    <a class="col-sm-9" href="{{ path('admin_contactbook_section_new') }}">{{ 'contactbook_section'|trans }}</a>
-                    <a class="col-sm-3" href="{{ path('admin_contactbook_section') }}">{{ 'list'|trans }}</a>
+                    <a class="col-sm-9" href="{{ path('admin_contactbook_section') }}">{{ 'contactbook_section'|trans }}</a>
+                    <a class="col-sm-3" href="{{ path('admin_contactbook_section_new') }}">{{ 'new'|trans }}</a>
                 </li>
             </ul>
         </aside>

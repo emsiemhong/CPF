@@ -1,7 +1,3 @@
-ngs_content_about:
-    path:     /about
-    defaults: { _controller: NGSContentBundle:About:index }
-
 admin_dashboard:
     path:     /dashboard
     defaults: { _controller: NGSContentBundle:Admin/Dashboard:index }
