@@ -18,34 +18,22 @@
     </div>
     <table class="table">
         <tr>
-            <th>{{ 'title'|trans }}</th>
-            <th>{{ 'description'|trans }}</th>
-            <th>{{ 'cover'|trans }}</th>
-            <th>{{ 'pdf_file'|trans }}</th>
-            <th>{{ 'downloadable'|trans }}</th>
-            <th>{{ 'created'|trans }}</th>
-            <th>{{ 'postedby'|trans }}</th>
+            <th>{{ 'name'|trans }}</th>
             <th>{{ 'action'|trans }}</th>
         </tr>
-        {% if libraries %}
-            {% for library in libraries %}
+        {% if sections %}
+            {% for section in sections %}
                 <tr>
-                    <td>{{ library.getTitle }}</td>
-                    <td>{{ library.getDescription|striptags }}</td>
-                    <td>{{ library.getPicturePath }}</td>
-                    <td>{{ library.getFilePath }}</td>
-                    <td>{{ library.isDownloadable }}</td>
-                    <td>{{ library.getCreated.format('d/m/Y') }}</td>
-                    <td>{{ library.getPostedBy }}</td>
+                    <td>{{ section.getName }}</td>
                     <td>
                         <a
-                            href="{{ path('admin_library_edit', {id: library.id}) }}"
+                            href="{{ path('admin_contactbook_section_edit', {id: section.id}) }}"
                         >
                             {{ 'edit'|trans }}
                         </a> |
                         {% set confirmMessage = 'confirm.delete.message'|trans %}
                         <a
-                            href="{{ path('admin_library_delete', {id: library.id}) }}"
+                            href="{{ path('admin_contactbook_section_delete', {id: section.id}) }}"
                             onClick="return confirm('{{ confirmMessage }}')"
                         >
                             {{ 'delete'|trans }}

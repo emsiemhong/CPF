@@ -3,7 +3,7 @@
 namespace NGS\ContentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use NGS\ContentBundle\Entity\ContactBooks;
+use NGS\ContentBundle\Entity\ContactBook;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
@@ -32,52 +32,52 @@ class ContactBookSection
      *
      * @Assert\Valid()
      * @ORM\OneToMany(
-     *      targetEntity="NGS\ContentBundle\Entity\ContactBooks",
+     *      targetEntity="NGS\ContentBundle\Entity\ContactBook",
      *      mappedBy="section",
      *      cascade={"persist", "remove"}
      * )
      */
-    private $contactBooks;
+    private $contactBook;
 
     public function __construct()
     {
-        $this->contactBooks = new ArrayCollection();
+        $this->contactBook = new ArrayCollection();
     }
 
     /**
-     * Get contactBooks
+     * Get contactBook
      *
      * @return Collection
      */
-    public function getContactBooks()
+    public function getContactBook()
     {
-        return $this->contactBooks;
+        return $this->contactBook;
     }
 
     /**
-     * Add contactBooks
+     * Add contactBook
      *
-     * @param ContactBooks $contactBooks
+     * @param ContactBook $contactBook
      * @return ContactBookSection
      */
-     public function addContactBooks(ContactBooks $contactBook)
+     public function addContactBook(ContactBook $contactBook)
      {
         $contactBook->setSection($this);
-        $this->contactBooks->add($contactBook);
+        $this->contactBook->add($contactBook);
 
         return $this;
      }
 
     /**
-     * Remove contactBooks
+     * Remove contactBook
      *
-     * @param ContactBooks $contactBooks
+     * @param ContactBook $contactBook
      * @return ContactBookSection
      */
-    public function removeContactBooks(ContactBooks $contactBook)
+    public function removeContactBook(ContactBook $contactBook)
     {
         $contactBook->unsetSection();
-        $this->contactBooks->removeElement($contactBook);
+        $this->contactBook->removeElement($contactBook);
 
         return $this;
     }

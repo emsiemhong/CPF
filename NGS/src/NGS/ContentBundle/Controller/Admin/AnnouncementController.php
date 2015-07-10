@@ -107,7 +107,7 @@ class AnnouncementController extends Controller
     /**
     * Creates a form to edit a announcement entity.
     *
-    * @param Article $entity The entity
+    * @param Announcement $announcement The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */

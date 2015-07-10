@@ -4,6 +4,12 @@
     margin-top: 15px;
 }
 
+.flash-message {
+    border-radius: 4px;
+    margin-bottom: 20px;
+    height: 54px;
+}
+
 .admin-logo {
     float: left;
     margin-top: 15px;

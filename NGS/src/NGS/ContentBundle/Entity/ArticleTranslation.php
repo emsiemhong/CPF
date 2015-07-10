@@ -7,10 +7,10 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use NGS\UserBundle\Entity\User;
 
 /**
- * @ORM\Table(name = "articles_translation")
+ * @ORM\Table(name = "article_translation")
  * @ORM\Entity
  */
-class ArticlesTranslation
+class ArticleTranslation
 {
     use ORMBehaviors\Translatable\Translation;
 
@@ -32,7 +32,7 @@ class ArticlesTranslation
      * Set title
      *
      * @param string $title
-     * @return Articles
+     * @return Article
      */
     public function setTitle($title)
     {
@@ -55,7 +55,7 @@ class ArticlesTranslation
      * Set description
      *
      * @param string $description
-     * @return Articles
+     * @return Article
      */
     public function setDescription($description)
     {

@@ -16,10 +16,11 @@
         </div>
     {% endif %}
     </div>
+
     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
     {{ form_widget(form) }}
-    <div class="buttons">
 
+    <div class="buttons">
         {% block save_button %}
             <button
                 type="submit"

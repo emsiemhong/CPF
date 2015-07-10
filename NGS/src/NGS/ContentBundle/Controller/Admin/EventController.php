@@ -107,7 +107,7 @@ class EventController extends Controller
     /**
     * Creates a form to edit a event entity.
     *
-    * @param event $entity The entity
+    * @param Event $event The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */

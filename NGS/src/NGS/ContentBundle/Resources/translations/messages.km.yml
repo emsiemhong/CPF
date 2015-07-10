@@ -1,7 +1,4 @@
-ngs:
-    content:
-        articles:
-            new: បង្កើតថ្មី
-            list: បញ្ជី
-            edit: កែប្រែ
-            delete: លុប
+new: បង្កើតថ្មី
+list: បញ្ជី
+edit: កែប្រែ
+delete: លុប

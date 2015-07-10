@@ -1,6 +1,21 @@
 {% extends "NGSContentBundle:Admin:dashboard.html.twig" %}
 
 {% block admin_content %}
+    <div class="flash-message">
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% elseif app.session.flashBag.has('error') %}
+        <div class="alert alert-error">
+            {% for msg in app.session.flashBag.get('error') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    </div>
     <table class="table">
         <tr>
             <th>{{ 'type'|trans }}</th>
@@ -14,11 +29,11 @@
         {% if articles %}
             {% for article in articles %}
                 <tr>
-                    {% if article.getType == constant('NGS\\ContentBundle\\Entity\\Articles::ABOUT_TYPE') %}
+                    {% if article.getType == constant('NGS\\ContentBundle\\Entity\\Article::ABOUT_TYPE') %}
                         <td>{{ 'about'|trans }}</td>
-                    {% elseif article.getType == constant('NGS\\ContentBundle\\Entity\\Articles::SERVICE_TYPE') %}
+                    {% elseif article.getType == constant('NGS\\ContentBundle\\Entity\\Article::SERVICE_TYPE') %}
                         <td>{{ 'service'|trans }}</td>
-                    {% elseif article.getType == constant('NGS\\ContentBundle\\Entity\\Articles::HOME_TYPE') %}
+                    {% elseif article.getType == constant('NGS\\ContentBundle\\Entity\\Article::HOME_TYPE') %}
                         <td>{{ 'home'|trans }}</td>
                     {% endif %}
                     <td>{{ article.getTitle }}</td>

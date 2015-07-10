@@ -5,23 +5,23 @@ namespace NGS\ContentBundle\Controller\Admin;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use NGS\ContentBundle\Form\ArticlesType;
-use NGS\ContentBundle\Entity\Articles;
+use NGS\ContentBundle\Form\ArticleType;
+use NGS\ContentBundle\Entity\Article;
 
-class ArticlesController extends Controller
+class ArticleController extends Controller
 {
     public function indexAction()
     {
         $articles = $this->getDoctrine()
-            ->getRepository('NGSContentBundle:Articles')
+            ->getRepository('NGSContentBundle:Article')
             ->findAll();
 
-        return $this->render('NGSContentBundle::Admin/Articles/list.html.twig', array(
+        return $this->render('NGSContentBundle::Admin/Article/list.html.twig', array(
             'articles' => $articles
         ));
     }
 
-    public function deleteAction(Articles $article)
+    public function deleteAction(Article $article)
     {
         $em = $this->getDoctrine()->getManager();
         $em->remove($article);
@@ -32,14 +32,14 @@ class ArticlesController extends Controller
             $this->get('translator')->trans('delete.message.success')
         );
 
-        return $this->redirectToRoute('admin_articles');
+        return $this->redirectToRoute('admin_article');
     }
 
     /**
      * Displays a form to edit an existing entity.
      *
      */
-    public function editAction(Articles $article, Request $request)
+    public function editAction(Article $article, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -56,10 +56,10 @@ class ArticlesController extends Controller
                 $this->get('translator')->trans('edit.message.success')
             );
 
-            return $this->redirectToRoute('admin_articles');
+            return $this->redirectToRoute('admin_article');
         }
 
-        return $this->render('NGSContentBundle::Admin/Articles/edit.html.twig', array(
+        return $this->render('NGSContentBundle::Admin/Article/edit.html.twig', array(
             'article' => $article,
             'form'   => $form->createView(),
         ));
@@ -72,10 +72,10 @@ class ArticlesController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Articles $article)
+    private function createEditForm(Article $article)
     {
         $form = $this->createForm(
-            new ArticlesType($this->get('translator'), 'edit.main'),
+            new ArticleType($this->get('translator'), 'edit.main'),
             $article,
             array(
                 'action' => $this->generateUrl(
@@ -91,7 +91,7 @@ class ArticlesController extends Controller
 
     public function newAction(Request $request)
     {
-        $article = new Articles();
+        $article = new Article();
         $form = $this->createCreateForm($article);
         $form->handleRequest($request);
 
@@ -105,19 +105,19 @@ class ArticlesController extends Controller
                 $this->get('translator')->trans('new.message.success')
             );
 
-            return $this->redirectToRoute('admin_articles');
+            return $this->redirectToRoute('admin_article');
         }
 
-        return $this->render('NGSContentBundle::Admin/Articles/new.html.twig', array(
+        return $this->render('NGSContentBundle::Admin/Article/new.html.twig', array(
             'article' => $article,
             'form' => $form->createView()
         ));
     }
 
-    private function createCreateForm(Articles $article)
+    private function createCreateForm(Article $article)
     {
         $form = $this->createForm(
-            new ArticlesType($this->get('translator')),
+            new ArticleType($this->get('translator')),
             $article,
             array(
                 'action' => $this->generateUrl('admin_article_new'),

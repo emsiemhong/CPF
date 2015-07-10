@@ -8,12 +8,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
- * ContactBooks
+ * ContactBook
  *
  * @ORM\Table(name="contact_books")
  * @ORM\Entity
  */
-class ContactBooks extends BaseArticle
+class ContactBook extends BaseArticle
 {
     use ORMBehaviors\Translatable\Translatable;
 
@@ -22,11 +22,53 @@ class ContactBooks extends BaseArticle
      *
      * @ORM\ManyToOne(
      *      targetEntity="NGS\ContentBundle\Entity\ContactBookSection",
-     *      inversedBy="contactBooks",
+     *      inversedBy="contactBook",
      * )
      * @ORM\JoinColumn(name="section_id", referencedColumnName="id")
      */
     private $section;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="company_name", type="string", length=255, nullable=true)
+     */
+    private $companyName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fax", type="string", length=255, nullable=true)
+     */
+    private $fax;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="website", type="string", length=255, nullable=true)
+     */
+    private $website;
 
     /**
      * @var string
@@ -67,7 +109,7 @@ class ContactBooks extends BaseArticle
      * Set section
      *
      * @param ContactBookSection $section
-     * @return ContactBooks
+     * @return ContactBook
      */
     public function setSection(ContactBookSection $section = null)
     {
@@ -79,7 +121,7 @@ class ContactBooks extends BaseArticle
     /**
      * Unset section
      *
-     * @return ContactBooks
+     * @return ContactBook
      */
     public function unsetSection()
     {
@@ -99,10 +141,148 @@ class ContactBooks extends BaseArticle
     }
 
     /**
+     * Set companyName
+     *
+     * @param string $companyName
+     * @return ContactBook
+     */
+    public function setCompanyName($companyName)
+    {
+        $this->companyName = $companyName;
+
+        return $this;
+    }
+
+    /**
+     * Get companyName
+     *
+     * @return string
+     */
+    public function getCompanyName()
+    {
+        return $this->companyName;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     * @return ContactBook
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return ContactBook
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     * @return ContactBook
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set fax
+     *
+     * @param string $fax
+     * @return ContactBook
+     */
+    public function setFax($fax)
+    {
+        $this->fax = $fax;
+
+        return $this;
+    }
+
+    /**
+     * Get fax
+     *
+     * @return string
+     */
+    public function getFax()
+    {
+        return $this->fax;
+    }
+
+    /**
+     * Set website
+     *
+     * @param string $website
+     * @return ContactBook
+     */
+    public function setWebsite($website)
+    {
+        $this->website = $website;
+
+        return $this;
+    }
+
+    /**
+     * Get website
+     *
+     * @return string
+     */
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    /**
      * Set facebook
      *
      * @param string $facebook
-     * @return ContactBooks
+     * @return ContactBook
      */
     public function setFacebook($facebook)
     {
@@ -125,7 +305,7 @@ class ContactBooks extends BaseArticle
      * Set google
      *
      * @param string $google
-     * @return ContactBooks
+     * @return ContactBook
      */
     public function setGoogle($google)
     {
@@ -148,7 +328,7 @@ class ContactBooks extends BaseArticle
      * Set twitter
      *
      * @param string $twitter
-     * @return ContactBooks
+     * @return ContactBook
      */
     public function setTwitter($twitter)
     {
@@ -171,7 +351,7 @@ class ContactBooks extends BaseArticle
      * Set linkedin
      *
      * @param string $linkedin
-     * @return ContactBooks
+     * @return ContactBook
      */
     public function setLinkedin($linkedin)
     {
@@ -194,7 +374,7 @@ class ContactBooks extends BaseArticle
      * Set instagram
      *
      * @param string $instagram
-     * @return ContactBooks
+     * @return ContactBook
      */
     public function setInstagram($instagram)
     {
