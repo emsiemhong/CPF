@@ -52,7 +52,8 @@ class HomeController extends Controller
             ->findAllAboutType();
 
         return $this->render('NGSHomeBundle::about_block.html.twig', array(
-            'abouts' => $abouts
+            'abouts' => $abouts,
+            'page' => 'about'
         ));
     }
 
@@ -63,7 +64,8 @@ class HomeController extends Controller
             ->findAllServiceType();
 
         return $this->render('NGSHomeBundle::service_block.html.twig', array(
-            'services' => $services
+            'services' => $services,
+            'page' => 'service'
         ));
     }
 }

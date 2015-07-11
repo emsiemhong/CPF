@@ -3,7 +3,7 @@
         {% for service in services %}
             <li>
                 <a
-                    href="{{ path('ngs_service', {id: service.id}) }}"
+                    href="{{ path('ngs_service_show', {id: service.id}) }}"
                 >
                     {{ service.getTitle }}
                 </a>

@@ -1,0 +1,10 @@
+{% extends "NGSHomeBundle::home.html.twig" %}
+
+{% block content %}
+    <div class="event-title">
+        <h3>{{ event.getTitle }}</h3>
+        <span class="event-date">{{ event.getDate.format('d/M/Y') }}</span>
+    </div>
+
+    <p>{{ event.getDescription|striptags }}</p>
+{% endblock %}

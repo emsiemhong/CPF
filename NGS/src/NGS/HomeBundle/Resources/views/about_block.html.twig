@@ -3,7 +3,7 @@
     {% for about in abouts %}
         <li class="leaf">
             <a
-                href="{{ path('ngs_about', {id: about.id}) }}"
+                href="{{ path('ngs_about_show', {id: about.id}) }}"
             >
                 {{ about.getTitle }}
             </a>

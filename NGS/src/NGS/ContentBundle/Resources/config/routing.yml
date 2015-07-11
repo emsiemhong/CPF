@@ -1,6 +1,10 @@
 ngs_event:
-    path:     event/{id}
+    path:     events
     defaults: { _controller: NGSContentBundle:Event:index }
+
+ngs_event_show:
+    path:     event/{id}
+    defaults: { _controller: NGSContentBundle:Event:event }
 
 ngs_about:
     path:     abouts
@@ -11,6 +15,10 @@ ngs_about_show:
     defaults: { _controller: NGSContentBundle:Article:about }
 
 ngs_service:
+    path:     services
+    defaults: { _controller: NGSContentBundle:Article:services }
+
+ngs_service_show:
     path:     service/{id}
     defaults: { _controller: NGSContentBundle:Article:service }
 
