@@ -1,0 +1,6 @@
+{% extends "NGSHomeBundle::home.html.twig" %}
+
+{% block content %}
+    <h3 class="title">{{ article.getTitle }}</h3>
+    <p>{{ article.getDescription|striptags }}</p>
+{% endblock %}

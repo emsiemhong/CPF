@@ -1,0 +1,10 @@
+{% extends "NGSHomeBundle::home.html.twig" %}
+
+{% block content %}
+    {% for about in abouts %}
+        <div class="row">
+            <h3 class="title">{{ about.getTitle }}</h3>
+            <p>{{ about.getDescription|striptags }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

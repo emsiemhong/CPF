@@ -1,0 +1,13 @@
+<ul>
+    {% if services is defined %}
+        {% for service in services %}
+            <li>
+                <a
+                    href="{{ path('ngs_service', {id: service.id}) }}"
+                >
+                    {{ service.getTitle }}
+                </a>
+            </li>
+        {% endfor %}
+    {% endif %}
+</ul>
