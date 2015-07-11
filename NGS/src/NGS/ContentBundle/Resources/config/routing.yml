@@ -1,14 +1,18 @@
 ngs_event:
     path:     event/{id}
-    defaults: { _controller: NGSContentBundle:Event:show }
+    defaults: { _controller: NGSContentBundle:Event:index }
 
 ngs_about:
+    path:     abouts
+    defaults: { _controller: NGSContentBundle:Article:abouts }
+
+ngs_about_show:
     path:     about/{id}
-    defaults: { _controller: NGSContentBundle:About:show }
+    defaults: { _controller: NGSContentBundle:Article:about }
 
 ngs_service:
     path:     service/{id}
-    defaults: { _controller: NGSContentBundle:Service:show }
+    defaults: { _controller: NGSContentBundle:Article:service }
 
 admin_dashboard:
     path:     admin/dashboard

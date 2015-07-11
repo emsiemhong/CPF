@@ -42,7 +42,8 @@ abstract class BaseArticle
     /**
      * @Assert\Image(
      *      maxSize="2Mi",
-     *      mimeTypesMessage = " This file is not a valid image."
+     *      mimeTypesMessage = " This file is not a valid image.",
+     *      maxSizeMessage = ""
      * )
      */
     protected $picture;

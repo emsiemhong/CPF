@@ -1,0 +1,13 @@
+<ul>
+{% if abouts is defined %}
+    {% for about in abouts %}
+        <li class="leaf">
+            <a
+                href="{{ path('ngs_about', {id: about.id}) }}"
+            >
+                {{ about.getTitle }}
+            </a>
+        </li>
+    {% endfor %}
+{% endif %}
+</ul>

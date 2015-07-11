@@ -1434,3 +1434,7 @@ input[type="button"]:hover {
 .social-media a {
     text-decoration: none;
 }
+
+h3.title {
+  border-bottom: 1px solid #bbb;
+}

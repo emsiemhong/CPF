@@ -89,90 +89,7 @@
         </header>
     </div>
     <div class="menu_wrapper">
-        <nav id="main-menu" role="navigation">
-            <a class="nav-toggle" href="#">Navigation</a>
-            <div class="menu-navigation-container">
-                <ul class="menu">
-                    <li class="first leaf">
-                        <a
-                            href="{{ path('ngs_home_homepage') }}"
-                            {% if page is defined and page == 'home' %}
-                            class="active"
-                            {% endif %}
-                        >
-                            {{ 'home'|trans }}
-                        </a>
-                    </li>
-                    <li class="leaf">
-                        <a
-                            href="{{ path('ngs_home_homepage') }}"
-                            {% if page is defined and page == 'about' %}
-                            class="active"
-                            {% endif %}
-                        >
-                            {{ 'about'|trans }}
-                        </a>
-                        <ul class="menu" style="display: none;">
-                            {% if abouts is defined %}
-                                {% for about in abouts %}
-                                    <li class="leaf">
-                                        <a
-                                            href="{{ path('ngs_about', {id: about.id}) }}"
-                                        >
-                                            {{ about.getTitle }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            {% endif %}
-                        </ul>
-                    </li>
-                    <li class="leaf">
-                        <a
-                            href="{{ path('ngs_home_homepage') }}"
-                            {% if page is defined and page == 'service' %}
-                            class="active"
-                            {% endif %}
-                        >
-                            {{ 'service'|trans }}
-                        </a>
-                        <ul class="menu" style="display: none;">
-                            {% if services is defined %}
-                                {% for service in services %}
-                                    <li class="leaf">
-                                        <a
-                                            href="{{ path('ngs_service', {id: service.id}) }}"
-                                        >
-                                            {{ service.getTitle }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            {% endif %}
-                        </ul>
-                    </li>
-                    <li class="leaf">
-                        <a
-                            href="{{ path('ngs_home_homepage') }}"
-                            {% if page is defined and page == 'library' %}
-                            class="active"
-                            {% endif %}
-                        >
-                            {{ 'library'|trans }}
-                        </a>
-                    </li>
-                    <li class="last leaf">
-                        <a
-                            href="{{ path('ngs_home_homepage') }}"
-                            {% if page is defined and page == 'contact' %}
-                            class="active"
-                            {% endif %}
-                        >
-                            {{ 'contact'|trans }}
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="clear"></div>
-        </nav>
+        {{ render(controller('NGSHomeBundle:Home:menu')) }}
     </div>
     <div id="container">
         {# <div id="sidebar-left">
@@ -277,37 +194,13 @@
                     <div class="col-sm-4">
                         <h2>About</h2>
                         <div class="content">
-                            <ul>
-                                {% if abouts is defined %}
-                                {% for about in abouts %}
-                                    <li class="leaf">
-                                        <a
-                                            href="{{ path('ngs_about', {id: about.id}) }}"
-                                        >
-                                            {{ about.getTitle }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            {% endif %}
-                            </ul>
+                            {{ render(controller('NGSHomeBundle:Home:aboutBlock')) }}
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <h2>{{ 'our_services'|trans }}</h2>
                         <div class="content">
-                            <ul>
-                                {% if services is defined %}
-                                    {% for service in services %}
-                                        <li>
-                                            <a
-                                                href="{{ path('ngs_service', {id: service.id}) }}"
-                                            >
-                                                {{ service.getTitle }}
-                                            </a>
-                                        </li>
-                                    {% endfor %}
-                                {% endif %}
-                            </ul>
+                            {{ render(controller('NGSHomeBundle:Home:serviceBlock')) }}
                         </div>
                     </div>
                 </div>
