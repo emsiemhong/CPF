@@ -34,7 +34,7 @@ class Library extends BaseArticle
 
     /**
      * @Assert\File(
-     *     maxSize = "11Mi",
+     *     maxSize = "20Mi",
      *     mimeTypes = {"application/pdf", "application/x-pdf"},
      *     mimeTypesMessage = "Please upload a valid PDF"
      * )
