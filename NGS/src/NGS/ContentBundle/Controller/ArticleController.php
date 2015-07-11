@@ -21,6 +21,18 @@ class ArticleController extends Controller
         ));
     }
 
+    public function servicesAction()
+    {
+        $services = $this->getDoctrine()
+            ->getRepository('NGSContentBundle:Article')
+            ->findAllServiceType();
+
+        return $this->render('NGSContentBundle::services.html.twig', array(
+            'services' => $services,
+            'page' => 'service'
+        ));
+    }
+
     public function aboutAction(Article $article)
     {
         return $this->render('NGSContentBundle::article.html.twig', array(

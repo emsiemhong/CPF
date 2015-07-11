@@ -798,7 +798,7 @@ body.two-sidebars #sidebar-second {
 }
 
 /* 2 columns: sidebar-first */
-/*body.sidebar-first .content-sidebar-wrap {
+body.sidebar-first .content-sidebar-wrap {
   width: 100%;
 }
 
@@ -810,7 +810,7 @@ body.sidebar-first #sidebar-first {
   width: 19%;
 }
 
- 2 columns: sidebar-second 
+/* 2 columns: sidebar-second 
 body.sidebar-second .content-sidebar-wrap {
   width: 80%;
 }
@@ -1435,6 +1435,6 @@ input[type="button"]:hover {
     text-decoration: none;
 }
 
-h3.title {
+.event-title {
   border-bottom: 1px solid #bbb;
 }

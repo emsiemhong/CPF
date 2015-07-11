@@ -1,0 +1,10 @@
+{% extends "NGSHomeBundle::home.html.twig" %}
+
+{% block content %}
+    {% for service in services %}
+        <div class="row">
+            <h3 class="title">{{ service.getTitle }}</h3>
+            <p>{{ service.getDescription|striptags }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
