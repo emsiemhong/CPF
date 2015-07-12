@@ -16,20 +16,25 @@
         </div>
     {% endif %}
     </div>
+    {% form_theme form 'NGSContentBundle:TranslationForm:a2lix_section_form.html.twig' %}
     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-    {{ form_widget(form) }}
-    <div class="buttons">
+    {{ form_widget(form.translations) }}
+    <div class="row form-group">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <div class="buttons">
+                {% block save_button %}
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        {{ 'submit'|trans }}
+                    </button>
+                  </div>
 
-        {% block save_button %}
-            <button
-                type="submit"
-                class="btn btn-primary"
-            >
-                {{ 'submit'|trans }}
-            </button>
-          </div>
-
-        {% endblock %}
+                {% endblock %}
+            </div>
+        </div>
     </div>
     {{ form_end(form) }}
 
