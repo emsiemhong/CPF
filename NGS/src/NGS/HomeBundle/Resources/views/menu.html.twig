@@ -78,6 +78,18 @@
                     {{ 'contact'|trans }}
                 </a>
             </li>
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <li class="last leaf">
+                    <a
+                        href="{{ path('admin_dashboard') }}"
+                        {% if page is defined and page == 'dashboard' %}
+                        class="active"
+                        {% endif %}
+                    >
+                        {{ 'dashboard'|trans }}
+                    </a>
+                </li>
+            {% endif %}
         </ul>
     </div>
     <div class="clear"></div>

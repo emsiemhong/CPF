@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8ce911e87e37359384790136eba7cd9a",
+    "hash": "f66b5b5ac04f0c896f46210e94b988c3",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -1038,7 +1038,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eternicode/bootstrap-datepicker/zipball/59b2e6cceb9f4c30ea93699096bef260aa43b6a9",
+                "url": "https://api.github.com/repos/eternicode/bootstrap-datepicker/zipball/90e4d8b1db276bc7de31c117e9678e4da9d8a0b4",
                 "reference": "59b2e6cceb9f4c30ea93699096bef260aa43b6a9",
                 "shasum": ""
             },
@@ -1466,6 +1466,100 @@
                 "psr-3"
             ],
             "time": "2015-06-19 13:29:54"
+        },
+        {
+            "name": "mremi/bootstrap-bundle",
+            "version": "v3.0.2",
+            "target-dir": "Mremi/BootstrapBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mremi/BootstrapBundle.git",
+                "reference": "79b6188e07f4eaf809c57007097cb2d8343f7c3f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mremi/BootstrapBundle/zipball/79b6188e07f4eaf809c57007097cb2d8343f7c3f",
+                "reference": "79b6188e07f4eaf809c57007097cb2d8343f7c3f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Mremi\\BootstrapBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rémi Marseille",
+                    "email": "marseille.remi@gmail.com"
+                }
+            ],
+            "description": "A simple way to add the Bootstrap framework in a Symfony2 project",
+            "homepage": "https://github.com/mremi/BootstrapBundle",
+            "keywords": [
+                "Symfony2",
+                "bootstrap",
+                "css",
+                "javascript"
+            ],
+            "time": "2013-11-17 15:55:12"
+        },
+        {
+            "name": "mremi/contact-bundle",
+            "version": "dev-master",
+            "target-dir": "Mremi/ContactBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mremi/ContactBundle.git",
+                "reference": "a9f9701e5a15ca5d3a009eec7c205b3cd83a34dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mremi/ContactBundle/zipball/a9f9701e5a15ca5d3a009eec7c205b3cd83a34dd",
+                "reference": "a9f9701e5a15ca5d3a009eec7c205b3cd83a34dd",
+                "shasum": ""
+            },
+            "require": {
+                "mremi/bootstrap-bundle": "~3.0",
+                "php": ">=5.3.3",
+                "symfony/form": "~2.3",
+                "symfony/framework-bundle": "~2.3"
+            },
+            "suggest": {
+                "mremi/templating-extra-bundle": "In order to profile pages, get some statistics and enhance front office development"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Mremi\\ContactBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rémi Marseille",
+                    "email": "marseille.remi@gmail.com"
+                }
+            ],
+            "description": "Implementation of a contact form for Symfony2",
+            "homepage": "https://github.com/mremi/ContactBundle",
+            "keywords": [
+                "Symfony2",
+                "contact",
+                "form"
+            ],
+            "time": "2015-02-07 17:52:54"
         },
         {
             "name": "psr/log",
@@ -2234,7 +2328,8 @@
         "friendsofsymfony/user-bundle": 20,
         "eternicode/bootstrap-datepicker": 20,
         "knplabs/doctrine-behaviors": 20,
-        "a2lix/translation-form-bundle": 20
+        "a2lix/translation-form-bundle": 20,
+        "mremi/contact-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
