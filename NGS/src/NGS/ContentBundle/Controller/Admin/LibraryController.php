@@ -14,7 +14,7 @@ class LibraryController extends Controller
     {
         $libraries = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Library')
-            ->findAll();
+            ->findBy(array(), array('created' => 'desc'));
 
         return $this->render('NGSContentBundle::Admin/Library/list.html.twig', array(
             'libraries' => $libraries
@@ -24,6 +24,8 @@ class LibraryController extends Controller
     public function deleteAction(Library $library)
     {
         $em = $this->getDoctrine()->getManager();
+        $library->removeUpload();
+        $library->removeFileUpload();
         $em->remove($library);
         $em->flush();
 

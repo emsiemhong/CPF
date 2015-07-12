@@ -13,7 +13,7 @@ class EventController extends Controller
     {
         $events = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Event')
-            ->findAll();
+            ->findBy(array(), array('date' => 'desc'));
 
         return $this->render('NGSContentBundle::index.html.twig', array(
             'events' => $events,

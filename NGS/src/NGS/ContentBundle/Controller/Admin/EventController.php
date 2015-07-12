@@ -14,7 +14,7 @@ class EventController extends Controller
     {
         $events = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Event')
-            ->findAll();
+            ->findBy(array(), array('date' => 'desc'));
 
         return $this->render('NGSContentBundle::Admin/Event/list.html.twig', array(
             'events' => $events
@@ -24,6 +24,7 @@ class EventController extends Controller
     public function deleteAction(Event $event)
     {
         $em = $this->getDoctrine()->getManager();
+        $event->removeUpload();
         $em->remove($event);
         $em->flush();
 
