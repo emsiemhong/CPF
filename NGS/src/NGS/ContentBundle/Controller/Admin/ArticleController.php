@@ -14,7 +14,7 @@ class ArticleController extends Controller
     {
         $articles = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Article')
-            ->findAll();
+            ->findAll(array(), array('created' => 'desc'));
 
         return $this->render('NGSContentBundle::Admin/Article/list.html.twig', array(
             'articles' => $articles
@@ -24,6 +24,7 @@ class ArticleController extends Controller
     public function deleteAction(Article $article)
     {
         $em = $this->getDoctrine()->getManager();
+        $article->removeUpload();
         $em->remove($article);
         $em->flush();
 

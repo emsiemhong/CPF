@@ -14,7 +14,7 @@ class ContactBookController extends Controller
     {
         $contact_books = $this->getDoctrine()
             ->getRepository('NGSContentBundle:ContactBook')
-            ->findAll();
+            ->findBy(array(), array('created' => 'desc'));
 
         return $this->render('NGSContentBundle::Admin/ContactBook/list.html.twig', array(
             'contact_books' => $contact_books
@@ -24,6 +24,7 @@ class ContactBookController extends Controller
     public function deleteAction(ContactBook $contact_book)
     {
         $em = $this->getDoctrine()->getManager();
+        $contact_book->removeUpload();
         $em->remove($contact_book);
         $em->flush();
 

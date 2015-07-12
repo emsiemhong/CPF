@@ -14,7 +14,7 @@ class AnnouncementController extends Controller
     {
         $announcements = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Announcement')
-            ->findAll();
+            ->findBy(array(), array('created' => 'desc'));
 
         return $this->render('NGSContentBundle::Admin/Announcement/list.html.twig', array(
             'announcements' => $announcements
@@ -24,6 +24,7 @@ class AnnouncementController extends Controller
     public function deleteAction(Announcement $announcement)
     {
         $em = $this->getDoctrine()->getManager();
+        $this->removeUpload();
         $em->remove($announcement);
         $em->flush();
 
