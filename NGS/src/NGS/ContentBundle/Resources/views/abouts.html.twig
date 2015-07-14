@@ -3,7 +3,7 @@
 {% block content %}
     {% for about in abouts %}
         <div class="row">
-            <h3 class="title">{{ about.getTitle }}</h3>
+            <h3 class="art-title">{{ about.getTitle }}</h3>
             <p>{{ about.getDescription|striptags }}</p>
         </div>
     {% endfor %}

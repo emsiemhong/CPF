@@ -1,3 +1,12 @@
+
+ngs_announcement_show:
+    path:     announcement/{id}
+    defaults: { _controller: NGSContentBundle:Announcement:announcement }
+
+ngs_contact_book:
+    path:     contact-book/section/{section}
+    defaults: { _controller: NGSContentBundle:ContactBook:listBySection }
+
 ngs_library:
     path:     libraries
     defaults: { _controller: NGSContentBundle:Library:index }

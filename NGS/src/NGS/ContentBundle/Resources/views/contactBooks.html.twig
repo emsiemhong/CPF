@@ -1,0 +1,32 @@
+{% extends "NGSHomeBundle::home.html.twig" %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>{{ 'logo'|trans }}</th>
+            <th>{{ 'name'|trans }}</th>
+            <th>{{ 'description'|trans }}</th>
+            <th>{{ 'company_name'|trans }}</th>
+            <th>{{ 'phone'|trans }}</th>
+            <th>{{ 'email'|trans }}</th>
+            <th>{{ 'address'|trans }}</th>
+            <th>{{ 'website'|trans }}</th>
+            <th>{{ 'facebook' }}</th>
+            <th>{{ 'section'|trans }}</th>
+        </tr>
+    {% for contactBook in contactBooks %}
+        <tr>
+            <td><img src="/uploads/contact_books/{{ contactBook.getPicturePath }}" class="img-thumb"></td>
+            <td>{{ contactBook.getTitle }}</td>
+            <td>{{ contactBook.getDescription|striptags }}</td>
+            <td>{{ contactBook.getCompanyName }}</td>
+            <td>{{ contactBook.getPhone }}</td>
+            <td>{{ contactBook.getEmail }}</td>
+            <td>{{ contactBook.getAddress }}</td>
+            <td>{{ contactBook.getWebsite }}</td>
+            <td>{{ contactBook.getFacebook }}</td>
+            <td>{{ contactBook.getSection }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

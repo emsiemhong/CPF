@@ -11,7 +11,7 @@ class EventRepository extends EntityRepository
 {
 
     /**
-     * Find all events which date bigger than current date  
+     * Find all events which date bigger than current date
      */
     public function findAllAvailable()
     {

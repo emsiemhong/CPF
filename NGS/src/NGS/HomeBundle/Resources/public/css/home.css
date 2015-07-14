@@ -1435,6 +1435,11 @@ input[type="button"]:hover {
     text-decoration: none;
 }
 
-.event-title {
-  border-bottom: 1px solid #bbb;
+.art-title {
+   border-bottom: 1px solid #ddd;
 }
+
+#top-area ul {
+    margin-bottom: 20px;
+}
+

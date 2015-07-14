@@ -16,7 +16,7 @@ class LibraryController extends Controller
 
         return $this->render('NGSContentBundle::libraries.html.twig', array(
             'libraries' => $libraries,
-            'page' => 'libraries'
+            'page' => 'library'
         ));
     }
 }

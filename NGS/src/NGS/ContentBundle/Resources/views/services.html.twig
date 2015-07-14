@@ -2,9 +2,7 @@
 
 {% block content %}
     {% for service in services %}
-        <div class="row">
-            <h3 class="title">{{ service.getTitle }}</h3>
-            <p>{{ service.getDescription|striptags }}</p>
-        </div>
+        <h3 class="art-title">{{ service.getTitle }}</h3>
+        <p>{{ service.getDescription|striptags }}</p>
     {% endfor %}
 {% endblock %}
