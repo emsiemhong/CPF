@@ -36,7 +36,13 @@
                 <tr>
                     <td>{{ contact_book.getTitle }}</td>
                     <td>{{ contact_book.getDescription|striptags }}</td>
-                    <td>{{ contact_book.getPicturePath }}</td>
+                    <td>
+                        <img
+                            src="/uploads/contact_books/{{ contact_book.getPicturePath }}"
+                            alt={{ 'logo'|trans }}
+                            class="img-thumb"
+                        >
+                    </td>
                     <td>{{ contact_book.getCompanyName }}</td>
                     <td>{{ contact_book.getPhone }}</td>
                     <td>{{ contact_book.getEmail }}</td>

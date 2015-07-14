@@ -31,7 +31,13 @@
         {% if libraries %}
             {% for library in libraries %}
                 <tr>
-                    <td><img src="/uploads/libraries/{{ library.getPicturePath }}" class="img-thumb"></td>
+                    <td>
+                        <img
+                            src="/uploads/libraries/{{ library.getPicturePath }}"
+                            alt={{ 'cover'|trans }}
+                            class="img-thumb"
+                        >
+                    </td>
                     <td>{{ library.getTitle }}</td>
                     <td>{{ library.getAuthor }}</td>
                     <td>{{ library.getDescription|striptags }}</td>

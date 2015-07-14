@@ -21,7 +21,7 @@
             <th>{{ 'type'|trans }}</th>
             <th>{{ 'title'|trans }}</th>
             <th>{{ 'description'|trans }}</th>
-            <th>{{ 'picturepath'|trans }}</th>
+            <th>{{ 'picture'|trans }}</th>
             <th>{{ 'created'|trans }}</th>
             <th>{{ 'postedby'|trans }}</th>
             <th>{{ 'action'|trans }}</th>
@@ -38,7 +38,13 @@
                     {% endif %}
                     <td>{{ article.getTitle }}</td>
                     <td>{{ article.getDescription|striptags }}</td>
-                    <td>{{ article.getPicturePath }}</td>
+                    <td>
+                        <img
+                            src="/uploads/articles/{{ article.getPicturePath }}"
+                            alt={{'picture'|trans}}
+                            class="img-thumb"
+                        >
+                    </td>
                     <td>{{ article.getCreated.format('d/m/Y') }}</td>
                     <td>{{ article.getPostedBy }}</td>
                     <td>
