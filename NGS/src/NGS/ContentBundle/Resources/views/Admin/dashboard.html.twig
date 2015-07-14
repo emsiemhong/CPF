@@ -14,15 +14,21 @@
 {% block body %}
     <header id="admin-header">
         <div class="admin-logo"><a href="{{ path('ngs_home_homepage') }}">E-Construction</a></div>
-        <div class="admin-logging">
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
+        <div class="admin-logging row">
+            <div class="col-sm-4">
+                <a href="{{ path('ngs_locale', {locale: 'en_US'}) }}">English</a> |
+                <a href="{{ path('ngs_locale', {locale: 'km_KH'}) }}">ខ្មែរ</a> 
+            </div>
+            <div class="col-sm-8">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
+            </div>
         </div>
     </header>
     <div id="admin-container row">

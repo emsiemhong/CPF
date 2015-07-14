@@ -61,7 +61,10 @@
                         />
                     </a>
                 </div>
-                <div class="col-sm-3 language-switcher"><a href="">English</a> | <a href="">ខ្មែរ</a></div>
+                <div class="col-sm-3 language-switcher">
+                    <a href="{{ path('ngs_locale', {locale: 'en_US'}) }}">English</a> |
+                    <a href="{{ path('ngs_locale', {locale: 'km_KH'}) }}">ខ្មែរ</a>
+                </div>
                 <div class="col-sm-6 logging">
                     <div>
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}

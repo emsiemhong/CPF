@@ -1,3 +1,7 @@
 ngs_home_homepage:
     path:     /
     defaults: { _controller: NGSHomeBundle:Home:index }
+
+ngs_locale:
+    path:     locale/{locale}
+    defaults: { _controller: NGSHomeBundle:Locale:locale }

@@ -2,7 +2,6 @@
 
 namespace NGS\ContentBundle\Controller\Admin;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use NGS\ContentBundle\Entity\ContactBook;
