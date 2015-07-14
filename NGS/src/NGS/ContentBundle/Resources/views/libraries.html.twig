@@ -1,0 +1,24 @@
+{% extends "NGSHomeBundle::home.html.twig" %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>{{ 'cover'|trans }}</th>
+            <th>{{ 'title'|trans }}</th>
+            <th>{{ 'author'|trans }}</th>
+            <th>{{ 'description'|trans }}</th>
+            <th>{{ 'pdf_file' }}</th>
+            <th>{{ 'downloadable'|trans }}</th>
+        </tr>
+    {% for library in libraries %}
+        <tr>
+            <td><img src="/uploads/libraries/{{ library.getPicturePath }}" alt="Cover" class="img-thumb"></td>
+            <td>{{ library.getTitle }}</td>
+            <td>{{ library.getAuthor }}</td>
+            <td>{{ library.getDescription|striptags }}</td>
+            <td>{{ library.getFilePath }}</td>
+            <td>{{ (library.isDownloadable) ? 'yes'|trans : 'no'|trans }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

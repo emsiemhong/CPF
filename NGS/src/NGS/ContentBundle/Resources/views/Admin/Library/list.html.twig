@@ -18,9 +18,10 @@
     </div>
     <table class="table">
         <tr>
-            <th>{{ 'title'|trans }}</th>
-            <th>{{ 'description'|trans }}</th>
             <th>{{ 'cover'|trans }}</th>
+            <th>{{ 'title'|trans }}</th>
+            <th>{{ 'author'|trans }}</th>
+            <th>{{ 'description'|trans }}</th>
             <th>{{ 'pdf_file'|trans }}</th>
             <th>{{ 'downloadable'|trans }}</th>
             <th>{{ 'created'|trans }}</th>
@@ -30,9 +31,10 @@
         {% if libraries %}
             {% for library in libraries %}
                 <tr>
+                    <td><img src="/uploads/libraries/{{ library.getPicturePath }}" class="img-thumb"></td>
                     <td>{{ library.getTitle }}</td>
+                    <td>{{ library.getAuthor }}</td>
                     <td>{{ library.getDescription|striptags }}</td>
-                    <td>{{ library.getPicturePath }}</td>
                     <td>{{ library.getFilePath }}</td>
                     <td>
                         {{ (library.isDownloadable) ? 'yes'|trans : 'no'|trans }}
