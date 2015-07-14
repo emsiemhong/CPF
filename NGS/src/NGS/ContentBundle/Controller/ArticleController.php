@@ -2,15 +2,15 @@
 
 namespace NGS\ContentBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use NGS\ContentBundle\Entity\Article;
 
 class ArticleController extends Controller
 {
-    public function aboutsAction()
+    public function aboutsAction(Request $request)
     {
+        dump($request->getLocale());die;
         $abouts = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Article')
             ->findAllAboutType();
