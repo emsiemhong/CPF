@@ -96,10 +96,8 @@
         {{ render(controller('NGSHomeBundle:Home:menu', {'page': page})) }}
     </div>
     <div id="container">
-        {# <div id="sidebar-left">
-        </div> #}
         <div id="content">
-            {% block content %}
+            {% if page == 'home' %}
                 <div class="region region-slideshow">
                     <div id="myCarousel" class="carousel slide slider-wrapper" data-ride="carousel">
                         <!-- Indicators -->
@@ -137,54 +135,18 @@
                         </div>
                     </div>
                 </div>
-                <div id="top-area" class="clearfix">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <ul>
-                                <li class="title">{{ 'events'|trans }}</li>
-                                {% if events is defined %}
-                                    {% for event in events %}
-                                        <li>
-                                            <a
-                                                href="{{ path('ngs_event_show', {id: event.id}) }}"
-                                            >
-                                                {{ event.getTitle }}
-                                            </a>
-                                            <div class="">{{ event.getDate.format('d/M/Y') }}</div>
-                                        </li>
-                                    {% endfor %}
-                                {% endif %}
-                            </ul>
-                            <ul>
-                                <li class="title">{{ 'announcement'|trans }}</li>
-                                {% for announcement in announcements %}
-                                    <li>
-                                        <a
-                                            href="{{ path('ngs_announcement_show', {id : announcement.id}) }}"
-                                        >
-                                            {{ announcement.getTitle }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                            <ul>
-                                <li class="title">{{ 'contact_book'|trans }}</li>
-                                {% for section in sections %}
-                                    <li>
-                                        <a
-                                            href="{{ path('ngs_contact_book', {section : section.id}) }}"
-                                        >
-                                            {{ section.getName }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <div class="col-sm-8">
-                        </div>
+            {% endif %}
+            <div id="top-area" class="clearfix">
+                <div class="row">
+                    <div class="col-sm-4">
+                        {{ render(controller('NGSHomeBundle:Home:sidebarFirst')) }}
+                    </div>
+                    <div class="col-sm-8">
+                        {% block content %}
+                        {% endblock %}
                     </div>
                 </div>
-            {% endblock %}
+            </div>
         </div>
     </div>
 
