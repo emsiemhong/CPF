@@ -1,0 +1,39 @@
+<ul>
+    <li class="title">{{ 'events'|trans }}</li>
+    {% if events is defined %}
+        {% for event in events %}
+            <li>
+                <a
+                    href="{{ path('ngs_event_show', {id: event.id}) }}"
+                >
+                    {{ event.getTitle }}
+                </a>
+                <div class="">{{ event.getDate.format('d/M/Y') }}</div>
+            </li>
+        {% endfor %}
+    {% endif %}
+</ul>
+<ul>
+    <li class="title">{{ 'announcement'|trans }}</li>
+    {% for announcement in announcements %}
+        <li>
+            <a
+                href="{{ path('ngs_announcement_show', {id : announcement.id}) }}"
+            >
+                {{ announcement.getTitle }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+<ul>
+    <li class="title">{{ 'contact_book'|trans }}</li>
+    {% for section in sections %}
+        <li>
+            <a
+                href="{{ path('ngs_contact_book', {section : section.id}) }}"
+            >
+                {{ section.getName }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
