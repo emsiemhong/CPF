@@ -1,3 +1,7 @@
+ngs_library:
+    path:     libraries
+    defaults: { _controller: NGSContentBundle:Library:index }
+
 ngs_event:
     path:     events
     defaults: { _controller: NGSContentBundle:Event:index }

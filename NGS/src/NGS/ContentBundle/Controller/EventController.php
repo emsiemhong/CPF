@@ -14,7 +14,7 @@ class EventController extends Controller
             ->getRepository('NGSContentBundle:Event')
             ->findBy(array(), array('date' => 'desc'));
 
-        return $this->render('NGSContentBundle::index.html.twig', array(
+        return $this->render('NGSContentBundle::events.html.twig', array(
             'events' => $events,
             'page' => 'event'
         ));

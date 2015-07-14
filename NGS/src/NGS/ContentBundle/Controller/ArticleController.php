@@ -10,7 +10,6 @@ class ArticleController extends Controller
 {
     public function aboutsAction(Request $request)
     {
-        dump($request->getLocale());die;
         $abouts = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Article')
             ->findAllAboutType();
