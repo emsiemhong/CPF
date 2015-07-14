@@ -8,27 +8,33 @@ class HomeController extends Controller
 {
     public function indexAction()
     {
-        $abouts = $this->getDoctrine()
-            ->getRepository('NGSContentBundle:Article')
-            ->findAllAboutType();
+        $sections = $this->getDoctrine()
+            ->getRepository('NGSContentBundle:ContactBookSection')
+            ->findAll();
 
         $services = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Article')
             ->findAllServiceType();
 
+        // The date bigger than current date is available
         $events = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Event')
             ->findAllAvailable();
 
+        $announcements = $this->getDoctrine()
+            ->getRepository('NGSContentBundle:Announcement')
+            ->findAll();
+
         return $this->render('NGSHomeBundle::home.html.twig', array(
             'services' => $services,
             'events' => $events,
-            'abouts' => $abouts,
+            'sections' => $sections,
+            'announcements' => $announcements,
             'page' => 'home'
         ));
     }
 
-    public function menuAction()
+    public function menuAction($page)
     {
         $abouts = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Article')
@@ -40,7 +46,8 @@ class HomeController extends Controller
 
         return $this->render('NGSHomeBundle::menu.html.twig', array(
             'services' => $services,
-            'abouts' => $abouts
+            'abouts' => $abouts,
+            'page' => $page
         ));
     }
 
