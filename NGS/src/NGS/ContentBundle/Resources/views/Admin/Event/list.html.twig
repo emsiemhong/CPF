@@ -20,7 +20,7 @@
         <tr>
             <th>{{ 'title'|trans }}</th>
             <th>{{ 'description'|trans }}</th>
-            <th>{{ 'picturepath'|trans }}</th>
+            <th>{{ 'picture'|trans }}</th>
             <th>{{ 'date'|trans }}</th>
             <th>{{ 'created'|trans }}</th>
             <th>{{ 'postedby'|trans }}</th>
@@ -31,7 +31,13 @@
                 <tr>
                     <td>{{ event.getTitle }}</td>
                     <td>{{ event.getDescription|striptags }}</td>
-                    <td>{{ event.getPicturePath }}</td>
+                    <td>
+                        <img
+                            src="/uploads/events/{{ event.getPicturePath }}"
+                            alt={{ 'picture'|trans }}
+                            class="img-thumb"
+                        >
+                    </td>
                     <td>{{ event.getDate.format('d/m/Y') }}</td>
                     <td>{{ event.getCreated.format('d/m/Y') }}</td>
                     <td>{{ event.getPostedBy }}</td>
