@@ -27,8 +27,7 @@
         "eternicode/bootstrap-datepicker": "dev-master",
         "knplabs/doctrine-behaviors": "1.1.*@dev",
         "a2lix/translation-form-bundle": "2.*@dev",
-        "egeloen/ckeditor-bundle": "~2.0",
-        "mremi/contact-bundle": "dev-master"
+        "egeloen/ckeditor-bundle": "~2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
