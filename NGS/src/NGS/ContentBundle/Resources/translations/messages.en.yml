@@ -9,6 +9,8 @@ service:    Service
 home:       Home
 type:       Type
 title:      Title
+download: Download
+read: Read
 description:    Description
 picturepath: Picture Path
 created: Created
@@ -33,6 +35,8 @@ email: Email
 address: Address
 website: Website
 section: Section
+subject: Subject
+message: Message
 new.message.success: Created successfully.
 edit.message.success: Updated successfully.
 delete.message.success: Deleted successfully.

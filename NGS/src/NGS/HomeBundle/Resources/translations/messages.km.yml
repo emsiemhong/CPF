@@ -1,7 +1,9 @@
-ngs:
-    home:
-        home: ទំព័រដើម
-        about: អំពី
-        service: សេវាកម្ម
-        library: បណ្ណាល័យ
-        contact: ទំនាក់ទំនង
+home: ទំព័រដើម
+about: អំពី
+service: សេវាកម្ម
+library: បណ្ណាល័យ
+contact: ទំនាក់ទំនង
+events: ព្រឹត្តិការណ៍
+services: សេវាកម្ម
+our_services: សេវាកម្មរបស់យើង
+contact_book: សៀវភៅទំនាក់ទំនង

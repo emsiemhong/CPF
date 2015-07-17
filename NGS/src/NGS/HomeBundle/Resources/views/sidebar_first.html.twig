@@ -5,10 +5,11 @@
             <li>
                 <a
                     href="{{ path('ngs_event_show', {id: event.id}) }}"
+                    title="{{ event.getTitle }}"
                 >
                     {{ event.getTitle }}
                 </a>
-                <div class="">{{ event.getDate.format('d/M/Y') }}</div>
+                <div class="date">{{ event.getDate.format('d/M/Y') }}</div>
             </li>
         {% endfor %}
     {% endif %}
@@ -19,9 +20,11 @@
         <li>
             <a
                 href="{{ path('ngs_announcement_show', {id : announcement.id}) }}"
+                title="{{ announcement.getTitle }}"
             >
                 {{ announcement.getTitle }}
             </a>
+            <div class="date">{{ event.getDate.format('d/M/Y') }}</div>
         </li>
     {% endfor %}
 </ul>
@@ -31,6 +34,7 @@
         <li>
             <a
                 href="{{ path('ngs_contact_book', {section : section.id}) }}"
+                title="{{ section.getName }}"
             >
                 {{ section.getName }}
             </a>
