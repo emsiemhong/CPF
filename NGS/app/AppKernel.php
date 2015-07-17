@@ -25,7 +25,6 @@ class AppKernel extends Kernel
             new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
-            new Mremi\ContactBundle\MremiContactBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
