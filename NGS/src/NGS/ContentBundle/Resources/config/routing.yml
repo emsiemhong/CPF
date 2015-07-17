@@ -1,3 +1,11 @@
+ngs_library_download:
+    path:     library/download/{id}
+    defaults: { _controller: NGSContentBundle:Library:download }
+
+ngs_library_read:
+    path:     library/read/{id}
+    defaults: { _controller: NGSContentBundle:Library:read }
+
 ngs_contact:
     path:     contact
     defaults: { _controller: NGSContentBundle:Contact:index }

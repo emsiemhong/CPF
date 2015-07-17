@@ -1,5 +1,39 @@
 {% extends "NGSHomeBundle::home.html.twig" %}
 
+{% block content %}
+
 {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-{{ form_widget(form) }}
+
+    <div class="row form-group">
+        <div class="col-md-2">{{ form_label(form.name) }}</div>
+        <div class="col-md-10">
+            {{ form_widget(form.name, {'attr':{'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">{{ form_label(form.email) }}</div>
+        <div class="col-md-10">
+            {{ form_widget(form.email, {'attr':{'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">{{ form_label(form.subject) }}</div>
+        <div class="col-md-10">
+            {{ form_widget(form.subject, {'attr':{'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2">{{ form_label(form.body) }}</div>
+        <div class="col-md-10">
+            {{ form_widget(form.body, {'attr':{'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2"></div>
+        <div class="col-md-10 buttons">
+            {{ form_widget(form.send, {'attr':{'class': 'btn btn-primary'}}) }}
+        </div>
+    </div>
+
 {{ form_end(form) }}
+{% endblock %}
