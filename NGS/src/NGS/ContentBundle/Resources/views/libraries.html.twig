@@ -17,7 +17,7 @@
             <td>{{ library.getAuthor }}</td>
             <td>{{ library.getDescription|striptags }}</td>
             <td><a href="{{ path('ngs_library_read', {id: library.id}) }}">{{ 'read'|trans }}</a></td>
-            <td><a href="{{ path('ngs_library_download', {id: library.id}) }}">{{ 'download'|trans }}</a></td>
+            <td><a href="{{ path('ngs_library_download', {filename: library.filePath}) }}">{{ 'download'|trans }}</a></td>
         </tr>
     {% endfor %}
     </table>

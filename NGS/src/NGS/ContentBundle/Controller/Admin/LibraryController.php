@@ -136,8 +136,8 @@ class LibraryController extends Controller
         $library->setCreated(new \DateTime());
 
         $library->preUpload();
-        $library->upload();
         $library->preUploadFile();
+        $library->upload();
         $library->uploadFile();
     }
 }
