@@ -1,5 +1,5 @@
 ngs_library_download:
-    path:     library/download/{id}
+    path:     library/download/{filename}
     defaults: { _controller: NGSContentBundle:Library:download }
 
 ngs_library_read:

@@ -1010,7 +1010,7 @@ ul.inline li {
 #top-area ul li > a {
   font-size: 14px;
   display: inline-block;
-  width: 175px;
+  width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
