@@ -29,12 +29,30 @@ class LibraryController extends Controller
 
         $response = new Response();
 
-        //set headers
         $response->headers->set('Content-Type', 'mime/type');
         $response->headers->set('Content-Disposition', 'attachment;filename="'.$filename);
 
         $response->setContent($content);
 
         return $response;
+    }
+
+    public function readAction($filename)
+    {
+        $request = $this->get('request');
+        $path = $this->get('kernel')->getRootDir(). "/../web/uploads/libraries/";
+        $content = file_get_contents($path.$filename);
+        
+        $response = new Response();
+
+        $response->headers->set('Content-Type', 'mime/type');
+        $response->headers->set('Content-Disposition', 'attachment;filename="'.$filename);
+
+        $response->setContent($content);
+
+        return $this->render('NGSContentBundle::read.html.twig', array(
+            'filename' => $filename,
+            'page' => 'library'
+        ));
     }
 }

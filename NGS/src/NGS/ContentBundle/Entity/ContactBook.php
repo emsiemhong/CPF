@@ -59,13 +59,6 @@ class ContactBook extends BaseArticle
     /**
      * @var string
      *
-     * @ORM\Column(name="fax", type="string", length=255, nullable=true)
-     */
-    private $fax;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="website", type="string", length=255, nullable=true)
      */
     private $website;
@@ -80,30 +73,9 @@ class ContactBook extends BaseArticle
     /**
      * @var string
      *
-     * @ORM\Column(name="google", type="string", length=255, nullable=true)
-     */
-    private $google;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="twitter", type="string", length=255, nullable=true)
      */
     private $twitter;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="linkedin", type="string", length=255, nullable=true)
-     */
-    private $linkedin;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="instagram", type="string", length=255, nullable=true)
-     */
-    private $instagram;
 
     /**
      * Set section
@@ -233,29 +205,6 @@ class ContactBook extends BaseArticle
     }
 
     /**
-     * Set fax
-     *
-     * @param string $fax
-     * @return ContactBook
-     */
-    public function setFax($fax)
-    {
-        $this->fax = $fax;
-
-        return $this;
-    }
-
-    /**
-     * Get fax
-     *
-     * @return string
-     */
-    public function getFax()
-    {
-        return $this->fax;
-    }
-
-    /**
      * Set website
      *
      * @param string $website
@@ -302,29 +251,6 @@ class ContactBook extends BaseArticle
     }
 
     /**
-     * Set google
-     *
-     * @param string $google
-     * @return ContactBook
-     */
-    public function setGoogle($google)
-    {
-        $this->google = $google;
-
-        return $this;
-    }
-
-    /**
-     * Get google
-     *
-     * @return string
-     */
-    public function getGoogle()
-    {
-        return $this->google;
-    }
-
-    /**
      * Set twitter
      *
      * @param string $twitter
@@ -345,52 +271,6 @@ class ContactBook extends BaseArticle
     public function getTwitter()
     {
         return $this->twitter;
-    }
-
-    /**
-     * Set linkedin
-     *
-     * @param string $linkedin
-     * @return ContactBook
-     */
-    public function setLinkedin($linkedin)
-    {
-        $this->linkedin = $linkedin;
-
-        return $this;
-    }
-
-    /**
-     * Get linkedin
-     *
-     * @return string
-     */
-    public function getLinkedin()
-    {
-        return $this->linkedin;
-    }
-
-    /**
-     * Set instagram
-     *
-     * @param string $instagram
-     * @return ContactBook
-     */
-    public function setInstagram($instagram)
-    {
-        $this->instagram = $instagram;
-
-        return $this;
-    }
-
-    /**
-     * Get instagram
-     *
-     * @return string
-     */
-    public function getInstagram()
-    {
-        return $this->instagram;
     }
 
     protected function getUploadDir()
