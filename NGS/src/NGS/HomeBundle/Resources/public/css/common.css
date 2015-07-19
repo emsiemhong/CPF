@@ -4,6 +4,10 @@
 }
 
 .thumb-ebook {
-	width: 80px;
-    height: 100px;	
+    width: 80px;
+    height: 100px;  
+}
+
+table tr th {
+    text-align: center;
 }

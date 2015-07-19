@@ -57,10 +57,6 @@ class ContactBookType extends AbstractType
                 'label' => $this->translator->trans('address'),
                 'required' => false
             ))
-            ->add('fax', 'text', array(
-                'label' => $this->translator->trans('fax'),
-                'required' => false
-            ))
             ->add('website', 'text', array(
                 'label' => $this->translator->trans('website'),
                 'required' => false
@@ -69,20 +65,8 @@ class ContactBookType extends AbstractType
                 'label' => 'Facebook',
                 'required' => false
             ))
-            ->add('google', 'text', array(
-                'label' => 'Google',
-                'required' => false
-            ))
             ->add('twitter', 'text', array(
                 'label' => 'Twitter',
-                'required' => false
-            ))
-            ->add('linkedin', 'text', array(
-                'label' => 'Linkedin',
-                'required' => false
-            ))
-            ->add('instagram', 'text', array(
-                'label' => 'Instagram',
                 'required' => false
             ))
             ->add('section', 'entity', array(

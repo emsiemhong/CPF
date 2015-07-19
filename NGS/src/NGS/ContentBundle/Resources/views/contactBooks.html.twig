@@ -16,7 +16,7 @@
         </tr>
     {% for contactBook in contactBooks %}
         <tr>
-            <td><img src="/uploads/contact_books/{{ contactBook.getPicturePath }}" class="img-thumb"></td>
+            <td style="text-align: center"><img src="/uploads/contact_books/{{ contactBook.getPicturePath }}" class="img-thumb"></td>
             <td>{{ contactBook.getTitle }}</td>
             <td>{{ contactBook.getDescription|striptags }}</td>
             <td>{{ contactBook.getCompanyName }}</td>

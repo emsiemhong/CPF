@@ -3,7 +3,7 @@ ngs_library_download:
     defaults: { _controller: NGSContentBundle:Library:download }
 
 ngs_library_read:
-    path:     library/read/{id}
+    path:     library/read/{filename}
     defaults: { _controller: NGSContentBundle:Library:read }
 
 ngs_contact:
