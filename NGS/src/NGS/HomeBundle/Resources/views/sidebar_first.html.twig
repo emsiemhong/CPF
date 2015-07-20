@@ -1,6 +1,7 @@
 <ul>
-    <li class="title">{{ 'events'|trans }}</li>
     {% if events is defined %}
+        <li class="title">{{ 'events'|trans }}</li>
+        <li><a href="{{ path('ngs_event') }}">{{ 'all'|trans }}</a></li>
         {% for event in events %}
             <li>
                 <a
@@ -15,29 +16,35 @@
     {% endif %}
 </ul>
 <ul>
-    <li class="title">{{ 'announcement'|trans }}</li>
-    {% for announcement in announcements %}
-        <li>
-            <a
-                href="{{ path('ngs_announcement_show', {id : announcement.id}) }}"
-                title="{{ announcement.getTitle }}"
-            >
-                {{ announcement.getTitle }}
-            </a>
-            <div class="date">{{ announcement.getDate.format('d/M/Y') }}</div>
-        </li>
-    {% endfor %}
+    {% if announcements is defined %}
+        <li class="title">{{ 'announcement'|trans }}</li>
+        <li><a href="{{ path('ngs_announcement') }}">{{ 'all'|trans }}</a></li>
+        {% for announcement in announcements %}
+            <li>
+                <a
+                    href="{{ path('ngs_announcement_show', {id : announcement.id}) }}"
+                    title="{{ announcement.getTitle }}"
+                >
+                    {{ announcement.getTitle }}
+                </a>
+                <div class="date">{{ announcement.getDate.format('d/M/Y') }}</div>
+            </li>
+        {% endfor %}
+    {% endif %}
 </ul>
 <ul>
-    <li class="title">{{ 'contact_book'|trans }}</li>
-    {% for section in sections %}
-        <li>
-            <a
-                href="{{ path('ngs_contact_book', {section : section.id}) }}"
-                title="{{ section.getName }}"
-            >
-                {{ section.getName }}
-            </a>
-        </li>
-    {% endfor %}
+    {% if sections is defined %}
+        <li class="title">{{ 'contact_book'|trans }}</li>
+        <li><a href="{{ path('ngs_contactbook') }}">{{ 'all'|trans }}</a></li>
+        {% for section in sections %}
+            <li>
+                <a
+                    href="{{ path('ngs_contact_book', {section : section.id}) }}"
+                    title="{{ section.getName }}"
+                >
+                    {{ section.getName }}
+                </a>
+            </li>
+        {% endfor %}
+    {% endif %}
 </ul>

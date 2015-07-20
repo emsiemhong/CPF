@@ -37,7 +37,7 @@
                         <td>{{ 'home'|trans }}</td>
                     {% endif %}
                     <td>{{ article.getTitle }}</td>
-                    <td>{{ article.getDescription|striptags }}</td>
+                    <td class="show-more">{{ article.getDescription|striptags }}</td>
                     <td>
                         <img
                             src="/uploads/articles/{{ article.getPicturePath }}"

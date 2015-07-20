@@ -2,5 +2,13 @@
 
 {% block content %}
     <h3 class="art-title">{{ article.getTitle }}</h3>
+    {% if article.getPicturePath is not null %}
+        <img
+            src="/uploads/articles/{{ article.getPicturePath }}"
+            alt="Picture"
+            class="img-medium text-wrap"
+            align="top"
+        >
+    {% endif %}
     <p>{{ article.getDescription|striptags }}</p>
 {% endblock %}

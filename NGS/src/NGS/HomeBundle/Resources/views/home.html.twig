@@ -20,9 +20,6 @@
 
     {% endstylesheets %}
 
-    {# {% block admin_stylesheets %}{% endblock %} #}
-    {# {% block login_stylesheets %}{% endblock %} #}
-
 {% endblock %}
 
 {% block javascripts %}
@@ -30,6 +27,8 @@
         '@jquery_js'
         '@bootstrap_js'
         '@NGSHomeBundle/Resources/public/js/common.js'
+        '@NGSHomeBundle/Resources/public/js/jquery.shorten.1.0.js'
+        '@NGSHomeBundle/Resources/public/js/show_more.js'
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
@@ -63,8 +62,8 @@
                     </a>
                 </div>
                 <div class="col-sm-3 language-switcher">
-                    <a href="{{ path('ngs_locale', {locale: 'en_US'}) }}">English</a> |
-                    <a href="{{ path('ngs_locale', {locale: 'km_KH'}) }}">ខ្មែរ</a>
+                    <a href="{{ path('ngs_locale', {locale: 'en'}) }}">English</a> |
+                    <a href="{{ path('ngs_locale', {locale: 'km'}) }}">ខ្មែរ</a>
                 </div>
                 <div class="col-sm-6 logging">
                     <div>
@@ -138,11 +137,45 @@
             {% endif %}
             <div id="top-area" class="clearfix">
                 <div class="row">
-                    <div class="col-sm-3 sidebar-left">
-                        {{ render(controller('NGSHomeBundle:Home:sidebarFirst')) }}
-                    </div>
-                    <div class="col-sm-9">
+                    {% if page != 'home' %}
+                        <div class="col-md-3 sidebar-left">
+                            {{ render(controller('NGSHomeBundle:Home:sidebarFirst')) }}
+                        </div>
+                        <div class="col-md-9">
+                    {% endif %}
                         {% block content %}
+                            <div class="col-md-9">
+                                {% if events is defined %}
+                                    <li class="title" style="text-align: left;">{{ 'events'|trans }}</li>
+                                    {% for event in events %}
+                                        <li>
+                                            <a
+                                                href="{{ path('ngs_event_show', {id: event.id}) }}"
+                                                title="{{ event.getTitle }}"
+                                            >
+                                                {{ event.getTitle }}
+                                            </a>
+                                            <div class="date">{{ event.getDate.format('d/M/Y') }}</div>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="col-md-3">
+                                {% if announcements is defined %}
+                                    <li class="title" style="text-align: left;">{{ 'announcement'|trans }}</li>
+                                    {% for announcement in announcements %}
+                                        <li>
+                                            <a
+                                                href="{{ path('ngs_announcement_show', {id : announcement.id}) }}"
+                                                title="{{ announcement.getTitle }}"
+                                            >
+                                                {{ announcement.getTitle }}
+                                            </a>
+                                            <div class="date">{{ announcement.getDate.format('d/M/Y') }}</div>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
                         {% endblock %}
                     </div>
                 </div>

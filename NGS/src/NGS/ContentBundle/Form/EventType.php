@@ -23,8 +23,8 @@ class EventType extends AbstractType
     {
         $builder
             ->add('translations', 'a2lix_translations', array (
-                'locales' => array('en_US', 'km_KH'),
-                'required_locales' => array('en_US'),
+                'locales' => array('en', 'km'),
+                'required_locales' => array('en'),
                 'label' => false,
                 'fields' => array(
                     'title' => array (

@@ -3,12 +3,24 @@
 namespace NGS\HomeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+         // The date bigger than current date is available
+        $events = $this->getDoctrine()
+            ->getRepository('NGSContentBundle:Event')
+            ->findAllAvailable();
+
+        $announcements = $this->getDoctrine()
+            ->getRepository('NGSContentBundle:Announcement')
+            ->findAllAvailable();
+
         return $this->render('NGSHomeBundle::home.html.twig', array(
+            'events' => $events,
+            'announcements' => $announcements,
             'page' => 'home'
         ));
     }
@@ -17,7 +29,7 @@ class HomeController extends Controller
     {
         $sections = $this->getDoctrine()
             ->getRepository('NGSContentBundle:ContactBookSection')
-            ->findAll();
+            ->findAllAvailable();
 
         // The date bigger than current date is available
         $events = $this->getDoctrine()
@@ -26,7 +38,7 @@ class HomeController extends Controller
 
         $announcements = $this->getDoctrine()
             ->getRepository('NGSContentBundle:Announcement')
-            ->findAll();
+            ->findAllAvailable();
 
         return $this->render('NGSHomeBundle::sidebar_first.html.twig', array(
             'events' => $events,

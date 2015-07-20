@@ -16,8 +16,8 @@
         <div class="admin-logo"><a href="{{ path('ngs_home_homepage') }}">E-Construction</a></div>
         <div class="admin-logging row">
             <div class="col-sm-4">
-                <a href="{{ path('ngs_locale', {locale: 'en_US'}) }}">English</a> |
-                <a href="{{ path('ngs_locale', {locale: 'km_KH'}) }}">ខ្មែរ</a> 
+                <a href="{{ path('ngs_locale', {locale: 'en'}) }}">English</a> |
+                <a href="{{ path('ngs_locale', {locale: 'km'}) }}">ខ្មែរ</a> 
             </div>
             <div class="col-sm-8">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -48,7 +48,7 @@
                     <a class="col-sm-3" href="{{ path('admin_event_new') }}">{{ 'new'|trans }}</a>
                 </li>
                 <li class="row">
-                    <a class="col-sm-9" href="{{ path('admin_library') }}">{{ 'Library'|trans }}</a>
+                    <a class="col-sm-9" href="{{ path('admin_library') }}">{{ 'library'|trans }}</a>
                     <a class="col-sm-3" href="{{ path('admin_library_new') }}">{{ 'new'|trans }}</a>
                 </li>
                 <li class="row">

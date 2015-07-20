@@ -12,7 +12,7 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  * ContactBookSection
  *
  * @ORM\Table(name="contact_book_section")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="NGS\ContentBundle\Repository\SectionRepository")
  */
 class ContactBookSection
 {
