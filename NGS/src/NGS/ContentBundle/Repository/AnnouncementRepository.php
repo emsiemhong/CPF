@@ -5,22 +5,22 @@ namespace NGS\ContentBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 
 /**
- * EventRepository
+ * AnnouncementRepository
  */
-class EventRepository extends EntityRepository
+class AnnouncementRepository extends EntityRepository
 {
 
     /**
-     * Find all events which date bigger than current date
-     * and limit max 3 record
+     * Find all announcements which date bigger than current date
+     * Limit max 3 record
      */
     public function findAllAvailable()
     {
         $qb = $this
-            ->createQueryBuilder('e')
+            ->createQueryBuilder('an')
             ->setFirstResult(0)
             ->setMaxResults(3)
-            ->where('e.date >= :current')
+            ->where('an.date >= :current')
             ->setParameter('current', new \DateTime());
 
         return $qb->getQuery()->getResult();

@@ -1,0 +1,21 @@
+{% extends "NGSHomeBundle::home.html.twig" %}
+
+{% block content %}
+    {% for announcement in announcements %}
+        <div class="row">
+            <div class="art-title">
+                <h3>{{ announcement.getTitle }}</h3>
+                <span class="announcement-date">{{ announcement.getDate.format('d/M/Y') }}</span>
+            </div>
+            {% if announcement.getPicturePath is not null %}
+                <img
+                    src="/uploads/announcements/{{ announcement.getPicturePath }}"
+                    alt="Picture"
+                    class="img-medium text-wrap"
+                    align="top"
+                >
+            {% endif %}
+            <p class="show-more-front">{{ announcement.getDescription|striptags }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -35,7 +35,7 @@
             {% for  contact_book in contact_books %}
                 <tr>
                     <td>{{ contact_book.getTitle }}</td>
-                    <td>{{ contact_book.getDescription|striptags }}</td>
+                    <td class="show-more">{{ contact_book.getDescription|striptags }}</td>
                     <td>
                         <img
                             src="/uploads/contact_books/{{ contact_book.getPicturePath }}"

@@ -6,9 +6,17 @@ ngs_library_read:
     path:     library/read/{filename}
     defaults: { _controller: NGSContentBundle:Library:read }
 
+ngs_contactbook:
+    path:     contact-books
+    defaults: { _controller: NGSContentBundle:ContactBook:index }
+
 ngs_contact:
     path:     contact
     defaults: { _controller: NGSContentBundle:Contact:index }
+
+ngs_announcement:
+    path:     announcements
+    defaults: { _controller: NGSContentBundle:Announcement:index }
 
 ngs_announcement_show:
     path:     announcement/{id}

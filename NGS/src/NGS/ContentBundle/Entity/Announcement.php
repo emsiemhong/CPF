@@ -10,7 +10,7 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  * Announcement
  *
  * @ORM\Table(name="announcement")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="NGS\ContentBundle\Repository\AnnouncementRepository")
  */
 class Announcement extends BaseArticle
 {

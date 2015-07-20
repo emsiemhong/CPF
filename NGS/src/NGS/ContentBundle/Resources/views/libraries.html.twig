@@ -15,7 +15,7 @@
             <td style="text-align: center"><img src="/uploads/libraries/{{ library.getPicturePath }}" alt="Cover" class="thumb-ebook"></td>
             <td>{{ library.getTitle }}</td>
             <td>{{ library.getAuthor }}</td>
-            <td>{{ library.getDescription|striptags }}</td>
+            <td class="show-more">{{ library.getDescription|striptags }}</td>
             <td style="text-align: center">
                 <a
                     href="{{ path('ngs_library_read', {filename: library.filePath}) }}"

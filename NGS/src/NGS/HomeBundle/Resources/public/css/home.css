@@ -178,39 +178,8 @@ a:hover {
   color: #21759b;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: Arial;
-  margin-bottom: 6px;
-  line-height: 125%;
-}
-
-h1 {
-  font-size: 20px;
-}
-
-h2 {
-  font-size: 18px;
-}
-
 h3 {
-  font-size: 16px;
-}
-
-h4 {
-  font-size: 16px;
-}
-
-h5 {
-  font-size: 15px;
-}
-
-h6 {
-  font-size: 14px;
+  margin-bottom: 6px;
 }
 
 p {
@@ -954,8 +923,15 @@ ul.inline li {
     text-decoration: none;
 }
 
+div > h3 {
+   text-transform: uppercase;
+   color: #555;
+   font-family: Arial;
+   font-weight: bold;
+}
+
 .art-title {
-   border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 #top-area {
@@ -982,9 +958,7 @@ ul.inline li {
 #top-area li.title {
     border-bottom: 1px solid #ccc;
     color: #555;
-    font-family: Arial;
     font-size: 18px;
-    font-weight: normal;
     text-align: center;
     text-transform: uppercase;
 }
@@ -1020,4 +994,9 @@ ul.inline li {
 
 .sidebar-left {
   padding-left: 0;
+}
+
+.text-wrap {
+  float: right;
+  margin: 10px;  
 }

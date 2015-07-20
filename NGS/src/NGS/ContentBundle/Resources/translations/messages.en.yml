@@ -1,3 +1,13 @@
+home: Home
+about: About
+service: Service
+library: Library
+contact: Contact
+events: Events
+services: Services
+our_services: Our Services
+contact_book: Contact Book
+
 no: No
 yes: Yes
 new:        New
@@ -10,6 +20,7 @@ home:       Home
 type:       Type
 title:      Title
 download: Download
+picture: Picture
 read: Read
 description:    Description
 picturepath: Picture Path
@@ -27,6 +38,7 @@ date : Date
 pdf_file: PDF File
 cover: Cover
 downloadable: Downloadable
+dashboard: Dashboard
 name: Name
 logo: Logo
 company_name: Company Name
@@ -40,3 +52,4 @@ message: Message
 new.message.success: Created successfully.
 edit.message.success: Updated successfully.
 delete.message.success: Deleted successfully.
+confirm.delete.message: Are you sure?

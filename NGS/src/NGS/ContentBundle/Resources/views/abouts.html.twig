@@ -4,7 +4,15 @@
     {% for about in abouts %}
         <div class="row">
             <h3 class="art-title">{{ about.getTitle }}</h3>
-            <p>{{ about.getDescription|striptags }}</p>
+            {% if about.getPicturePath is not null %}
+                <img
+                    src="/uploads/articles/{{ about.getPicturePath }}"
+                    alt="Picture"
+                    class="img-medium text-wrap"
+                    align="top"
+                >
+            {% endif %}
+            <p class="show-more-front">{{ about.getDescription|striptags }}</p>
         </div>
     {% endfor %}
 {% endblock %}

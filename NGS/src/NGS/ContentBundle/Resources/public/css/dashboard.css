@@ -30,7 +30,6 @@
 
 .admin-content {
     max-width: 85%;
-    /*margin-left: 250px;*/
     height: 100px;
     background-color: #fff;
     padding: 15px;
@@ -39,7 +38,7 @@
 .main-sidebar {
     background-color: #171717;
     width: 250px;
-    height: 500px;
+    height: 600px;
     float: left;
 }
 

@@ -1,3 +1,4 @@
+all: All
 home: Home
 about: About
 service: Service

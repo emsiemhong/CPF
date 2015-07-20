@@ -1,3 +1,13 @@
+home: ទំព័រដើម
+about: អំពី
+service: សេវាកម្ម
+library: បណ្ណាល័យ
+contact: ទំនាក់ទំនង
+events: ព្រឹត្តិការណ៍
+services: សេវាកម្ម
+our_services: សេវាកម្មរបស់យើង
+contact_book: សៀវភៅទំនាក់ទំនង
+
 no: ទេ
 yes: បាទ
 new:        ថ្មី
@@ -10,6 +20,7 @@ home:       ទំព័រដើម
 type:       ប្រភេទ
 title:      ចំណង់ជើង
 download: ទាញយក
+picture: រូបភាព
 read: អាន
 description:    ពិពណ៌នា
 picturepath: កន្លែងផ្ទុករូបភាព
@@ -40,3 +51,4 @@ message: សារ
 new.message.success: បង្កើតដោយជោគជ័យ។
 edit.message.success: ធ្វើឱ្យទាន់សម័យដោយជោគជ័យ។
 delete.message.success: លុបបានដោយជោគជ័យ។
+confirm.delete.message: ប្រាកដហើយឬ?

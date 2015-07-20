@@ -30,7 +30,7 @@
             {% for announcement in announcements %}
                 <tr>
                     <td>{{ announcement.getTitle }}</td>
-                    <td>{{ announcement.getDescription|striptags }}</td>
+                    <td class="show-more">{{ announcement.getDescription|striptags }}</td>
                     <td>
                         <img
                             src="/uploads/announcements/{{ announcement.getPicturePath }}"

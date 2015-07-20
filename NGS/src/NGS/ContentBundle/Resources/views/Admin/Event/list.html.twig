@@ -30,7 +30,7 @@
             {% for event in events %}
                 <tr>
                     <td>{{ event.getTitle }}</td>
-                    <td>{{ event.getDescription|striptags }}</td>
+                    <td class="show-more">{{ event.getDescription|striptags }}</td>
                     <td>
                         <img
                             src="/uploads/events/{{ event.getPicturePath }}"

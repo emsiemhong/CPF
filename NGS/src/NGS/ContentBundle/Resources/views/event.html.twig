@@ -5,6 +5,13 @@
         <h3>{{ event.getTitle }}</h3>
         <span class="event-date">{{ event.getDate.format('d/M/Y') }}</span>
     </div>
-
+	{% if event.getPicturePath is not null %}
+        <img
+            src="/uploads/events/{{ event.getPicturePath }}"
+            alt="Picture"
+            class="img-medium text-wrap"
+            align="top"
+        >
+    {% endif %}
     <p>{{ event.getDescription|striptags }}</p>
 {% endblock %}

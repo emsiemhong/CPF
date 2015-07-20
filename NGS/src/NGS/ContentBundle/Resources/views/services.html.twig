@@ -2,7 +2,17 @@
 
 {% block content %}
     {% for service in services %}
-        <h3 class="art-title">{{ service.getTitle }}</h3>
-        <p>{{ service.getDescription|striptags }}</p>
+        <div class="row">
+            <h3 class="art-title">{{ service.getTitle }}</h3>
+            {% if service.getPicturePath is not null %}
+                <img
+                    src="/uploads/articles/{{ service.getPicturePath }}"
+                    alt="Picture"
+                    class="img-medium text-wrap"
+                    align="top"
+                >
+            {% endif %}
+            <p class="show-more-front">{{ service.getDescription|striptags }}</p>
+        </div>
     {% endfor %}
 {% endblock %}

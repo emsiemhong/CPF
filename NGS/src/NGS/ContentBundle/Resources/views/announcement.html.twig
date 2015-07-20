@@ -6,5 +6,13 @@
         <span class="announcement-date">{{ announcement.getDate.format('d/M/Y') }}</span>
     </div>
 
+    {% if announcement.getPicturePath is not null %}
+        <img
+            src="/uploads/announcements/{{ announcement.getPicturePath }}"
+            alt="Picture"
+            class="img-medium text-wrap"
+            align="top"
+        >
+    {% endif %}
     <p>{{ announcement.getDescription|striptags }}</p>
 {% endblock %}
