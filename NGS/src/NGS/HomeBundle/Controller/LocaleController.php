@@ -7,8 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class LocaleController extends Controller
 {
-    public function localeAction(Request $request, $locale)
+    public function localeAction(Request $request)
     {
+        $locale = $locale = $request->getLocale();
         $request->getSession()->set('_locale', $locale);
         
         $referer = $request->headers->get('referer');
