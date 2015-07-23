@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\EventListener;
+namespace NGS\HomeBundle\EventListener;
 
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
