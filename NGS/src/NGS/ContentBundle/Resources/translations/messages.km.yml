@@ -10,6 +10,7 @@ contact_book: សៀវភៅទំនាក់ទំនង
 
 no: ទេ
 yes: បាទ
+author: អ្នកនិពន្ធ
 new:        ថ្មី
 list:       បញ្ជី
 edit:       កែប្រែ
@@ -18,13 +19,13 @@ about:      អំពី
 service:    សេវាកម្ម
 home:       ទំព័រដើម
 type:       ប្រភេទ
-title:      ចំណង់ជើង
+title:      ចំណងជើង
 download: ទាញយក
 picture: រូបភាព
 read: អាន
 description:    ពិពណ៌នា
 picturepath: កន្លែងផ្ទុករូបភាព
-created: ត្រូវ
+created: បានបង្កើត
 postedby: ផុសដោយ
 action: សកម្មភាព
 article: អត្ថបទ

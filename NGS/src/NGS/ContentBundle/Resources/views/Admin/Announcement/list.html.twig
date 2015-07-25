@@ -17,31 +17,31 @@
     {% endif %}
     </div>
     <table class="table">
-        <tr>
-            <th>{{ 'title'|trans }}</th>
-            <th>{{ 'description'|trans }}</th>
-            <th>{{ 'picture'|trans }}</th>
-            <th>{{ 'date'|trans }}</th>
-            <th>{{ 'created'|trans }}</th>
-            <th>{{ 'postedby'|trans }}</th>
-            <th>{{ 'action'|trans }}</th>
+        <tr class="row">
+            <th class="col-md-3">{{ 'title'|trans }}</th>
+            <th class="col-md-4">{{ 'description'|trans }}</th>
+            <th class="col-md-2">{{ 'picture'|trans }}</th>
+            <th class="col-md-1">{{ 'date'|trans }}</th>
+            <th class="col-md-1">{{ 'created'|trans }}</th>
+            {# <th class="col-md-1">{{ 'postedby'|trans }}</th> #}
+            <th class="col-md-1">{{ 'action'|trans }}</th>
         </tr>
         {% if announcements %}
             {% for announcement in announcements %}
-                <tr>
-                    <td>{{ announcement.getTitle }}</td>
-                    <td class="show-more">{{ announcement.getDescription|striptags }}</td>
-                    <td>
+                <tr class="row">
+                    <td class="col-md-3">{{ announcement.getTitle }}</td>
+                    <td class="show-more col-md-4">{{ announcement.getDescription|striptags }}</td>
+                    <td class="col-md-2">
                         <img
                             src="/uploads/announcements/{{ announcement.getPicturePath }}"
                             alt={{ 'picture'|trans }}
                             class="img-thumb"
                         >
                     </td>
-                    <td>{{ announcement.getDate.format('d/m/Y') }}</td>
-                    <td>{{ announcement.getCreated.format('d/m/Y') }}</td>
-                    <td>{{ announcement.getPostedBy }}</td>
-                    <td>
+                    <td class="col-md-1">{{ announcement.getDate.format('d/m/Y') }}</td>
+                    <td class="col-md-1">{{ announcement.getCreated.format('d/m/Y') }}</td>
+                    {# <td class="col-md-1">{{ announcement.getPostedBy }}</td> #}
+                    <td class="col-md-1">
                         <a
                             href="{{ path('admin_announcement_edit', {id: announcement.id}) }}"
                         >

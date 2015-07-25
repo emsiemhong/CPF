@@ -10,6 +10,7 @@ contact_book: Contact Book
 
 no: No
 yes: Yes
+author: Author
 new:        New
 list:       List
 edit:       Edit

@@ -1,3 +1,7 @@
+body {
+	font-size: 13px;
+}
+
 .img-thumb {
     width: 150px;
     height: 80px;
@@ -13,6 +17,7 @@
     height: 100px;  
 }
 
-table tr th {
-    text-align: center;
+table {
+    table-layout: fixed;
+    word-wrap: break-word;
 }

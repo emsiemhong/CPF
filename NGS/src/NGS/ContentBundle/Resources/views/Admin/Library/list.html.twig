@@ -17,37 +17,37 @@
     {% endif %}
     </div>
     <table class="table">
-        <tr>
-            <th>{{ 'cover'|trans }}</th>
-            <th>{{ 'title'|trans }}</th>
-            <th>{{ 'author'|trans }}</th>
-            <th>{{ 'description'|trans }}</th>
-            <th>{{ 'pdf_file'|trans }}</th>
-            <th>{{ 'downloadable'|trans }}</th>
-            <th>{{ 'created'|trans }}</th>
-            <th>{{ 'postedby'|trans }}</th>
-            <th>{{ 'action'|trans }}</th>
+        <tr class="row">
+            <th class="col-md-2">{{ 'cover'|trans }}</th>
+            <th class="col-md-2">{{ 'title'|trans }}</th>
+            <th class="col-md-1">{{ 'author'|trans }}</th>
+            <th class="col-md-3">{{ 'description'|trans }}</th>
+            <th class="col-md-1">{{ 'pdf_file'|trans }}</th>
+            <th class="col-md-1">{{ 'downloadable'|trans }}</th>
+            <th class="col-md-1">{{ 'created'|trans }}</th>
+            {# <th class="col-md-1">{{ 'postedby'|trans }}</th> #}
+            <th class="col-md-1">{{ 'action'|trans }}</th>
         </tr>
         {% if libraries %}
             {% for library in libraries %}
-                <tr>
-                    <td>
+                <tr class="row">
+                    <td class="col-md-2">
                         <img
                             src="/uploads/libraries/{{ library.getPicturePath }}"
                             alt={{ 'cover'|trans }}
                             class="thumb-ebook"
                         >
                     </td>
-                    <td>{{ library.getTitle }}</td>
-                    <td>{{ library.getAuthor }}</td>
-                    <td class="show-more">{{ library.getDescription|striptags }}</td>
-                    <td>{{ library.getFilePath }}</td>
-                    <td>
+                    <td class="col-md-2">{{ library.getTitle }}</td>
+                    <td class="col-md-1">{{ library.getAuthor }}</td>
+                    <td class="show-more col-md-3">{{ library.getDescription|striptags }}</td>
+                    <td class="col-md-1">{{ library.getFilePath }}</td>
+                    <td class="col-md-1">
                         {{ (library.isDownloadable) ? 'yes'|trans : 'no'|trans }}
                     </td>
-                    <td>{{ library.getCreated.format('d/m/Y') }}</td>
-                    <td>{{ library.getPostedBy }}</td>
-                    <td>
+                    <td class="col-md-1">{{ library.getCreated.format('d/m/Y') }}</td>
+                    {# <td class="col-md-1">{{ library.getPostedBy }}</td> #}
+                    <td class="col-md-1">
                         <a
                             href="{{ path('admin_library_edit', {id: library.id}) }}"
                         >

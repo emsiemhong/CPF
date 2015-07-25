@@ -16,38 +16,38 @@
         </div>
     {% endif %}
     </div>
-    <table class="table">
-        <tr>
-            <th>{{ 'type'|trans }}</th>
-            <th>{{ 'title'|trans }}</th>
-            <th>{{ 'description'|trans }}</th>
-            <th>{{ 'picture'|trans }}</th>
-            <th>{{ 'created'|trans }}</th>
-            <th>{{ 'postedby'|trans }}</th>
-            <th>{{ 'action'|trans }}</th>
+    <table class="table table-nonfluid">
+        <tr class="row">
+            <th class="col-md-1">{{ 'type'|trans }}</th>
+            <th class="col-md-2">{{ 'title'|trans }}</th>
+            <th class="col-md-5">{{ 'description'|trans }}</th>
+            <th class="col-md-2">{{ 'picture'|trans }}</th>
+            <th class="col-md-1">{{ 'created'|trans }}</th>
+            {# <th class="col-md-1">{{ 'postedby'|trans }}</th> #}
+            <th class="col-md-1">{{ 'action'|trans }}</th>
         </tr>
         {% if articles %}
             {% for article in articles %}
-                <tr>
+                <tr class="row">
                     {% if article.getType == constant('NGS\\ContentBundle\\Entity\\Article::ABOUT_TYPE') %}
-                        <td>{{ 'about'|trans }}</td>
+                        <td class="col-md-2">{{ 'about'|trans }}</td>
                     {% elseif article.getType == constant('NGS\\ContentBundle\\Entity\\Article::SERVICE_TYPE') %}
-                        <td>{{ 'service'|trans }}</td>
+                        <td class="col-md-2">{{ 'service'|trans }}</td>
                     {% elseif article.getType == constant('NGS\\ContentBundle\\Entity\\Article::HOME_TYPE') %}
-                        <td>{{ 'home'|trans }}</td>
+                        <td class="col-md-2">{{ 'home'|trans }}</td>
                     {% endif %}
-                    <td>{{ article.getTitle }}</td>
-                    <td class="show-more">{{ article.getDescription|striptags }}</td>
-                    <td>
+                    <td class="col-md-2">{{ article.getTitle }}</td>
+                    <td class="show-more col-md-5">{{ article.getDescription|striptags }}</td>
+                    <td class="col-md-2">
                         <img
                             src="/uploads/articles/{{ article.getPicturePath }}"
                             alt={{'picture'|trans}}
                             class="img-thumb"
                         >
                     </td>
-                    <td>{{ article.getCreated.format('d/m/Y') }}</td>
-                    <td>{{ article.getPostedBy }}</td>
-                    <td>
+                    <td class="col-md-1">{{ article.getCreated.format('d/m/Y') }}</td>
+                    {# <td class="col-md-1">{{ article.getPostedBy }}</td> #}
+                    <td class="col-md-1">
                         <a
                             href="{{ path('admin_article_edit', {id: article.id}) }}"
                         >
