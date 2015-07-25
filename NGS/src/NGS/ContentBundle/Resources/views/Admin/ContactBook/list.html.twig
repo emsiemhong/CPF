@@ -17,41 +17,41 @@
     {% endif %}
     </div>
     <table class="table">
-        <tr>
-            <th>{{ 'name'|trans }}</th>
-            <th>{{ 'description'|trans }}</th>
-            <th>{{ 'logo'|trans }}</th>
-            <th>{{ 'company_name'|trans }}</th>
-            <th>{{ 'phone'|trans }}</th>
-            <th>{{ 'email'|trans }}</th>
-            <th>{{ 'address'|trans }}</th>
-            <th>{{ 'website'|trans }}</th>
-            <th>Facebook</th>
-            <th>{{ 'section'|trans }}</th>
-            <th>{{ 'postedby'|trans }}</th>
-            <th>{{ 'action'|trans }}</th>
+        <tr class="row">
+            <th class="col-md-1">{{ 'name'|trans }}</th>
+            <th class="col-md-1">{{ 'description'|trans }}</th>
+            <th class="col-md-2">{{ 'logo'|trans }}</th>
+            <th class="col-md-1">{{ 'company_name'|trans }}</th>
+            <th class="col-md-1">{{ 'phone'|trans }}</th>
+            <th class="col-md-1">{{ 'email'|trans }}</th>
+            <th class="col-md-1">{{ 'address'|trans }}</th>
+            <th class="col-md-1">{{ 'website'|trans }}</th>
+            <th class="col-md-1">Facebook</th>
+            <th class="col-md-1">{{ 'section'|trans }}</th>
+            {# <th>{{ 'postedby'|trans }}</th> #}
+            <th class="col-md-1">{{ 'action'|trans }}</th>
         </tr>
         {% if contact_books %}
             {% for  contact_book in contact_books %}
-                <tr>
-                    <td>{{ contact_book.getTitle }}</td>
-                    <td class="show-more">{{ contact_book.getDescription|striptags }}</td>
-                    <td>
+                <tr class="row">
+                    <td class="col-md-1">{{ contact_book.getTitle }}</td>
+                    <td class="show-more col-md-1">{{ contact_book.getDescription|striptags }}</td>
+                    <td class="col-md-2">
                         <img
                             src="/uploads/contact_books/{{ contact_book.getPicturePath }}"
                             alt={{ 'logo'|trans }}
                             class="img-thumb"
                         >
                     </td>
-                    <td>{{ contact_book.getCompanyName }}</td>
-                    <td>{{ contact_book.getPhone }}</td>
-                    <td>{{ contact_book.getEmail }}</td>
-                    <td>{{ contact_book.getAddress }}</td>
-                    <td>{{ contact_book.getWebsite }}</td>
-                    <td>{{ contact_book.getFacebook }}</td>
-                    <td>{{ contact_book.getSection }}</td>
-                    <td>{{ contact_book.getPostedBy }}</td>
-                    <td>
+                    <td class="col-md-1">{{ contact_book.getCompanyName }}</td>
+                    <td class="col-md-1">{{ contact_book.getPhone }}</td>
+                    <td class="col-md-1">{{ contact_book.getEmail }}</td>
+                    <td class="col-md-1">{{ contact_book.getAddress }}</td>
+                    <td class="col-md-1">{{ contact_book.getWebsite }}</td>
+                    <td class="col-md-1">{{ contact_book.getFacebook }}</td>
+                    <td class="col-md-1">{{ contact_book.getSection }}</td>
+                    {# <td>{{ contact_book.getPostedBy }}</td> #}
+                    <td class="col-md-1">
                         <a
                             href="{{ path('admin_contactbook_edit', {id: contact_book.id}) }}"
                         >
